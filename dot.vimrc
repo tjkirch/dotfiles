@@ -2,7 +2,11 @@ set nocompatible
 
 " Indentation holy war
 set shiftwidth=3
+set softtabstop=3
 set expandtab
+set cindent
+set cinoptions=l1,/4,m1,j1
+set diffopt=filler,iwhite
 
 set hidden
 set hlsearch
@@ -13,6 +17,7 @@ set showmatch
 set title
 set visualbell
 
+set modeline
 set backspace=indent,eol,start
 set backupdir=~/.vim_bak,/var/tmp,/tmp
 set directory=~/.vim_bak,/var/tmp,/tmp
@@ -50,12 +55,11 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 
 if has('gui_running')
-	set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
-	set guioptions-=T
-	set guioptions-=m
-	colorscheme inkpot
+   set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
+   set guioptions="acgiLrt"
+   colorscheme inkpot
 else
-	colorscheme desert
+   colorscheme desert
 end
 
 " Clojure stuff

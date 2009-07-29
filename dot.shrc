@@ -1,0 +1,76 @@
+fortune -as  # Lighten up
+
+set -o vi
+export EDITOR="vim"
+
+export PATH="${PATH}:${HOME}/bin:/opt/java/bin:/usr/sbin:/sbin"
+export CFLAGS="-march=native -pipe -fomit-frame-pointer -O2"
+export CXXFLAGS="${CFLAGS}"
+
+alias update='sudo paludis --multitask --sync && inquisitio ignoreme'
+alias upgrade='paludis -i --dl-reinstall if-use-changed --dl-reinstall-scm weekly everything'
+alias ngserver='java com.martiansoftware.nailgun.NGServer 127.0.0.1'
+
+alias lsd="find . -mindepth 1 -maxdepth 1 -type d"
+alias ls="ls -F --color=auto"
+alias ll='ls -ahlF --color=auto'
+alias l="ls"
+alias l.="ls -d .*"
+alias les="less"
+alias trace="tracepath"
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias eg="egrep --color=auto"
+alias ..="cd .."
+alias ...="cd ../.."
+alias psg="ps -A | grep"
+alias pseg="ps -ef | grep"
+alias psag="ps aux | grep"
+alias h="history"
+alias hg="history | grep"
+alias df="df -h"
+alias diff="diff -NurwBd"
+alias duh="du -h --max-depth=1"
+alias off="sudo /sbin/shutdown -hP now"
+alias reboot='if [ "$EUID" = "0" ]; then /sbin/reboot; else sudo /sbin/reboot; fi'
+alias x='if [ -z "$DISPLAY" ]; then startx; else echo "X already running"; fi'
+alias burnnew="growisofs -Z /dev/cdrom -graft-points -JRU"
+alias burnadd="growisofs -M /dev/cdrom -graft-points -JRU"
+alias rubytorrent_download="rubytorrent -d ~/.rubytorrent -S back_catalog -r 3 -p"
+alias lamev='lame --replaygain-accurate -q 0 --vbr-new -V 1 -b 192 -B 320'
+
+alias gs='git status'
+alias gb='git branch'
+alias gc='git commit'
+alias gco='git checkout'
+alias ga='git add'
+alias gd='git diff'
+alias gl='git log'
+alias gr='git rebase'
+alias gri='git rebase -i'
+alias gp='git pull'
+alias ss="svn status"
+alias sup="svn update"
+alias cup="cvs -z5 update"
+
+alias apt='aptitude'
+alias apti='sudo aptitude install'
+
+# make directory and cd to it
+mkcd () {
+   mkdir -p $*
+   cd $*
+}
+
+# make directory given by first param, move other params to it
+mkmv () {
+   if [ $# -lt 2 ]; then
+      echo "Usage:  mkmv <dir> files..."
+      exit 1
+   fi
+
+   dir=$1
+   mkdir -p $dir
+   shift
+   mv -i $* $dir
+}

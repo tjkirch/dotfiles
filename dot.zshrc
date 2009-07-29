@@ -1,34 +1,83 @@
-fortune -as
+[ -f ~/.shrc ] && . ~/.shrc
 
-alias ls='ls --color=auto'
-alias l='ls'
-alias ll='ls -ahlF --color=auto'
-alias off='sudo shutdown -h now'
-alias reboot='sudo reboot'
-alias dhcp='sudo dhcpcd -L -t 360 wlan0'
-alias update='sudo paludis --multitask --sync && inquisitio ignoreme'
-alias upgrade='paludis -i --dl-reinstall if-use-changed --dl-reinstall-scm weekly everything'
-alias ngserver='java com.martiansoftware.nailgun.NGServer 127.0.0.1'
+# ZSH Aliases
 
-function susp() {
-	if [ -z "${DISPLAY}" ]; then
-		echo "Must be in X to suspend.  Blame nvidia."
-	else
-		sudo hibernate-ram
-	fi
+alias mv='nocorrect mv -i'       # no spelling correction on mv
+alias cp='nocorrect cp'          # no spelling correction on cp
+alias mkdir='nocorrect mkdir -p' # no spelling correction on mkdir
+alias es='nocorrect aptitude search'
+
+alias run-help='man'
+
+alias mmv="noglob zmv -W"
+alias zcp="zmv -C"
+alias mcp="noglob zmv -C -W"
+
+alias -g C="|wc -l"
+alias -g G="|egrep --color=auto"
+alias -g H="|head -n15"
+alias -g L="|less"
+alias -g S="|sort"
+alias -g T="|tail -n15"
+alias -g U="|uniq"
+alias -g V="|vim"
+alias -g X="|xargs"
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _ignored _match _correct _approximate _prefix
+zstyle ':completion:*' expand prefix suffix
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' ignore-parents parent pwd
+zstyle ':completion:*' insert-unambiguous true
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' list-suffixes true
+zstyle ':completion:*' matcher-list '' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*' 'm:{[:lower:]}={[:upper:]}'
+zstyle ':completion:*' menu select=1
+zstyle ':completion:*' original true
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p - %l%s
+zstyle ':completion:*' squeeze-slashes true
+zstyle ':completion:*' verbose true
+zstyle :compinstall filename "${HOME}/.zshrc"
+
+autoload -Uz compinit
+compinit
+
+autoload zmv
+
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+APPEND_HISTORY=1
+INC_APPEND_HISTORY=1
+EXTENDED_HISTORY=1
+
+setopt appendhistory autocd beep extendedglob nomatch notify
+bindkey -v
+
+# gives screen the last command
+preexec () {
+    # From zsh_command_not_found
+    zshcommand="${1%% *}"
+
+    if [[ "$TERM" == "screen" ]]; then
+	local CMD=${1[(wr)^(*=*|sudo|-*)]}
+	echo -ne "\ek$CMD\e\\"
+    fi
 }
-
-set -o vi
-
-export PATH="${PATH}:${HOME}/bin:/opt/java/bin:/usr/sbin:/sbin"
-export CFLAGS="-march=native -pipe -fomit-frame-pointer -O2"
-export CXXFLAGS="${CFLAGS}"
-
-export EDITOR="vim"
 
 # Prompt - See aperiodic.net/phil/prompt/
 
-function precmd {
+function precmd () {
+
+   # Part of zsh_command_not_found
+   (($?)) && [ -n "$zshcommand" ] && [ -x /usr/lib/command-not-found ] && {
+          whence -- "$zshcommand" >& /dev/null ||
+                  /usr/bin/python /usr/lib/command-not-found -- "$zshcommand"
+          unset zshcommand
+   }
+
 
     local TERMWIDTH
     (( TERMWIDTH = ${COLUMNS} - 1 ))
@@ -46,16 +95,12 @@ function precmd {
     else
 	PR_FILLBAR="\${(l.(($TERMWIDTH - ($promptsize + $pwdsize)))..${PR_HBAR}.)}"
     fi
-}
-
-
-setopt extended_glob
-
-preexec () {
-    if [[ "$TERM" == "screen" ]]; then
-	local CMD=${1[(wr)^(*=*|sudo|-*)]}
-	echo -n "\ek$CMD\e\\"
-    fi
+  # print dir name in term title
+  case $TERM in
+    xterm*|rxvt|rxvt-unicode|Eterm)
+    print -Pn "\e]0;%n@%m: %~\a"
+    ;;
+  esac
 }
 
 
@@ -135,34 +180,12 @@ $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT$PR_NO_COLOUR '
 
 setprompt
 
+# ctrl-H for man page on command
+bindkey "^H" run-help
 
-# The following lines were added by compinstall
+# tell us who's been snooping
+LOGCHECK=15
+WATCHFMT="%n has %a %l from %M at %t"
+WATCH=all
 
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _ignored _match _correct _approximate _prefix
-zstyle ':completion:*' expand prefix suffix
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' ignore-parents parent pwd
-zstyle ':completion:*' insert-unambiguous true
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' list-suffixes true
-zstyle ':completion:*' matcher-list '' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*' 'm:{[:lower:]}={[:upper:]}'
-zstyle ':completion:*' menu select=1
-zstyle ':completion:*' original true
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p - %l%s
-zstyle ':completion:*' squeeze-slashes true
-zstyle ':completion:*' verbose true
-zstyle :compinstall filename "${HOME}/.zshrc"
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory autocd beep extendedglob nomatch notify
-bindkey -v
-# End of lines configured by zsh-newuser-install
+LISTMAX=0

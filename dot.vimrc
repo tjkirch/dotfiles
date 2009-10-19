@@ -5,8 +5,11 @@ set shiftwidth=3
 set tabstop=3
 set expandtab
 set smarttab
-set autoindent
-set smartindent
+"set autoindent
+"set smartindent
+set cindent
+set cinoptions=l1,m1,j1
+set diffopt=filler,iwhite
 
 set hidden
 set hlsearch
@@ -17,6 +20,7 @@ set showmatch
 set title
 set visualbell
 
+set modeline
 set backspace=indent,eol,start
 set backupdir=~/.vim_bak,/var/tmp,/tmp
 set directory=~/.vim_bak,/var/tmp,/tmp

@@ -28,6 +28,7 @@ alias gd='git diff'
 alias gr='git rebase'
 alias gri='git rebase -i'
 alias gco='git checkout'
+alias gl='git log'
 
 alias -g L=' | less'
 alias -g G=' | egrep'

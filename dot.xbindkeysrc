@@ -1,13 +1,13 @@
-"mpc --no-status prev"
+"rhythmbox-client --previous"
     XF86AudioPrev
 
-"mpc --no-status pause"
+"rhythmbox-client --pause"
     XF86AudioStop
 
-"mpc --no-status toggle"
+"rhythmbox-client --play-pause"
     XF86AudioPlay
 
-"mpc --no-status next"
+"rhythmbox-client --next"
     XF86AudioNext
 
 "amixer set Master toggle"
@@ -18,12 +18,3 @@
 
 "amixer set Master 3%+"
     XF86AudioRaiseVolume
-
-"urxvtc"
-    Alt + t
-
-"firefox"
-    Alt + f
-
-"gvim"
-    Alt + v

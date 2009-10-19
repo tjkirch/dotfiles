@@ -12,6 +12,12 @@ urxvt*matcher.button:		1
 urxvt*saveLines:		10000
 urxvt.perl-ext-common:		default,matcher,tabbed
 urxvt.perl-ext:			default,matcher,tabbed
+
+urxvt.jumpScroll:               true
+urxvt.skipScroll:               true
+urxvt.scrollTtyOutput:          false
+urxvt.scrollTtyKeypress:        true
+
 ! black
 urxvt*color0:			#222222
 urxvt*color8:			#666666

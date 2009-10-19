@@ -2,7 +2,11 @@ set nocompatible
 
 " Indentation holy war
 set shiftwidth=3
+set tabstop=3
 set expandtab
+set smarttab
+set autoindent
+set smartindent
 
 set hidden
 set hlsearch
@@ -22,11 +26,16 @@ set scrolloff=3
 set shortmess=at
 set wildmode=list:longest
 
+set grepprg=ack-grep
+set grepformat=%f:%l:%m
+
 let mapleader = ","
 let maplocalleader = ","
 
 syntax on
 filetype plugin indent on
+
+autocmd FileType make,python set noexpandtab
 
 runtime macros/matchit.vim
 
@@ -35,13 +44,17 @@ nnoremap ` '
 nnoremap / /\v
 nnoremap ? ?\v
 
-"let g:LustyJugglerShowKeys = 2
-"nmap <silent> <Leader>j :so ~/.vim/plugin/lusty-explorer.vim<CR>
-nmap <silent> <Leader>f :FilesystemExplorer<CR>
-nmap <silent> <Leader>b :BufferExplorer<CR>
-nmap <silent> <Leader>r :FilesystemExplorerFromHere<CR>
-nmap <silent> <Leader>g :LustyJuggler<CR>
+" Easier buffer/file navigation
+map <leader>cd :cd %:p:h<CR>
+"nmap <silent> <Leader>x :BufferExplorer<CR>
+"nmap <silent> <Leader>e :FilesystemExplorer<CR>
+"nmap <silent> <Leader>r :FilesystemExplorerFromHere<CR>
+"nmap <silent> <Leader>g :LustyJuggler<CR>
 nmap <silent> <TAB> :JugglePrevious<CR>
+nmap <silent> <Leader>n :NERDTree<CR>
+nmap <silent> <Leader>t :TlistToggle<CR>
+nmap <silent> <Leader>f :FuzzyFinderTextMate<CR>
+nmap <silent> <Leader>b :FuzzyFinderBuffer<CR>
 
 " Easier window/buffer switching
 map <c-h> <c-w>h
@@ -53,14 +66,27 @@ if has('gui_running')
 	set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
 	set guioptions-=T
 	set guioptions-=m
+   set number
 	colorscheme inkpot
 else
 	colorscheme desert
+   let Tlist_Inc_Winwidth = 0
 end
+
+" Easy scratch buffer - thanks Jamis
+function! ToggleScratch()
+   if expand('%') == g:ScratchBufferName
+      quit
+   else
+      Sscratch
+   endif
+endfunction
+
+map <leader>sc :call ToggleScratch()<CR>
 
 " Clojure stuff
 let clj_want_gorilla = 1
 let clj_highlight_builtins = 1
 let clj_highlight_contrib = 1
 let clj_paren_rainbow = 1
-let vimclojure#NailgunClient = "~/bin/ng"
+let vimclojure#NailgunClient = "/home/tjkirch/bin/ng"

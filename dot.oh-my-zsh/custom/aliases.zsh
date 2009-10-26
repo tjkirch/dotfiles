@@ -33,7 +33,7 @@ alias dhcp='sudo dhcpcd -t 600 wlan0'
 
 alias ngserver='java com.martiansoftware.nailgun.NGServer 127.0.0.1'
 
-alias wstat='ifconfig wlan0; iwconfig wlan0'
+alias wstat='ifconfig wlan0; iwconfig wlan0; ping -c1 google.com'
 alias wifi='sudo /usr/local/bin/wireless simple && (ping -c1 google.com >/dev/null 2>&1 || ping -c1 google.com >/dev/null 2>&1 &)'
 
 alias headphones='amixer sset Front mute && amixer sset Surround unmute'

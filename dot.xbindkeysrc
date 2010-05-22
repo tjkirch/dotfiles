@@ -9,3 +9,9 @@
 
 "amixer set Master 3%+"
     XF86AudioRaiseVolume
+
+"sudo pm-suspend --auto-quirks"
+    m:0x0 + c:194
+
+"firefox"
+    m:0x8 + c:41

@@ -1,0 +1,33 @@
+﻿[freetype] # Freetype2 font renderer
+
+# Font (string)
+freetype-font=/usr/share/fonts/X11/dejavu/DejaVuSerif-Bold.ttf
+
+[main] # main program
+
+# Very short backwards jump (key)
+key-jump-extrashort=Ctrl-Left
+
+# Very short forward jump (key)
+key-jump+extrashort=Ctrl-Right
+
+# Short backwards jump (key)
+key-jump-short=Left
+
+# Short forward jump (key)
+key-jump+short=Right
+
+# Medium backwards jump (key)
+key-jump-medium=Down
+
+# Medium forward jump (key)
+key-jump+medium=Up
+
+# Long backwards jump (key)
+key-jump-long=Ctrl-Down
+
+# Long forward jump (key)
+key-jump+long=Ctrl-Up
+
+# Quit (key)
+key-quit=q

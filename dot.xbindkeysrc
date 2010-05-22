@@ -1,14 +1,5 @@
-"ncmpcpp prev"
-    XF86AudioPrev
-
-"ncmpcpp stop"
-    XF86AudioStop
-
 "ncmpcpp toggle"
-    XF86AudioPlay
-
-"ncmpcpp next"
-    XF86AudioNext
+    m:0x0 + c:196
 
 "amixer set Master toggle"
     XF86AudioMute

@@ -1,13 +1,13 @@
-"rhythmbox-client --previous"
+"ncmpcpp prev"
     XF86AudioPrev
 
-"rhythmbox-client --pause"
+"ncmpcpp stop"
     XF86AudioStop
 
-"rhythmbox-client --play-pause"
+"ncmpcpp toggle"
     XF86AudioPlay
 
-"rhythmbox-client --next"
+"ncmpcpp next"
     XF86AudioNext
 
 "amixer set Master toggle"

@@ -1,6 +1,6 @@
 alias ls='ls --color=auto'
 alias l='ls'
-alias ll='ls -ahlF --color=auto'
+alias ll='ls -AhlF --color=auto'
 alias lsd="find . -mindepth 1 -maxdepth 1 -type d"
 alias l.="ls -d .*"
 alias grep='grep --color=auto'
@@ -9,11 +9,16 @@ alias eg="egrep"
 alias ag='ack-grep'
 alias trace="tracepath"
 alias h="history"
-alias hg="history | grep"
 alias diff="diff -NurwBd"
 alias duh="du -h --max-depth=1"
 alias burnnew="growisofs -Z /dev/cdrom -graft-points -JRU"
 alias burnadd="growisofs -M /dev/cdrom -graft-points -JRU"
+alias cal="cal -s"
+alias slide="feh -dFrZD3"
+alias slider="feh -dFrzZD3"
+alias vlc="vlc -L"
+alias vlcr="vlc -Z"
+alias randfile='find . -type f | sed -e "s/ /\\\\ /g" | sort -R | head -1'
 
 alias mv='nocorrect mv -i'       # no spelling correction on mv
 alias cp='nocorrect cp'          # no spelling correction on cp
@@ -28,20 +33,21 @@ alias ...="cd ../.."
 
 alias off='sudo shutdown -h now'
 alias reboot='sudo reboot'
+alias susp='sudo pm-suspend --auto-quirks'
 
 alias dhcp='sudo dhcpcd -t 600 wlan0'
 
 alias ngserver='java com.martiansoftware.nailgun.NGServer 127.0.0.1'
 
-alias wstat='ifconfig wlan0; iwconfig wlan0; ping -c1 google.com'
-alias wifi='sudo /usr/local/bin/wireless simple && (ping -c1 google.com >/dev/null 2>&1 || ping -c1 google.com >/dev/null 2>&1 &)'
-
-alias headphones='amixer sset Front mute && amixer sset Surround unmute'
-alias speakers='amixer sset Front unmute && amixer sset Surround mute'
-
 alias as='aptitude search'
 alias ai='sudo aptitude install'
 alias ais='aptitude install -s'
+alias yl='yum list'
+alias yin='yum info'
+alias yi='sudo yum install'
+alias upgrade='paludis --continue-on-failure if-satisfied --dl-reinstall-scm weekly --dl-reinstall if-use-changed -i -p world'
+alias upgrade-real='sudo paludis --continue-on-failure if-satisfied --dl-reinstall-scm weekly --dl-reinstall if-use-changed -i world'
+alias pq='paludis --query'
 
 alias gs='git status'
 alias ga='git add'
@@ -51,8 +57,10 @@ alias gr='git rebase'
 alias gri='git rebase -i'
 alias gco='git checkout'
 alias gl='git log'
-alias gb='git branch'
-alias gc='git commit'
+alias gls='git log --stat'
+alias glp='git log -p'
+alias gb='git branch -v'
+alias gc='git commit -v'
 alias gp='git pull'
 
 alias ss="svn status"
@@ -63,6 +71,7 @@ alias -g L=' | less'
 alias -g G=' | egrep'
 alias -g V=' | vim'
 alias -g W=' | wc'
+alias -g C=' | wc -l'
 alias -g A=' | awk'
 alias -g S=' | sort'
 alias -g X=' | xargs'

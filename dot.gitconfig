@@ -1,0 +1,17 @@
+[user]
+	name = tjkirch
+	email = tjkirch+git@gmail.com
+[github]
+	user = tjkirch
+[core]
+   excludesfile = /home/tjkirch/.gitignore
+	autocrlf = input
+	editor = vim
+[alias]
+   graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+[merge]
+	tool = vimdiff
+[imap]
+   folder = "[Gmail]/Drafts"
+   host = imaps://imap.gmail.com
+   port = 993

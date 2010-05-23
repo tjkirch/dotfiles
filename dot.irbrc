@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'wirble'
-require 'utility_belt'
 
 Wirble.init
 Wirble.colorize

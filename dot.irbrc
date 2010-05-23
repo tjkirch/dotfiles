@@ -1,8 +1,10 @@
 require 'rubygems'
 require 'wirble'
+require 'bond'
 
 Wirble.init
 Wirble.colorize
+Bond.start
 
 class Object
    def local_methods

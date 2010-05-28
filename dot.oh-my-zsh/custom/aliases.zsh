@@ -18,6 +18,7 @@ alias slide="feh -dFrZD3"
 alias slider="feh -dFrzZD3"
 alias vlc="vlc -L"
 alias vlcr="vlc -Z"
+alias mplayer="mplayer -loop 0"
 alias randfile='find . -type f | sed -e "s/ /\\\\ /g" | sort -R | head -1'
 
 alias mv='nocorrect mv -i'       # no spelling correction on mv

@@ -1,4 +1,4 @@
-"ncmpcpp toggle"
+"mpd-toggle"
     m:0x0 + c:196
 
 "amixer set Master toggle"

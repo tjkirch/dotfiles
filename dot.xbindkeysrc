@@ -1,6 +1,15 @@
 "mpd-toggle"
     m:0x0 + c:196
 
+"ncmpcpp toggle"
+    m:0x0 + c:125
+
+"ncmpcpp prev"
+    m:0x0 + c:187
+
+"ncmpcpp next"
+    m:0x0 + c:188
+
 "amixer set Master toggle"
     XF86AudioMute
 

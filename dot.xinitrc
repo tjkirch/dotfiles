@@ -1,4 +1,4 @@
 urxvtd -q -f -o
 xbindkeys
 
-exec xmonad
+exec i3

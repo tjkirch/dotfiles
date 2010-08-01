@@ -1,4 +1,6 @@
 urxvtd -q -f -o
 xbindkeys
 
-exec i3
+dzconky &
+~/.dropbox-dist/dropboxd &
+exec ssh-agent i3

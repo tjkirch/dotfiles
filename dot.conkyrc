@@ -1,0 +1,26 @@
+background no
+out_to_console yes
+update_interval 3.0
+total_run_times 0
+use_spacer none
+
+mpd_host /var/lib/mpd/socket
+
+TEXT
+^pa(100)\
+${if_mpd_playing}\
+${if_match "${mpd_artist}" != ""}${mpd_artist} · ${endif}\
+${if_match "${mpd_album}" != ""}${mpd_album} · ${endif}\
+${if_match "${mpd_title}" != ""}${mpd_title} · ${endif}\
+${endif}\
+${exec volume}\
+^pa(800)\
+^fg(darkslategray)Net:^fg() ${downspeedf eth0}k ${upspeedf eth0}k\
+^pa(975)\
+^fg(darkslategray)Disk:^fg() ${diskio_read} ${diskio_write}\
+^pa(1150)\
+^fg(darkslategray)CPU:^fg() ${cpu cpu0}%\
+^pa(1250)\
+^fg(darkslategray)Mem:^fg() ${memperc}%\
+^pa(1355)\
+^fg(orange)${time %a %b %d %H:%M}

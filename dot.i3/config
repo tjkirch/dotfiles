@@ -82,18 +82,11 @@ bind Mod1+Shift+17 m8
 bind Mod1+Shift+18 m9
 bind Mod1+Shift+19 m10
 
-# Mod1+Enter starts a new terminal
-bind Mod1+36 exec /usr/bin/urxvtc
-
 # Mod1+Shift+q kills the current client
 bind Mod1+Shift+24 kill
 
-# Mod1+v starts dmenu and launches the selected application
-# for now, we don’t have a launcher of our own.
-bind Mod1+55 exec /usr/bin/dmenu_run
-
 # Mod1+Shift+e exits i3
-bind Mod1+Shift+26 exit
+#bind Mod1+Shift+26 exit
 
 # Mod1+Shift+r restarts i3 inplace
 bind Mod1+Shift+27 restart

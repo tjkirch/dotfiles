@@ -24,3 +24,12 @@
 
 "firefox"
     m:0x8 + c:41
+
+"urxvtc"
+    m:0x8 + c:36
+
+"dmenu_run"
+    m:0x8 + c:55
+
+"/home/tjkirch/local/opt/mudlet-1.1.1/bin/run-mudlet.sh"
+    m:0x8 + c:58

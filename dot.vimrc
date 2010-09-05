@@ -93,8 +93,8 @@ endfunction
 map <leader>sc :call ToggleScratch()<CR>
 
 " Clojure stuff
-let clj_want_gorilla = 1
+"let clj_want_gorilla = 1
 let clj_highlight_builtins = 1
 let clj_highlight_contrib = 1
 let clj_paren_rainbow = 1
-let vimclojure#NailgunClient = "/home/tjkirch/local/bin/ng"
+"let vimclojure#NailgunClient = "/home/tjkirch/local/bin/ng"

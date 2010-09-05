@@ -39,6 +39,7 @@ alias susp='sudo pm-suspend --auto-quirks'
 alias dhcp='sudo dhcpcd -t 600 wlan0'
 
 alias ngserver='java com.martiansoftware.nailgun.NGServer 127.0.0.1'
+alias clj-slime='screen -S clojure -s cljr-repl'
 
 alias as='aptitude search'
 alias ai='sudo aptitude install'

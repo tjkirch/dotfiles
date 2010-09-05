@@ -71,7 +71,7 @@ map <c-k> <c-w>k
 "map <c-<> <c-w><
 
 if has('gui_running')
-	set guifont=DejaVu\ Sans\ Mono\ 9
+	set guifont=Anonymous\ Pro\ 11
 	set guioptions-=T
 	set guioptions-=m
    set number

@@ -99,46 +99,7 @@ function! vimclojure#MapPlug(mode, keys, plug)
 endfunction
 
 " A Buffer...
-if !exists("vimclojure#SplitPos")
-	let vimclojure#SplitPos = "top"
-endif
-
 let vimclojure#Buffer = {}
-
-function! vimclojure#Buffer.New() dict
-	let instance = copy(self)
-
-	call self.MakeBuffer()
-	call self.Init(instance)
-
-	return instance
-endfunction
-
-function! vimclojure#Buffer.MakeBuffer()
-	if g:vimclojure#SplitPos == "left" || g:vimclojure#SplitPos == "right"
-		let o_sr = &splitright
-		if g:vimclojure#SplitPos == "left"
-			set nosplitright
-		else
-			set splitright
-		end
-		vnew
-		let &splitright = o_sr
-	else
-		let o_sb = &splitbelow
-		if g:vimclojure#SplitPos == "bottom"
-			set splitbelow
-		else
-			set nosplitbelow
-		end
-		new
-		let &splitbelow = o_sb
-	endif
-endfunction
-
-function! vimclojure#Buffer.Init(instance)
-	let a:instance._buffer = bufnr("%")
-endfunction
 
 function! vimclojure#Buffer.goHere() dict
 	execute "buffer! " . self._buffer
@@ -168,60 +129,32 @@ function! vimclojure#Buffer.close() dict
 endfunction
 
 " The transient buffer, used to display results.
-let vimclojure#ResultBuffer = copy(vimclojure#Buffer)
-let vimclojure#ResultBuffer["__superBufferInit"] = vimclojure#ResultBuffer["Init"]
-let vimclojure#ResultBuffer.__instance = []
+let vimclojure#PreviewWindow = copy(vimclojure#Buffer)
 
-function! vimclojure#ResultBuffer.New() dict
-	if g:vimclojure#ResultBuffer.__instance != []
-		return self.Init(g:vimclojure#ResultBuffer.__instance[0])
-	endif
+function! vimclojure#PreviewWindow.New() dict
+	pclose!
 
-	let instance = copy(self)
-	let g:vimclojure#ResultBuffer.__instance = [ instance ]
+	execute &previewheight . "new"
+	set previewwindow
+	set winfixheight
 
-	call g:vimclojure#Buffer.MakeBuffer()
-	call self.__superBufferInit(instance)
-	call self.Init(instance)
-
-	return instance
-endfunction
-
-function! vimclojure#ResultBuffer.Init(instance) dict
 	setlocal noswapfile
 	setlocal buftype=nofile
 	setlocal bufhidden=wipe
 
-	call vimclojure#MapPlug("n", "p", "CloseResultBuffer")
-
 	let leader = exists("g:maplocalleader") ? g:maplocalleader : "\\"
-
-	1
-	normal! "_dG
 
 	call append(0, "; Use " . leader . "p to close this buffer!")
 
-	return a:instance
+	return copy(self)
 endfunction
 
-function! vimclojure#ResultBuffer.CloseBuffer() dict
-	if g:vimclojure#ResultBuffer.__instance != []
-		let instance = g:vimclojure#ResultBuffer.__instance[0]
-		let g:vimclojure#ResultBuffer.__instance = []
-		call instance.close()
-	endif
+function! vimclojure#PreviewWindow.goHere() dict
+	wincmd P
 endfunction
 
-" A special result buffer for clojure output.
-let vimclojure#ClojureResultBuffer = copy(vimclojure#ResultBuffer)
-let vimclojure#ClojureResultBuffer["__superResultBufferInit"] =
-			\ vimclojure#ResultBuffer["Init"]
-
-function! vimclojure#ClojureResultBuffer.Init(instance) dict
-	call self.__superResultBufferInit(a:instance)
-	setfiletype clojure
-
-	return a:instance
+function! vimclojure#PreviewWindow.close() dict
+	pclose
 endfunction
 
 " Nails
@@ -274,7 +207,7 @@ endfunction
 function! vimclojure#DocLookup(word)
 	let docs = vimclojure#ExecuteNailWithInput("DocLookup", a:word,
 				\ "-n", b:vimclojure_namespace)
-	let resultBuffer = g:vimclojure#ResultBuffer.New()
+	let resultBuffer = g:vimclojure#PreviewWindow.New()
 	call resultBuffer.showText(docs)
 	wincmd p
 endfunction
@@ -283,7 +216,7 @@ function! vimclojure#FindDoc()
 	let pattern = input("Pattern to look for: ")
 	let result = vimclojure#ExecuteNailWithInput("FindDoc", pattern)
 
-	let resultBuffer = g:vimclojure#ResultBuffer.New()
+	let resultBuffer = g:vimclojure#PreviewWindow.New()
 	call resultBuffer.showText(result)
 
 	wincmd p
@@ -344,16 +277,18 @@ endfunction
 function! vimclojure#MetaLookup(word)
 	let docs = vimclojure#ExecuteNailWithInput("MetaLookup", a:word,
 				\ "-n", b:vimclojure_namespace)
-	let resultBuffer = g:vimclojure#ClojureResultBuffer.New()
+	let resultBuffer = g:vimclojure#PreviewWindow.New()
 	call resultBuffer.showText(docs)
+	setfiletype clojure
 	wincmd p
 endfunction
 
 function! vimclojure#SourceLookup(word)
 	let source = vimclojure#ExecuteNailWithInput("SourceLookup", a:word,
 				\ "-n", b:vimclojure_namespace)
-	let resultBuffer = g:vimclojure#ClojureResultBuffer.New()
+	let resultBuffer = g:vimclojure#PreviewWindow.New()
 	call resultBuffer.showText(source)
+	setfiletype clojure
 	wincmd p
 endfunction
 
@@ -380,15 +315,17 @@ function! vimclojure#MacroExpand(firstOnly)
 	let sexp = vimclojure#ExtractSexpr(0)
 	let ns = b:vimclojure_namespace
 
+	let resultBuffer = g:vimclojure#PreviewWindow.New()
+
 	let cmd = ["MacroExpand", sexp, "-n", ns]
 	if a:firstOnly
 		let cmd = cmd + [ "-o" ]
 	endif
 
 	let result = call(function("vimclojure#ExecuteNailWithInput"), cmd)
-
-	let resultBuffer = g:vimclojure#ClojureResultBuffer.New()
 	call resultBuffer.showText(result)
+	setfiletype clojure
+
 	wincmd p
 endfunction
 
@@ -396,28 +333,14 @@ function! vimclojure#RequireFile(all)
 	let ns = b:vimclojure_namespace
 	let all = a:all ? "-all" : ""
 
+	let resultBuffer = g:vimclojure#PreviewWindow.New()
+
 	let require = "(require :reload" . all . " :verbose '". ns. ")"
 	let result = vimclojure#ExecuteNailWithInput("Repl", require, "-r")
 
-	let resultBuffer = g:vimclojure#ClojureResultBuffer.New()
 	call resultBuffer.showText(result)
-	wincmd p
-endfunction
+	setfiletype clojure
 
-function! vimclojure#RunTests(all)
-	let ns = b:vimclojure_namespace
-	let all = a:all ? "-all" : ""
-
-	let cmd = ""
-	if ns != "user"
-		let cmd .= "(require :reload" . all . " '" . ns . ")"
-	endif
-	let cmd .= "(require 'clojure.contrib.test-is)"
-	let cmd .= "(clojure.contrib.test-is/run-tests (find-ns '" . ns ."))"
-	let result = vimclojure#ExecuteNailWithInput("Repl", cmd, "-r")
-
-	let resultBuffer = g:vimclojure#ClojureResultBuffer.New()
-	call resultBuffer.showText(result)
 	wincmd p
 endfunction
 
@@ -429,17 +352,15 @@ function! vimclojure#EvalFile()
 	let result = vimclojure#ExecuteNailWithInput("Repl", content,
 				\ "-r", "-n", ns, "-f", file)
 
-	let resultBuffer = g:vimclojure#ClojureResultBuffer.New()
+	let resultBuffer = g:vimclojure#PreviewWindow.New()
 	call resultBuffer.showText(result)
+	setfiletype clojure
+
 	wincmd p
 endfunction
 
 function! vimclojure#EvalLine()
 	let theLine = line(".")
-<<<<<<< local
-	" let content = getline(theLine) - 1
-=======
->>>>>>> other
 	let content = getline(theLine)
 	let file = vimclojure#BufferName()
 	let ns = b:vimclojure_namespace
@@ -447,8 +368,10 @@ function! vimclojure#EvalLine()
 	let result = vimclojure#ExecuteNailWithInput("Repl", content,
 				\ "-r", "-n", ns, "-f", file, "-l", theLine)
 
-	let resultBuffer = g:vimclojure#ClojureResultBuffer.New()
+	let resultBuffer = g:vimclojure#PreviewWindow.New()
 	call resultBuffer.showText(result)
+	setfiletype clojure
+
 	wincmd p
 endfunction
 
@@ -460,8 +383,10 @@ function! vimclojure#EvalBlock() range
 	let result = vimclojure#ExecuteNailWithInput("Repl", content,
 				\ "-r", "-n", ns, "-f", file, "-l", a:firstline - 1)
 
-	let resultBuffer = g:vimclojure#ClojureResultBuffer.New()
+	let resultBuffer = g:vimclojure#PreviewWindow.New()
 	call resultBuffer.showText(result)
+	setfiletype clojure
+
 	wincmd p
 endfunction
 
@@ -480,8 +405,10 @@ function! vimclojure#EvalToplevel()
 	let result = vimclojure#ExecuteNailWithInput("Repl", expr,
 				\ "-r", "-n", ns, "-f", file, "-l", pos[0] - 1)
 
-	let resultBuffer = g:vimclojure#ClojureResultBuffer.New()
+	let resultBuffer = g:vimclojure#PreviewWindow.New()
 	call resultBuffer.showText(result)
+	setfiletype clojure
+
 	wincmd p
 endfunction
 
@@ -503,16 +430,17 @@ function! vimclojure#EvalParagraph()
 	let result = vimclojure#ExecuteNailWithInput("Repl", content,
 				\ "-r", "-n", ns, "-f", file, "-l", startPosition - 1)
 
-	let resultBuffer = g:vimclojure#ClojureResultBuffer.New()
+	let resultBuffer = g:vimclojure#PreviewWindow.New()
 	call resultBuffer.showText(result)
+	setfiletype clojure
+
 	wincmd p
 endfunction
 
 " The Repl
 let vimclojure#Repl = copy(vimclojure#Buffer)
-let vimclojure#Repl.__superBufferInit = vimclojure#Repl.Init
 
-let vimclojure#Repl._prompt = "user=>"
+let vimclojure#Repl._prompt = "Clojure=>"
 let vimclojure#Repl._history = []
 let vimclojure#Repl._historyDepth = 0
 let vimclojure#Repl._replCommands = [ ",close", ",st", ",ct" ]
@@ -520,15 +448,7 @@ let vimclojure#Repl._replCommands = [ ",close", ",st", ",ct" ]
 function! vimclojure#Repl.New() dict
 	let instance = copy(self)
 
-	call g:vimclojure#Buffer.MakeBuffer()
-	call self.Init(instance)
-
-	return instance
-endfunction
-
-function! vimclojure#Repl.Init(instance) dict
-	call self.__superBufferInit(a:instance)
-
+	new
 	setlocal buftype=nofile
 	setlocal noswapfile
 
@@ -544,12 +464,13 @@ function! vimclojure#Repl.Init(instance) dict
 
 	call append(line("$"), ["Clojure", self._prompt . " "])
 
-	let a:instance._id = vimclojure#ExecuteNail("Repl", "-s")
+	let instance._id = vimclojure#ExecuteNail("Repl", "-s")
 	call vimclojure#ExecuteNailWithInput("Repl",
-				\ "(require 'clojure.stacktrace)", "-r",
-				\ "-i", a:instance._id)
+				\ "(require 'clojure.contrib.stacktrace)", "-r",
+				\ "-i", instance._id)
+	let instance._buffer = bufnr("%")
 
-	let b:vimclojure_repl = a:instance
+	let b:vimclojure_repl = instance
 
 	setfiletype clojure
 
@@ -573,16 +494,20 @@ function! vimclojure#Repl.doReplCommand(cmd) dict
 		stopinsert
 	elseif a:cmd == ",st"
 		let result = vimclojure#ExecuteNailWithInput("Repl",
-					\ "(clojure.stacktrace/print-stack-trace *e)", "-r",
+					\ "(clojure.contrib.stacktrace/print-stack-trace *e)", "-r",
 					\ "-i", self._id)
 		call self.showText(result)
-		call self.showPrompt()
+		call self.showText(self._prompt . " ")
+		normal! G
+		startinsert!
 	elseif a:cmd == ",ct"
 		let result = vimclojure#ExecuteNailWithInput("Repl",
-					\ "(clojure.stacktrace/print-cause-trace *e)", "-r",
+					\ "(clojure.contrib.stacktrace/print-cause-trace *e)", "-r",
 					\ "-i", self._id)
 		call self.showText(result)
-		call self.showPrompt()
+		call self.showText(self._prompt . " ")
+		normal! G
+		startinsert!
 	endif
 endfunction
 
@@ -637,13 +562,6 @@ function! vimclojure#Repl.enterHook() dict
 
 		let self._historyDepth = 0
 		let self._history = [cmd] + self._history
-
-		let namespace = vimclojure#ExecuteNailWithInput("Repl",
-					\ "(clojure.core/ns-name clojure.core/*ns*)",
-					\ "-r", "-I", "-i", self._id)
-		let b:vimclojure_namespace = namespace
-		let self._prompt = namespace . "=>"
-
 		call self.showPrompt()
 	endif
 endfunction

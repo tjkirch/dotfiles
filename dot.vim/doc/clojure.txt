@@ -35,16 +35,6 @@ Note: Should there be an error when executing an interactive command
 and the error message goes away to quickly, you can use |:messages| to
 recall the message and read it conveniently without time pressure.
 
-VimClojure might pop up windows, like the preview window or the Repl.
-The place where this is done may be controlled with the SplitPos variable.
-Possible values are "left", "right", "top" and "bottom". Thedefault is
-"top".
-
-Example:
->
-        let vimclojure#SplitPos = "left"
-<
-
 Syntax Highlighting                 *ft-clj-syntax*
 -------------------
 
@@ -69,18 +59,6 @@ non-rainbow highlighting, the rainbow mode specifies its highlighting using
 ctermfg and guifg, thereby bypassing the usual colorscheme control using
 standard highlighting groups. The actual highlighting used depends on the
 dark/bright setting (see |'bg'|).
-
-Preview Window
---------------
-
-Many of the below mentioned commands open the so called preview window.
-It displays information obtained from the lookup functions and the omni
-completion. You may close the preview window with <LocalLeader>p.
-
-Note: The preview window sometimes doesn't not adhere to the SplitPos
-variable. This is the case, eg. for omni completion. It happens when
-the preview window is created by Vim and not by VimClojure itself. At
-the moment, I don't know how to fix this.
 
 Keybindings
 -----------
@@ -129,14 +107,6 @@ Plug name and your setting will override the default mapping.
                         a remote Clojure server, the files have to put in
                         place before issueing the command, eg. via scp
                         or NFS.
-
-<LocalLeader>rt                                 *rt* *RunTests*
-                        Require the namespace of the filename with the
-                        :reload flag. Then use clojure.contrib.test-is
-                        to run the tests of the namespace via run-tests.
-                        Note: For this to work with a remote Clojure
-                        server, the files have to put in place before
-                        issueing the command, eg. via scp or NFS.
 
 <LocalLeader>me                                 *me* *MacroExpand*
                         Expand the innermost sexpression currently

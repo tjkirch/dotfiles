@@ -1,7 +1,5 @@
 *agent*
 *allow-unresolved-vars*
-*assert*
-*clojure-version*
 *command-line-args*
 *compile-files*
 *compile-path*
@@ -18,7 +16,6 @@
 *print-level*
 *print-meta*
 *print-readably*
-*read-eval*
 *source-path*
 *use-context-classloader*
 *warn-on-reflection*
@@ -82,18 +79,9 @@ cast
 char
 char-escape-string
 char-name-string
-chunk
-chunk-append
-chunk-buffer
-chunk-cons
-chunk-first
-chunk-next
-chunk-rest
-chunked-seq?
 class
 class?
 clear-agent-errors
-clojure-version
 coll?
 comment
 commute
@@ -129,7 +117,6 @@ defonce
 defstruct
 delay
 delay?
-deliver
 deref
 derive
 descendants
@@ -179,16 +166,11 @@ force
 format
 future
 future-call
-future-cancel
-future-cancelled?
-future-done?
-future?
 gen-class
 gen-interface
 gensym
 get
 get-in
-get-method
 get-proxy-class
 get-validator
 hash
@@ -313,7 +295,6 @@ println
 println-str
 prn
 prn-str
-promise
 proxy
 proxy-call-with-super
 proxy-mappings
@@ -338,9 +319,6 @@ read-line
 read-string
 reduce
 ref
-ref-history-count
-ref-max-history
-ref-min-history
 ref-set
 refer
 refer-clojure
@@ -392,7 +370,6 @@ special-symbol?
 split-at
 split-with
 str
-stream?
 string?
 struct
 struct-map
@@ -446,7 +423,6 @@ when-let
 when-not
 while
 with-in-str
-with-loading-context
 with-local-vars
 with-meta
 with-open

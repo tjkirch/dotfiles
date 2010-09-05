@@ -14,12 +14,14 @@ alias duh="du -h --max-depth=1"
 alias burnnew="growisofs -Z /dev/cdrom -graft-points -JRU"
 alias burnadd="growisofs -M /dev/cdrom -graft-points -JRU"
 alias cal="cal -s"
-alias slide="feh -dFrZD3"
-alias slider="feh -dFrzZD3"
+alias slide="feh -drZD3"
+alias slider="feh -drzZD3"
 alias vlc="vlc -L"
 alias vlcr="vlc -Z"
 alias mplayer="mplayer -loop 0"
 alias randfile='find . -type f | sed -e "s/ /\\\\ /g" | sort -R | head -1'
+alias websync='rsync -azHuh --progress --delay-updates --exclude "wp-content/cache/*" --delete'
+alias x='exec startx'
 
 alias mv='nocorrect mv -i'       # no spelling correction on mv
 alias cp='nocorrect cp'          # no spelling correction on cp
@@ -47,8 +49,9 @@ alias ais='aptitude install -s'
 alias yl='yum list'
 alias yin='yum info'
 alias yi='sudo yum install'
+alias update='sudo cave sync && cave search ignoreme >/dev/null 2>&1 &'
 alias upgrade='paludis --continue-on-failure if-satisfied --dl-reinstall-scm weekly --dl-reinstall if-use-changed -i -p world'
-alias upgrade-real='sudo paludis --continue-on-failure if-satisfied --dl-reinstall-scm weekly --dl-reinstall if-use-changed -i world'
+alias upgrade-real='sudo nice paludis --continue-on-failure if-satisfied --dl-reinstall-scm weekly --dl-reinstall if-use-changed -i world'
 alias pq='paludis --query'
 
 alias gs='git status'

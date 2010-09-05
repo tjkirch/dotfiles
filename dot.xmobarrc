@@ -6,10 +6,10 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
        , commands = [ Run Weather "KROC" ["-t","<tempF> <skyCondition>","-L","50","-H","70","--normal","grey","--high","red","--low","lightblue"] 36000
                     , Run Network "eth0" ["-t","<dev>: <rx> <tx>","-L","5","-H","30","--normal","lightblue","--high","red"] 20
                     , Run Cpu ["-L","20","-H","70","--normal","lightblue","--high","red"] 20
-                    , Run Memory ["-t","Mem: <usedratio>%"] 50
+                    , Run Memory ["-t","Mem: <usedratio>%"] 40
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                     , Run Com "now-playing" [] "now-playing" 50
-                    , Run Com "volume" [] "volume" 50
+                    , Run Com "volume" [] "volume" 40
                     , Run StdinReader
                     ]
        , sepChar = "%"

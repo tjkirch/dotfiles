@@ -1,1 +1,3 @@
-:autocmd LocationChange .* js modes.passAllKeys = /mail\.google\.com|google\.com\/reader/.test(buffer.URL)
+autocmd LocationChange .* js modes.passAllKeys = /mail\.google\.com|google\.com\/reader/.test(buffer.URL)
+
+noremap <C-k> :open http://www.google.com/<Return>

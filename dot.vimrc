@@ -40,8 +40,6 @@ set grepformat=%f:%l:%m
 let mapleader = ","
 let maplocalleader = ","
 
-autocmd FileType make,python set noexpandtab
-
 runtime macros/matchit.vim
 
 nnoremap ' `
@@ -83,17 +81,6 @@ else
 	colorscheme desert
    let Tlist_Inc_Winwidth = 0
 end
-
-" Easy scratch buffer - thanks Jamis
-function! ToggleScratch()
-   if expand('%') == g:ScratchBufferName
-      quit
-   else
-      Sscratch
-   endif
-endfunction
-
-map <leader>sc :call ToggleScratch()<CR>
 
 " Clojure stuff
 "let clj_want_gorilla = 1

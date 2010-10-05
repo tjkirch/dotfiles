@@ -1,5 +1,9 @@
 set nocompatible
 
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
 " Indentation holy war
 set shiftwidth=3
 set tabstop=3
@@ -36,9 +40,6 @@ set grepformat=%f:%l:%m
 let mapleader = ","
 let maplocalleader = ","
 
-syntax on
-filetype plugin indent on
-
 autocmd FileType make,python set noexpandtab
 
 runtime macros/matchit.vim
@@ -69,6 +70,8 @@ map <c-k> <c-w>k
 "map <c--> <c-w>-
 "map <c->> <c-w>>
 "map <c-<> <c-w><
+
+syntax on
 
 if has('gui_running')
 	set guifont=Anonymous\ Pro\ 11

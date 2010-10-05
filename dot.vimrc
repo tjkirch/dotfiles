@@ -83,8 +83,7 @@ else
 end
 
 " Clojure stuff
-"let clj_want_gorilla = 1
-let clj_highlight_builtins = 1
-let clj_highlight_contrib = 1
-let clj_paren_rainbow = 1
-"let vimclojure#NailgunClient = "/home/tjkirch/local/bin/ng"
+let vimclojure#WantNailgun = 1
+let vimclojure#HighlightBuiltins = 1
+let vimclojure#ParenRainbow = 1
+let vimclojure#NailgunClient = "/home/tjkirch/local/bin/ng"

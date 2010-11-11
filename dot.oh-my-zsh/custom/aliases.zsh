@@ -14,8 +14,8 @@ alias duh="du -h --max-depth=1"
 alias burnnew="growisofs -Z /dev/cdrom -graft-points -JRU"
 alias burnadd="growisofs -M /dev/cdrom -graft-points -JRU"
 alias cal="cal -s"
-alias slide="feh -drZD3"
-alias slider="feh -drzZD3"
+alias slide="feh -drZFsD3"
+alias slider="feh -zdrZFsD3"
 alias vlc="vlc -L"
 alias vlcr="vlc -Z"
 alias mplayer="mplayer -loop 0"
@@ -40,8 +40,7 @@ alias susp='sudo pm-suspend --auto-quirks'
 
 alias dhcp='sudo dhcpcd -t 600 wlan0'
 
-alias ngserver='java com.martiansoftware.nailgun.NGServer 127.0.0.1'
-alias clj-slime='screen -S clojure -s cljr-repl'
+alias ngserver='(export CLASSPATH=".:${CLASSPATH}" && cd ~/.vim/bundle/vimclojure/bin && nohup ./ng-server >/dev/null 2>&1) &'
 
 alias as='aptitude search'
 alias ai='sudo aptitude install'

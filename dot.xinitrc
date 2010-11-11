@@ -2,6 +2,6 @@ urxvtd -q -f -o
 xbindkeys
 
 ~/.dropbox-dist/dropboxd &
-dzconky &
+(sleep 1; dzconky) &
 my-redshift &
 exec ssh-agent i3

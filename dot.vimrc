@@ -49,6 +49,7 @@ nnoremap ' `
 nnoremap ` '
 nnoremap / /\v
 nnoremap ? ?\v
+nnoremap ZZ zz
 
 " Easier buffer/file navigation
 map <leader>cd :cd %:p:h<CR>

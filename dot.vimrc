@@ -15,6 +15,7 @@ set shiftwidth=3
 set smarttab
 set tabstop=3
 
+set autochdir
 set hidden
 set hlsearch
 set incsearch
@@ -26,8 +27,10 @@ set visualbell
 
 set backspace=indent,eol,start
 set backupdir=~/.vim_bak,/var/tmp,/tmp
+set cpoptions-=aABces
 set directory=~/.vim_bak,/var/tmp,/tmp
 set history=1000
+set laststatus=2
 set matchtime=0
 set modeline
 set scrolloff=3

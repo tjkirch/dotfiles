@@ -9,15 +9,15 @@ mpd_host /var/lib/mpd/socket
 TEXT
 ^pa(50)\
 ${exec now-playing}\
-^pa(970)\
+^pa(965)\
 ^fg(darkslategray)Vol:^fg() ${exec volume}\
-^pa(1085)\
+^pa(1080)\
 ^fg(darkslategray)Net:^fg() ${downspeedf eth0}k ${upspeedf eth0}k\
-^pa(1260)\
+^pa(1255)\
 ^fg(darkslategray)Disk:^fg() ${diskio_read} ${diskio_write}\
-^pa(1435)\
+^pa(1430)\
 ^fg(darkslategray)CPU:^fg() ${cpu cpu0}%\
-^pa(1525)\
+^pa(1520)\
 ^fg(darkslategray)Mem:^fg() ${memperc}%\
-^pa(1615)\
+^pa(1610)\
 ^fg(orange)${time %a %b %d %H:%M}

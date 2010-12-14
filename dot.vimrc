@@ -51,6 +51,15 @@ nnoremap / /\v
 nnoremap ? ?\v
 nnoremap ZZ zz
 
+function! CleverTab()
+   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+      return "\<Tab>"
+   else
+      return "\<C-N>"
+   endif
+endfunction
+inoremap <Tab> <C-R>=CleverTab()<CR>
+
 " Easier buffer/file navigation
 map <leader>cd :cd %:p:h<CR>
 "nmap <silent> <Leader>x :BufferExplorer<CR>

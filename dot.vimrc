@@ -5,15 +5,15 @@ call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
 " Indentation holy war
-set shiftwidth=3
-set tabstop=3
-set expandtab
-set smarttab
 "set autoindent
-"set smartindent
 set cindent
 set cinoptions=l1,m1,j1
 set diffopt=filler,iwhite
+set expandtab
+set shiftwidth=3
+"set smartindent
+set smarttab
+set tabstop=3
 
 set hidden
 set hlsearch
@@ -24,12 +24,12 @@ set showmatch
 set title
 set visualbell
 
-set modeline
 set backspace=indent,eol,start
 set backupdir=~/.vim_bak,/var/tmp,/tmp
 set directory=~/.vim_bak,/var/tmp,/tmp
 set history=1000
 set matchtime=0
+set modeline
 set scrolloff=3
 set shortmess=at
 set wildmode=list:longest

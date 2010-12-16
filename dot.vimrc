@@ -91,13 +91,11 @@ map <c-k> <c-w>k
 syntax on
 
 if has('gui_running')
-	set guifont=Anonymous\ Pro\ 11
-	set guioptions-=T
-	set guioptions-=m
-   set number
-	colorscheme inkpot
+   set guifont=Anonymous\ Pro\ 11
+   set guioptions-=Tm
 else
-	colorscheme desert
+   set t_Co=256
    let Tlist_Inc_Winwidth = 0
 end
 
+colorscheme lucius

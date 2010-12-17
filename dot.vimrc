@@ -92,7 +92,8 @@ syntax on
 
 if has('gui_running')
    set guifont=Anonymous\ Pro\ 11
-   set guioptions-=Tm
+   set guioptions-=m
+   set guioptions-=T
 else
    set t_Co=256
    let Tlist_Inc_Winwidth = 0

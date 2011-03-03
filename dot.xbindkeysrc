@@ -25,7 +25,10 @@
 "firefox"
     m:0x8 + c:41
 
-"urxvtc"
+"chrome"
+    m:0x8 + c:54
+
+"lilyterm"
     m:0x8 + c:36
 
 "dmenu_run"

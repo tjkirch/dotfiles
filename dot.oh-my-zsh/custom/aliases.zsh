@@ -52,6 +52,10 @@ alias update='sudo cave sync && cave search ignoreme >/dev/null 2>&1 &'
 alias upgrade='cave resolve --recommendations display -C if-satisfied -c world'
 alias upgrade-real='sudo nice cave resolve -x --recommendations display -C if-satisfied -c world'
 alias pq='paludis --query'
+alias mypackages="find -L /var/db/paludis/repositories/installed/indices/packages/ -type d -exec grep -l tjkirch {}/REPOSITORY  \; 2>/dev/null | sed -e 's/.*packages\///' -e 's/:C.*//'"
+alias allpackages="ls /var/db/paludis/repositories/installed/data/ | sed -e 's/---/\//'"
+alias full-upgrade='allpackages | xargs cave resolve --keep-targets if-same'
+alias full-upgrade-real='allpackages | xargs sudo cave resolve -1x --keep-targets if-same'
 
 alias gs='git status'
 alias ga='git add'

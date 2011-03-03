@@ -87,6 +87,7 @@ bind Mod1+Shift+24 kill
 
 # Mod1+Shift+e exits i3
 #bind Mod1+Shift+26 exit
+bind Mod1+Control+Shift+q exit
 
 # Mod1+Shift+r restarts i3 inplace
 bind Mod1+Shift+27 restart

@@ -7,6 +7,7 @@
    excludesfile = /home/tjkirch/.gitignore
 	autocrlf = input
 	editor = vim
+	pager = less -FRX
 [alias]
    graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 [merge]

@@ -70,6 +70,8 @@ alias glp='git log -p'
 alias gb='git branch -v'
 alias gc='git commit -v'
 alias gp='git pull'
+alias gsb='git show-branch'
+alias gcp='git cherry-pick'
 
 alias ss="svn status"
 alias sup="svn update"

@@ -3,6 +3,7 @@ set nocompatible
 filetype off
 call pathogen#runtime_append_all_bundles('bundle')
 call pathogen#runtime_append_all_bundles('colors')
+call pathogen#helptags()
 filetype plugin indent on
 
 " Indentation holy war

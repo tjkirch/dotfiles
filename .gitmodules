@@ -103,3 +103,6 @@
 [submodule "dot.vim/bundle/git"]
 	path = dot.vim/bundle/git
 	url = git://github.com/tpope/vim-git.git
+[submodule "dot.vim/bundle/extradite"]
+	path = dot.vim/bundle/extradite
+	url = git://github.com/int3/vim-extradite.git

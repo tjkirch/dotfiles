@@ -100,3 +100,6 @@
 [submodule "dot.vim/bundle/unimpaired"]
 	path = dot.vim/bundle/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "dot.vim/bundle/git"]
+	path = dot.vim/bundle/git
+	url = git://github.com/tpope/vim-git.git

@@ -70,15 +70,8 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 
 " Easier buffer/file navigation
 map <leader>cd :cd %:p:h<CR>
-"nmap <silent> <Leader>x :BufferExplorer<CR>
-"nmap <silent> <Leader>e :FilesystemExplorer<CR>
-"nmap <silent> <Leader>r :FilesystemExplorerFromHere<CR>
-"nmap <silent> <Leader>g :LustyJuggler<CR>
-"nmap <silent> <TAB> :JugglePrevious<CR>
 nmap <silent> <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <Leader>t :TlistToggle<CR>
-"nmap <silent> <Leader>f :FuzzyFinderTextMate<CR>
-"nmap <silent> <Leader>b :FuzzyFinderBuffer<CR>
 
 " Easier window management
 map <c-h> <c-w>h

@@ -43,3 +43,57 @@
 [submodule "dot.vim/bundle/slime"]
 	path = dot.vim/bundle/slime
 	url = git://github.com/jpalardy/vim-slime.git
+[submodule "dot.vim/colors/jellybeans"]
+	path = dot.vim/colors/jellybeans
+	url = git://github.com/nanotech/jellybeans.vim.git
+[submodule "dot.vim/colors/moria"]
+	path = dot.vim/colors/moria
+	url = git://github.com/vim-scripts/moria.git
+[submodule "dot.vim/colors/peaksea"]
+	path = dot.vim/colors/peaksea
+	url = git://github.com/vim-scripts/peaksea.git
+[submodule "dot.vim/colors/southwest-fog"]
+	path = dot.vim/colors/southwest-fog
+	url = git://github.com/vim-scripts/southwest-fog.git
+[submodule "dot.vim/colors/tango2"]
+	path = dot.vim/colors/tango2
+	url = git://github.com/vim-scripts/Tango2.git
+[submodule "dot.vim/colors/wombat"]
+	path = dot.vim/colors/wombat
+	url = git://github.com/vim-scripts/Wombat.git
+[submodule "dot.vim/colors/jellyx"]
+	path = dot.vim/colors/jellyx
+	url = git://github.com/guns/jellyx.vim.git
+[submodule "dot.vim/colors/xoria256"]
+	path = dot.vim/colors/xoria256
+	url = git://github.com/vim-scripts/xoria256.vim.git
+[submodule "dot.vim/colors/zenburn"]
+	path = dot.vim/colors/zenburn
+	url = git://github.com/vim-scripts/Zenburn.git
+[submodule "dot.vim/colors/camo"]
+	path = dot.vim/colors/camo
+	url = git://github.com/vim-scripts/camo.vim.git
+[submodule "dot.vim/colors/candy"]
+	path = dot.vim/colors/candy
+	url = git://github.com/vim-scripts/candy.vim.git
+[submodule "dot.vim/colors/desert256"]
+	path = dot.vim/colors/desert256
+	url = git://github.com/vim-scripts/desert256.vim.git
+[submodule "dot.vim/colors/dusk"]
+	path = dot.vim/colors/dusk
+	url = git://github.com/vim-scripts/dusk.git
+[submodule "dot.vim/colors/earendel"]
+	path = dot.vim/colors/earendel
+	url = git://github.com/vim-scripts/earendel.git
+[submodule "dot.vim/colors/freya"]
+	path = dot.vim/colors/freya
+	url = git://github.com/vim-scripts/freya.git
+[submodule "dot.vim/colors/impact"]
+	path = dot.vim/colors/impact
+	url = git://github.com/vim-scripts/Impact.git
+[submodule "dot.vim/colors/inkpot"]
+	path = dot.vim/colors/inkpot
+	url = git://github.com/ciaranm/inkpot.git
+[submodule "dot.vim/colors/lucius"]
+	path = dot.vim/colors/lucius
+	url = git://github.com/vim-scripts/Lucius.git

@@ -1,7 +1,8 @@
 set nocompatible
 
 filetype off
-call pathogen#runtime_append_all_bundles()
+call pathogen#runtime_append_all_bundles('bundle')
+call pathogen#runtime_append_all_bundles('colors')
 filetype plugin indent on
 
 " Indentation holy war

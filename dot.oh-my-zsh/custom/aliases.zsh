@@ -72,6 +72,7 @@ alias gc='git commit -v'
 alias gp='git pull'
 alias gsb='git show-branch'
 alias gcp='git cherry-pick'
+alias gitk='gitk --all 2>/dev/null &'
 
 alias ss="svn status"
 alias sup="svn update"

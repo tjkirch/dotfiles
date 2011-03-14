@@ -101,10 +101,10 @@ map <c-h> <c-w>h
 map <c-l> <c-w>l
 map <c-j> <c-w>j
 map <c-k> <c-w>k
-"map <c-+> <c-w>+  " how to do these?
-"map <c--> <c-w>-
-"map <c->> <c-w>>
-"map <c-<> <c-w><
+map <c-Up>    <c-w>+
+map <c-Down>  <c-w>-
+map <c-Right> <c-w>>
+map <c-Left>  <c-w><
 
 syntax on
 

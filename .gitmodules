@@ -97,3 +97,6 @@
 [submodule "dot.vim/colors/lucius"]
 	path = dot.vim/colors/lucius
 	url = git://github.com/vim-scripts/Lucius.git
+[submodule "dot.vim/bundle/unimpaired"]
+	path = dot.vim/bundle/unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git

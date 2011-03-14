@@ -82,6 +82,19 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 map <leader>cd :cd %:p:h<CR>
 nmap <silent> <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <Leader>t :TlistToggle<CR>
+nmap <Leader>ge :Gedit<Space>
+nmap <Leader>gs :Gsplit<Space>
+nmap <Leader>gv :Gvsplit<Space>
+nmap <Leader>gd :Gdiff<Space>
+nmap <Leader>gs :Gstatus<CR>
+nmap <Leader>gb :Gblame<CR>
+nmap <Leader>gc :Gcommit<Space>
+nmap <Leader>gm :Gmove<Space>
+nmap <Leader>gg :Ggrep<Space>
+nmap <Leader>gl :Glog<CR>
+nmap <Leader>gr :Gread<Space>
+nmap <Leader>gw :Gwrite<Space>
+nmap <Leader>e :Extradite<CR>
 
 " Easier window management
 map <c-h> <c-w>h

@@ -1,0 +1,45 @@
+[submodule "dot.vim/bundle/fugitive"]
+	path = dot.vim/bundle/fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "dot.vim/bundle/speeddating"]
+	path = dot.vim/bundle/speeddating
+	url = git://github.com/tpope/vim-speeddating.git
+[submodule "dot.vim/bundle/rails"]
+	path = dot.vim/bundle/rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule "dot.vim/bundle/surround"]
+	path = dot.vim/bundle/surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "dot.vim/bundle/abolish"]
+	path = dot.vim/bundle/abolish
+	url = git://github.com/tpope/vim-abolish.git
+[submodule "dot.vim/bundle/ragtag"]
+	path = dot.vim/bundle/ragtag
+	url = git://github.com/tpope/vim-ragtag.git
+[submodule "dot.vim/bundle/endwise"]
+	path = dot.vim/bundle/endwise
+	url = git://github.com/tpope/vim-endwise.git
+[submodule "dot.vim/bundle/repeat"]
+	path = dot.vim/bundle/repeat
+	url = git://github.com/tpope/vim-repeat.git
+[submodule "dot.vim/bundle/csapprox"]
+	path = dot.vim/bundle/csapprox
+	url = git://github.com/godlygeek/csapprox.git
+[submodule "dot.vim/bundle/haml"]
+	path = dot.vim/bundle/haml
+	url = git://github.com/tpope/vim-haml.git
+[submodule "dot.vim/bundle/nerdtree"]
+	path = dot.vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "dot.vim/bundle/taglist"]
+	path = dot.vim/bundle/taglist
+	url = git://github.com/vim-scripts/taglist.vim.git
+[submodule "dot.vim/bundle/tcomment"]
+	path = dot.vim/bundle/tcomment
+	url = git://github.com/tomtom/tcomment_vim.git
+[submodule "dot.vim/bundle/vimclojure"]
+	path = dot.vim/bundle/vimclojure
+	url = git://github.com/vim-scripts/VimClojure.git
+[submodule "dot.vim/bundle/slime"]
+	path = dot.vim/bundle/slime
+	url = git://github.com/jpalardy/vim-slime.git

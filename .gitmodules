@@ -112,3 +112,6 @@
 [submodule "dot.vim/bundle/syntastic"]
 	path = dot.vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+[submodule "dot.vim/bundle/bufkill"]
+	path = dot.vim/bundle/bufkill
+	url = git://github.com/vim-scripts/bufkill.vim.git

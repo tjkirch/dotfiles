@@ -12,3 +12,5 @@ setopt no_bash_auto_list
 setopt no_auto_menu
 setopt no_menu_complete
 unsetopt cdable_vars
+
+fpath=(~/.oh-my-zsh/custom/completion ${fpath})

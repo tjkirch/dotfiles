@@ -106,3 +106,9 @@
 [submodule "dot.vim/bundle/extradite"]
 	path = dot.vim/bundle/extradite
 	url = git://github.com/int3/vim-extradite.git
+[submodule "dot.vim/bundle/rvm"]
+	path = dot.vim/bundle/rvm
+	url = git://github.com/csexton/rvm.vim.git
+[submodule "dot.vim/bundle/syntastic"]
+	path = dot.vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git

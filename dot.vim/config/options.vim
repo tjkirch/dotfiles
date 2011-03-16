@@ -9,6 +9,7 @@ set ruler
 set showcmd
 set showmatch
 set title
+set undofile
 set visualbell
 
 set backspace=indent,eol,start
@@ -26,3 +27,4 @@ set wildmode=list:longest
 
 set backupdir=~/.vim/backup,/var/tmp,/tmp
 set directory=~/.vim/backup,/var/tmp,/tmp
+set undodir=~/.vim/backup,/var/tmp,/tmp

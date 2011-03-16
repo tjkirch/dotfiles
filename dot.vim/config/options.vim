@@ -12,9 +12,7 @@ set title
 set visualbell
 
 set backspace=indent,eol,start
-set backupdir=~/.vim_bak,/var/tmp,/tmp
 set cpoptions-=aABces
-set directory=~/.vim_bak,/var/tmp,/tmp
 set history=1000
 set laststatus=2
 set matchtime=0
@@ -25,3 +23,6 @@ set sidescroll=1
 set sidescrolloff=3
 set shortmess=at
 set wildmode=list:longest
+
+set backupdir=~/.vim/backup,/var/tmp,/tmp
+set directory=~/.vim/backup,/var/tmp,/tmp

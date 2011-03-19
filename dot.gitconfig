@@ -4,7 +4,7 @@
 [github]
 	user = tjkirch
 [core]
-   excludesfile = /home/tjkirch/.gitignore
+   excludesfile = ~/.gitignore
 	autocrlf = input
 	editor = vim
 	pager = less -FRX

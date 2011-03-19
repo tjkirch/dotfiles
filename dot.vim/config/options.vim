@@ -23,6 +23,7 @@ set scrolloff=3
 set sidescroll=1
 set sidescrolloff=3
 set shortmess=at
+set tags=tags;/
 set wildmode=list:longest
 
 set backupdir=~/.vim/backup,/var/tmp,/tmp

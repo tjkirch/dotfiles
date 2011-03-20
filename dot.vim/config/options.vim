@@ -1,4 +1,3 @@
-set autochdir
 set hidden
 set hlsearch
 set incsearch

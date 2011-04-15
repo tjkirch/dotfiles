@@ -118,3 +118,6 @@
 [submodule "dot.vim/colors/pigraph/colors"]
 	path = dot.vim/colors/pigraph/colors
 	url = git://gist.github.com/904942.git
+[submodule "dot.vim/bundle/replacewithregister"]
+	path = dot.vim/bundle/replacewithregister
+	url = git://github.com/vim-scripts/ReplaceWithRegister.git

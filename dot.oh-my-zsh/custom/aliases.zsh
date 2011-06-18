@@ -20,7 +20,7 @@ alias vlc="vlc -L"
 alias vlcr="vlc -Z"
 alias mplayer="mplayer -loop 0"
 alias randfile='find . -type f | sed -e "s/ /\\\\ /g" | sort -R | head -1'
-alias websync='rsync -azHuh --progress --delay-updates --exclude "wp-content/cache/*" --delete'
+alias websync='rsync -azHuh --progress --delay-updates --exclude "wp-content/cache/*" --delete --delete-delay'
 alias x='exec startx'
 
 alias mv='nocorrect mv -i'       # no spelling correction on mv

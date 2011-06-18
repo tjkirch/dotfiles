@@ -15,7 +15,7 @@ urxvt*cutchars:           \ `"'&,;=?<>()[]{}|#%$!^@*
 urxvt.perl-ext-common:    default,matcher,tabbed
 urxvt.perl-ext:           default,matcher,tabbed
 urxvt*matcher.button:     1
-urxvt*urlLauncher:        firefox
+urxvt*urlLauncher:        chrome
 
 urxvt.jumpScroll:         true
 urxvt.skipScroll:         true

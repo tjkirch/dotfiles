@@ -121,3 +121,6 @@
 [submodule "dot.vim/bundle/replacewithregister"]
 	path = dot.vim/bundle/replacewithregister
 	url = git://github.com/vim-scripts/ReplaceWithRegister.git
+[submodule "dot.vim/colors/mayansmoke"]
+	path = dot.vim/colors/mayansmoke
+	url = git://github.com/vim-scripts/mayansmoke.git

@@ -1,38 +1,23 @@
-"mpd-toggle"
-    m:0x0 + c:196
-
 "ncmpcpp toggle"
-    m:0x0 + c:125
+    XF86AudioPlay
+
+"ncmpcpp stop"
+    XF86AudioStop
 
 "ncmpcpp prev"
-    m:0x0 + c:187
+    XF86AudioPrev
 
 "ncmpcpp next"
-    m:0x0 + c:188
+    XF86AudioNext
 
 "amixer set Master toggle"
     XF86AudioMute
 
-"amixer set Master 3%-"
+"amixer set Master 5%-"
     XF86AudioLowerVolume
 
-"amixer set Master 3%+"
+"amixer set Master 5%+"
     XF86AudioRaiseVolume
-
-"sudo pm-suspend --auto-quirks"
-    m:0x0 + c:194
 
 "firefox"
     m:0x8 + c:41
-
-"chrome"
-    m:0x8 + c:54
-
-"lilyterm"
-    m:0x8 + c:36
-
-"dmenu_run"
-    m:0x8 + c:55
-
-"/home/tjkirch/local/opt/mudlet-1.1.1/bin/run-mudlet.sh"
-    m:0x8 + c:58

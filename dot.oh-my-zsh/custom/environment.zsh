@@ -6,7 +6,7 @@ export GOOS="linux"
 export GOARCH="amd64"
 export GOBIN="${HOME}/code/go/lang/bin"
 
-export BROWSER="chrome"
+export BROWSER="firefox"
 
 export PATH="${PATH}:${HOME}/local/bin:/usr/sbin:/sbin:${HOME}/.cabal/bin:${HOME}/.lein/bin:${HOME}/local/opt/msp430-gcc-4.4.4/bin/"
 export MANPATH="${MANPATH}:${HOME}/local/share/man"

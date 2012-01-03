@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 #export ZSH_THEME="dst"
 export ZSH_THEME="tjkirch"
 
-plugins=(gem github ssh-agent)
+plugins=(gem)
 
 # Comment this out to disable weekly auto-update checks
 #export DISABLE_AUTO_UPDATE="true"

@@ -2,4 +2,7 @@
 exheres=.exheres-0
 
 --type-set
+exlib=.exlib
+
+--type-set
 conf=.conf

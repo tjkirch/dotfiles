@@ -1,0 +1,1 @@
+/home/tjkirch/code/go/gocode/vim/ftplugin/go.vim

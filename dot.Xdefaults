@@ -1,7 +1,6 @@
 urxvt*scrollTtyOutput:    false
 urxvt*scrollTtyKeypress:  true
-!urxvt*font:              xft:Bitstream Vera Sans Mono:pixelsize=13
-urxvt.font:               xft:Anonymous Pro-10:antialias=false
+urxvt*font:               xft:DejaVu Sans Mono:pixelsize=11
 urxvt.background:         black
 urxvt.foreground:         white
 urxvt*scrollBar:          true

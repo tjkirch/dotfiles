@@ -10,7 +10,7 @@ export ZSH_THEME="tjkirch"
 plugins=(gem)
 
 # Comment this out to disable weekly auto-update checks
-#export DISABLE_AUTO_UPDATE="true"
+export DISABLE_AUTO_UPDATE="true"
 
 source $ZSH/oh-my-zsh.sh
 

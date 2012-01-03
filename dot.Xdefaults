@@ -12,8 +12,8 @@ urxvt*termName:           xterm
 urxvt*saveLines:          10000
 urxvt*cutchars:           \ `"'&,;=?<>()[]{}|#%$!^@*
 
-urxvt.perl-ext-common:    default,matcher,tabbed
-urxvt.perl-ext:           default,matcher,tabbed
+urxvt.perl-ext-common:    default,matcher
+urxvt.perl-ext:           default,matcher
 urxvt*matcher.button:     1
 urxvt*urlLauncher:        chrome
 

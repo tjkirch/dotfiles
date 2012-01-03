@@ -2,13 +2,16 @@
     m:0x0 + c:196
 
 "ncmpcpp toggle"
-    m:0x0 + c:125
+    XF86AudioPlay
+
+"ncmpcpp stop"
+    XF86AudioStop
 
 "ncmpcpp prev"
-    m:0x0 + c:187
+    XF86AudioPrev
 
 "ncmpcpp next"
-    m:0x0 + c:188
+    XF86AudioNext
 
 "amixer set Master toggle"
     XF86AudioMute
@@ -33,6 +36,3 @@
 
 "dmenu_run"
     m:0x8 + c:55
-
-"/home/tjkirch/local/opt/mudlet-1.1.1/bin/run-mudlet.sh"
-    m:0x8 + c:58

@@ -1,10 +1,12 @@
 export CFLAGS="-march=native -pipe -O2"
 export CXXFLAGS="${CFLAGS}"
 
-export GOROOT="${HOME}/code/go/lang"
+export GOROOT="${HOME}/code/go/go"
 export GOOS="linux"
+export GOHOSTOS="linux"
 export GOARCH="amd64"
-export GOBIN="${HOME}/code/go/lang/bin"
+export GOHOSTARCH="amd64"
+export GOBIN="${HOME}/local/bin"
 
 export BROWSER="chrome"
 

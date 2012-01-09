@@ -1,6 +1,6 @@
 alias ls='ls --color=auto'
 alias l='ls'
-alias ll='ls -AhlF --color=auto'
+alias ll='ls -ahlF --color=auto'
 alias lsd="find . -mindepth 1 -maxdepth 1 -type d"
 alias l.="ls -d .*"
 alias grep='grep --color=auto'

@@ -124,3 +124,6 @@
 [submodule "dot.vim/colors/mayansmoke"]
 	path = dot.vim/colors/mayansmoke
 	url = git://github.com/vim-scripts/mayansmoke.git
+[submodule "dot.vim/bundle/python_match"]
+	path = dot.vim/bundle/python_match
+	url = git://github.com/vim-scripts/python_match.vim.git

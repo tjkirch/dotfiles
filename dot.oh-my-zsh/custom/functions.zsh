@@ -3,6 +3,15 @@ function zsh_stats() {
   | sort | uniq -c | sort -rn | head
 }
 
+delhostkey() {
+   [ "$1" -eq "$1" ] 2>/dev/null
+   if [ $? -ne 0 ]; then
+      echo "Usage: delhostkey <known_hosts line number>"
+      return 1
+   fi
+   sed --in-place="-`date '+%Y%m%d%H%M%S'`" ${1}d ~/.ssh/known_hosts
+}
+
 mkcd () {
    mkdir -p $*
    cd $*

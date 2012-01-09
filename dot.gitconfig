@@ -10,6 +10,9 @@
 	pager = less -FRX
 [alias]
    graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	glog = log --graph --abbrev-commit --decorate --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %C(cyan)%ce%Creset %C(green)(%cr)%Creset' --date=relative
+	unstage = reset HEAD --
+	lc = log ORIG_HEAD.. --stat --no-merges
 [merge]
 	tool = vimdiff
 [imap]
@@ -21,3 +24,9 @@
 	merge = refs/heads/master
 [init]
    templatedir = ~/.git_template
+[color]
+	diff = auto
+	grep = auto
+	status = auto
+	branch = auto
+	interactive = auto

@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 #export ZSH_THEME="dst"
 export ZSH_THEME="tjkirch"
 
-plugins=(gem)
+plugins=(gem ruby svn)
 
 # Comment this out to disable weekly auto-update checks
 export DISABLE_AUTO_UPDATE="true"

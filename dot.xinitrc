@@ -1,4 +1,4 @@
-#urxvtd -q -f -o
+urxvtd -q -f -o
 
 xbindkeys
 xmodmap ~/.xmodmap

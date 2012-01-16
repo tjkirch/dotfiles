@@ -31,7 +31,7 @@
 "chrome"
     m:0x8 + c:54
 
-"lilyterm"
+"urxvtc"
     m:0x8 + c:36
 
 "dmenu_run"

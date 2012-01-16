@@ -1,1 +1,0 @@
-/home/tjkirch/code/go/gocode/vim/autoload/gocomplete.vim

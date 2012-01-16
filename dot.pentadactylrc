@@ -1,0 +1,9 @@
+"1.0rc1
+
+loadplugins '\.(js|penta)$'
+group user
+map -count -modes=n j -builtin <C-d>
+map -count -modes=n k -builtin <C-u>
+set hlfind
+
+" vim: set ft=pentadactyl:

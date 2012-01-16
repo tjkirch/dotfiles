@@ -3,12 +3,10 @@ export CXXFLAGS="${CFLAGS}"
 
 export CCACHE_DIR="${HOME}/.ccache/"
 
-export GOROOT="${HOME}/code/go/go"
+export GOROOT="/usr/lib/go"
+export GOBIN="/usr/bin"
 export GOOS="linux"
-export GOHOSTOS="linux"
 export GOARCH="amd64"
-export GOHOSTARCH="amd64"
-export GOBIN="${HOME}/local/bin"
 
 export BROWSER="firefox"
 

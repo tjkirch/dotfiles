@@ -1,6 +1,8 @@
 export CFLAGS="-march=native -pipe -O2"
 export CXXFLAGS="${CFLAGS}"
 
+export CCACHE_DIR="${HOME}/.ccache/"
+
 export GOROOT="${HOME}/code/go/go"
 export GOOS="linux"
 export GOHOSTOS="linux"

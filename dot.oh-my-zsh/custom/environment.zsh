@@ -8,7 +8,7 @@ export GOARCH="amd64"
 export GOHOSTARCH="amd64"
 export GOBIN="${HOME}/local/bin"
 
-export BROWSER="chrome"
+export BROWSER="firefox"
 
 export PATH="${HOME}/local/bin:${HOME}/.cabal/bin:${HOME}/.lein/bin:/usr/local/bin:${PATH}:/usr/sbin:/sbin"
 export MANPATH="${HOME}/local/share/man:${MANPATH}"

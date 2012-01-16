@@ -1,12 +1,10 @@
+# Let the OS figure most of it out
+source /etc/profile
+
 export CFLAGS="-march=native -pipe -O2"
 export CXXFLAGS="${CFLAGS}"
 
 export CCACHE_DIR="${HOME}/.ccache/"
-
-export GOROOT="/usr/lib/go"
-export GOBIN="/usr/bin"
-export GOOS="linux"
-export GOARCH="amd64"
 
 export BROWSER="firefox"
 

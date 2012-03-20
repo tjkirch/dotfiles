@@ -28,7 +28,7 @@
 "firefox"
     m:0x8 + c:41
 
-"chrome"
+"chromium"
     m:0x8 + c:54
 
 "urxvtc"

@@ -25,8 +25,4 @@
 [init]
    templatedir = ~/.git_template
 [color]
-	diff = auto
-	grep = auto
-	status = auto
-	branch = auto
-	interactive = auto
+	ui = auto

@@ -1,3 +1,36 @@
+# If the host doesn't exist, nc returns immediately, but doesn't use
+# a distinct return code.  Make sure it took more than 1 second.
+function _safe_ncz() {
+   time1="$(date '+%s')"
+
+   nc -z ${1} ${2}
+   if [ "${?}" -eq 0 ]; then
+      return 0
+   fi
+
+   time2="$(date '+%s')"
+   if [ "$((${time2} - ${time1}))" -le 1 ]; then
+      echo "nc returned quickly, connection not available"
+      return 42
+   fi
+}
+
+function waitssh() {
+   # Continue until ssh succeeds or there's an exception
+   while true; do
+      _safe_ncz ${1} 22
+      rc="${?}"
+
+      case ${rc} in
+         0) echo "Success at `date`"; return;;
+         42) return 42;;
+      esac
+
+      date
+      sleep 30
+   done
+}
+
 function zsh_stats() {
   history | awk '{if ($2 == "sudo") print $3; else print $2}' \
   | sort | uniq -c | sort -rn | head

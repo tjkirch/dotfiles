@@ -127,3 +127,6 @@
 [submodule "dot.vim/bundle/python_match"]
 	path = dot.vim/bundle/python_match
 	url = git://github.com/vim-scripts/python_match.vim.git
+[submodule "dot.vim/bundle/puppet"]
+	path = dot.vim/bundle/puppet
+	url = git://github.com/rodjek/vim-puppet.git

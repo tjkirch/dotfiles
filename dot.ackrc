@@ -6,3 +6,6 @@ exlib=.exlib
 
 --type-set
 conf=.conf
+
+--type-set
+puppet=.pp

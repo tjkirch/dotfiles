@@ -4,6 +4,9 @@ source /etc/profile
 export CFLAGS="-march=native -pipe -O2"
 export CXXFLAGS="${CFLAGS}"
 
+export HISTSIZE=10000000
+export SAVEHIST=10000000
+
 export CCACHE_DIR="${HOME}/.ccache/"
 
 export BROWSER="firefox"

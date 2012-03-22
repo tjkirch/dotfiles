@@ -36,3 +36,6 @@ nnoremap ` '
 nnoremap / /\v
 nnoremap ? ?\v
 nnoremap ZZ zz
+
+" Search, but not in comments...  (not perfect)
+nnoremap <Leader>/ /\v((^\|\s)#.*)@<!

@@ -1,6 +1,6 @@
 urxvt*scrollTtyOutput:    false
 urxvt*scrollTtyKeypress:  true
-urxvt*font:               xft:DejaVu Sans Mono:pixelsize=12
+urxvt*font:               xft:DejaVu Sans Mono:pixelsize=11
 urxvt.background:         black
 urxvt.foreground:         white
 urxvt*scrollBar:          true
@@ -10,6 +10,7 @@ urxvt*scrollColor:        #202020
 urxvt*termName:           xterm
 urxvt*saveLines:          10000
 urxvt*cutchars:           \ `"'&,;=?<>()[]{}|#%$!^@*
+urxvt*letterSpace:        -1
 
 urxvt.perl-ext-common:    default,matcher
 urxvt.perl-ext:           default,matcher

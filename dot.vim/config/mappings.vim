@@ -31,11 +31,19 @@ map <c-Down>  <c-w>-
 map <c-Right> <c-w>>
 map <c-Left>  <c-w><
 
+" Assume we want to keep our place by default
 nnoremap ' `
 nnoremap ` '
+
+" Magic regexes
 nnoremap / /\v
 nnoremap ? ?\v
+
+" Never save and quit on accident
 nnoremap ZZ zz
+
+" Quick way to hide highlighted searches
+nnoremap <CR> :nohlsearch<CR>
 
 " Search, but not in comments...  (not perfect)
 nnoremap <Leader>/ /\v((^\|\s)#.*)@<!

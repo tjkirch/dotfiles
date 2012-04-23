@@ -19,9 +19,6 @@
 [submodule "dot.vim/bundle/csapprox"]
 	path = dot.vim/bundle/csapprox
 	url = git://github.com/godlygeek/csapprox.git
-[submodule "dot.vim/bundle/nerdtree"]
-	path = dot.vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
 [submodule "dot.vim/bundle/tcomment"]
 	path = dot.vim/bundle/tcomment
 	url = git://github.com/tomtom/tcomment_vim.git

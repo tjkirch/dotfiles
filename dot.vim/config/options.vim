@@ -1,7 +1,9 @@
+set cursorline
 set hidden
 set hlsearch
 set incsearch
 set modeline
+set nocompatible
 set nostartofline
 set relativenumber
 set ruler
@@ -13,7 +15,7 @@ set visualbell
 
 set backspace=indent,eol,start
 set cpoptions-=aABces
-set history=1000
+set history=10000
 set laststatus=2
 set matchtime=0
 set numberwidth=1
@@ -22,8 +24,10 @@ set scrolloff=3
 set sidescroll=1
 set sidescrolloff=3
 set shortmess=at
+set switchbuf=useopen
 set tags=tags;/
 set wildmode=list:longest
+set winwidth=83
 
 set backupdir=~/.vim/backup,/var/tmp,/tmp
 set directory=~/.vim/backup,/var/tmp,/tmp

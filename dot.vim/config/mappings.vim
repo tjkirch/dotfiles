@@ -93,6 +93,7 @@ function! RunTestFile(...)
     if in_test_file
         call SetTestFile()
     elseif !exists("t:grb_test_file")
+        echoerr "No test file found"
         return
     end
     call RunTests(t:grb_test_file . command_suffix)

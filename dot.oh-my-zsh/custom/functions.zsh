@@ -3,6 +3,14 @@ function zsh_stats() {
   | sort | uniq -c | sort -rn | head
 }
 
+function box() {
+   line="${1}xxxx"
+   linechar="${2:-=}"
+   echo "${line//?/${linechar}}"
+   echo "${linechar} ${1} ${linechar}"
+   echo "${line//?/${linechar}}"
+}
+
 delhostkey() {
    [ "$1" -eq "$1" ] 2>/dev/null
    if [ $? -ne 0 ]; then

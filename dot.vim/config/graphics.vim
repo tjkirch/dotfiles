@@ -15,4 +15,4 @@ else
    let Tlist_Inc_Winwidth = 0
 end
 
-colorscheme lucius
+colorscheme jellybeans

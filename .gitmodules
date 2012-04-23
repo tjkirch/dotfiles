@@ -130,3 +130,6 @@
 [submodule "dot.vim/bundle/puppet"]
 	path = dot.vim/bundle/puppet
 	url = git://github.com/rodjek/vim-puppet.git
+[submodule "dot.vim/bundle/command-t"]
+	path = dot.vim/bundle/command-t
+	url = git://git.wincent.com/command-t.git

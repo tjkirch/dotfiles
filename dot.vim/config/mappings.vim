@@ -1,10 +1,15 @@
 let mapleader = ","
 let maplocalleader = ","
 
-" Easier buffer/file navigation
+" Easier buffer/file navigation, thanks Gary
+" Open files with <leader>f
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+" Open files, limited to the directory of the current file, with <leader>gf
+map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+nnoremap <leader><leader> <c-^>
+
 map <leader>cd :cd %:p:h<CR>
-nmap <silent> <Leader>n :NERDTreeToggle<CR>
-nmap <silent> <Leader>t :TlistToggle<CR>
 
 " Git - Fugitive/Extradite mappings
 nmap <Leader>ge :Gedit<Space>

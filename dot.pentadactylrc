@@ -4,6 +4,8 @@ loadplugins '\.(js|penta)$'
 group user
 map -count -modes=n j -builtin <C-d>
 map -count -modes=n k -builtin <C-u>
+map -count -modes=n J -builtin j
+map -count -modes=n K -builtin k
 set hlfind
 
 " vim: set ft=pentadactyl:

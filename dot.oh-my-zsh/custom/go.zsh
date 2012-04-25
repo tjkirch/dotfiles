@@ -1,1 +1,1 @@
-/opt/go/misc/zsh/go
+/usr/share/go/misc/zsh/go

@@ -3,6 +3,7 @@
 	email = tjkirch+github@gmail.com
 [github]
 	user = tjkirch
+	token = 5982b04a3df2ff867853c995bbba93b8
 [core]
    excludesfile = ~/.gitignore
 	autocrlf = input
@@ -13,6 +14,10 @@
 	glog = log --graph --abbrev-commit --decorate --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %C(cyan)%ce%Creset %C(green)(%cr)%Creset' --date=relative
 	unstage = reset HEAD --
 	lc = log ORIG_HEAD.. --stat --no-merges
+   l = "!source ~/.githelpers && pretty_git_log"
+   la = !git l --all
+   r = !git l -30
+   ra = !git r --all
 [merge]
 	tool = vimdiff
 [imap]

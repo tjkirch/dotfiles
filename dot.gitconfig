@@ -17,6 +17,7 @@
    la = !git l --all
    r = !git l -30
    ra = !git r --all
+   news = log -p HEAD@{1}..HEAD@{0}
 [merge]
 	tool = vimdiff
 [imap]

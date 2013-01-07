@@ -31,7 +31,7 @@
 "chromium"
     m:0x8 + c:54
 
-"urxvtc"
+"urxvt"
     m:0x8 + c:36
 
 "dmenu_run"

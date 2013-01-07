@@ -8,17 +8,17 @@ use_spacer none
 mpd_host /var/lib/mpd/socket
 
 TEXT
-^pa(50)\
+^pa(0)\
 ${exec now-playing}\
-^pa(965)\
+^pa(915)\
 ^fg(darkslategray)Vol:^fg() ${exec volume}\
-^pa(1080)\
+^pa(1030)\
 ^fg(darkslategray)Net:^fg() ${downspeedf eth0}k ${upspeedf eth0}k\
-^pa(1255)\
+^pa(1205)\
 ^fg(darkslategray)Disk:^fg() ${diskio_read} ${diskio_write}\
-^pa(1430)\
+^pa(1380)\
 ^fg(darkslategray)CPU:^fg() ${cpu cpu0}%\
-^pa(1520)\
+^pa(1470)\
 ^fg(darkslategray)Mem:^fg() ${memperc}%\
-^pa(1610)\
+^pa(1560)\
 ^fg(orange)${time %a %b %d %H:%M}

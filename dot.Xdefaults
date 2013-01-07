@@ -7,7 +7,7 @@ urxvt.foreground:         white
 urxvt*scrollBar:          true
 urxvt*scrollBar_floating: true
 urxvt*scrollBar_right:    true
-urxvt*scrollColor:        #202020
+urxvt*scrollColor:        #303030
 urxvt*termName:           xterm
 urxvt*saveLines:          10000
 urxvt*cutchars:           \ `"'&,;=?<>()[]{}|#%$!^@*

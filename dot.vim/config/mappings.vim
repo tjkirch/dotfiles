@@ -47,9 +47,6 @@ nnoremap ? ?\v
 " Never save and quit on accident
 nnoremap ZZ zz
 
-" Quick way to hide highlighted searches
-nnoremap <CR> :nohlsearch<CR>
-
 " Search, but not in comments...  (not perfect)
 nnoremap <Leader>/ /\v((^\|\s)#.*)@<!
 

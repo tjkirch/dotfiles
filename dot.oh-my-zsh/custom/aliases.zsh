@@ -43,6 +43,9 @@ alias dhcp='sudo dhcpcd -t 600 wlan0'
 
 alias ngserver='(export CLASSPATH=".:${CLASSPATH}" && cd ~/.vim/bundle/vimclojure/bin && nohup ./ng-server >/dev/null 2>&1) &'
 
+# A vim window ready with two diff panes
+alias vimp='vim -c "set paste | vnew | windo diffthis"'
+
 alias as='aptitude search'
 alias ai='sudo aptitude install'
 alias ais='aptitude install -s'

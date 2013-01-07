@@ -1,7 +1,8 @@
 fortune -as
 
-set -o vi
 export EDITOR="vim"
+set -o vi
+bindkey -v
 
 setopt nobeep extendedglob
 

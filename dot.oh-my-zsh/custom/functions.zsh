@@ -1,3 +1,9 @@
+# Allow a file to be fetched via HTTP on port 8080
+function serve_file() {
+   { echo -ne "HTTP/1.0 200 OK\r\n\r\n"; cat "$1"; } \
+   | nc -l 8080
+}
+
 # If the host doesn't exist, nc returns immediately, but doesn't use
 # a distinct return code.  Make sure it took more than 1 second.
 function _safe_ncz() {

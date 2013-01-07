@@ -1,4 +1,5 @@
 urxvt*scrollTtyOutput:    false
+urxvt*scrollWithBuffer:   false
 urxvt*scrollTtyKeypress:  true
 urxvt*font:               xft:DejaVu Sans Mono:pixelsize=11
 urxvt.background:         black
@@ -16,11 +17,14 @@ urxvt.perl-ext-common:    default,matcher
 urxvt.perl-ext:           default,matcher
 urxvt*matcher.button:     1
 urxvt*urlLauncher:        firefox
+urxvt*url-launcher:       firefox
 
 urxvt.jumpScroll:         true
 urxvt.skipScroll:         true
 urxvt.scrollTtyOutput:    false
 urxvt.scrollTtyKeypress:  true
+
+urxvt*iso14755:           false
 
 ! black
 urxvt*color0:         #222222

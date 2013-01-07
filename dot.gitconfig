@@ -3,7 +3,6 @@
 	email = tjkirch+github@gmail.com
 [github]
 	user = tjkirch
-	token = 5982b04a3df2ff867853c995bbba93b8
 [core]
    excludesfile = ~/.gitignore
 	autocrlf = input

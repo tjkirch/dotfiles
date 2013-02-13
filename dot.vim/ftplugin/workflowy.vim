@@ -1,5 +1,5 @@
-set shiftwidth=2
-set foldmethod=indent
+setlocal shiftwidth=2
+setlocal foldmethod=indent
 
 " Just show one match per matching fold and don't open it
-set foldopen-=search
+setlocal foldopen-=search

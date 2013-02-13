@@ -1,3 +1,3 @@
 " Oracle control files
-au BufNewFile,BufRead *.ctl,*.control set ft=sqlldr
-au BufNewFile,BufRead *.pck,*.prc set ft=sql
+au BufNewFile,BufRead *.ctl,*.control setlocal ft=sqlldr
+au BufNewFile,BufRead *.pck,*.prc setlocal ft=sql

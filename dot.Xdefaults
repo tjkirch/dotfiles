@@ -12,6 +12,7 @@ urxvt*termName:           xterm
 urxvt*saveLines:          10000
 urxvt*cutchars:           \ `"'&,;=?<>()[]{}|#%$!^@*:
 urxvt*letterSpace:        -1
+urxvt*urgentOnBell:       true
 
 urxvt.perl-ext-common:    default,matcher
 urxvt.perl-ext:           default,matcher

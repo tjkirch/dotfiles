@@ -94,6 +94,8 @@ alias -g X=' | xargs'
 alias -g H=' | head'
 alias -g T=' | tail'
 alias -g U=' | uniq'
+alias -g ND='*(/om[1])' # newest directory
+alias -g NF='*(.om[1])' # newest file
 
 autoload zmv
 alias mmv='noglob zmv -W'

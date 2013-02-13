@@ -1,5 +1,3 @@
-urxvtd -q -f -o
-
 xbindkeys
 xmodmap ~/.xmodmap
 

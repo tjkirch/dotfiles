@@ -19,8 +19,6 @@
 "pamixer --increase 3"
     XF86AudioRaiseVolume
 
-"sudo pm-suspend --auto-quirks"
-    m:0x0 + c:194
 
 "firefox"
     m:0x8 + c:41
@@ -33,3 +31,6 @@
 
 "dmenu_run"
     m:0x8 + c:55
+
+"sudo /usr/bin/systemctl suspend"
+    XF86Eject

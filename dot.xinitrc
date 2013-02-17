@@ -18,4 +18,7 @@ xrandr --output DVI-0 --primary --left-of DVI-1 --mode 1920x1080
 (sleep 1; dzconky) &
 my-redshift &
 
+mpd >/dev/null 2>&1 &
+mpdscribble &
+
 exec i3

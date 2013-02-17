@@ -9,7 +9,7 @@ urxvt*scrollBar_floating: true
 urxvt*scrollBar_right:    true
 urxvt*scrollColor:        #303030
 urxvt*termName:           xterm
-urxvt*saveLines:          10000
+urxvt*saveLines:          99999
 urxvt*cutchars:           \ `"'&,;=?<>()[]{}|#%$!^@*:
 urxvt*letterSpace:        -1
 urxvt*urgentOnBell:       true

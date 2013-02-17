@@ -1,6 +1,6 @@
-! Make Caps Lock an additional control key
-remove Lock = Caps_Lock
-remove Control = Control_L
-keysym Caps_Lock = Control_L
-add Lock = Caps_Lock
-add Control = Control_L
+keycode 103 = Alt_L
+keycode 132 = Escape
+keycode 97 = Insert
+keycode 101 = Meta_L
+keycode 108 = Hyper_R
+keycode 135 = Alt_L

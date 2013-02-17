@@ -19,6 +19,8 @@
 "pamixer --increase 3"
     XF86AudioRaiseVolume
 
+"switch-pulse-output"
+    XF86Tools
 
 "firefox"
     m:0x8 + c:41

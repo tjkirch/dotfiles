@@ -10,7 +10,7 @@
 "ncmpcpp next"
     XF86AudioNext
 
-"pamixer set Master toggle"
+"pamixer --toggle-mute"
     XF86AudioMute
 
 "pamixer --decrease 3"

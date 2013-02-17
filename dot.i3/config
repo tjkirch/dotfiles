@@ -115,6 +115,17 @@ bindsym Escape mode "default"
 
 bindsym $mod+r mode "resize"
 
+workspace 1 output DVI-0
+workspace 2 output DVI-0
+workspace 3 output DVI-0
+workspace 4 output DVI-0
+workspace 5 output DVI-0
+workspace 6 output DVI-1
+workspace 7 output DVI-1
+workspace 8 output DVI-1
+workspace 9 output DVI-1
+workspace 0 output DVI-1
+
 # The IPC interface allows programs like an external workspace bar
 # (i3-wsbar) or i3-msg (can be used to "remote-control" i3) to work.
 ipc-socket ~/.i3/ipc.sock

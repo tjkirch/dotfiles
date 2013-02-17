@@ -1,6 +1,3 @@
-"mpd-toggle"
-    m:0x0 + c:196
-
 "ncmpcpp toggle"
     XF86AudioPlay
 

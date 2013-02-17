@@ -10,13 +10,13 @@
 "ncmpcpp next"
     XF86AudioNext
 
-"amixer set Master toggle"
+"pamixer set Master toggle"
     XF86AudioMute
 
-"amixer set Master 3%-"
+"pamixer --decrease 3"
     XF86AudioLowerVolume
 
-"amixer set Master 3%+"
+"pamixer --increase 3"
     XF86AudioRaiseVolume
 
 "sudo pm-suspend --auto-quirks"

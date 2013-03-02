@@ -35,9 +35,9 @@ alias psag="ps aux | grep"
 alias ..="cd .."
 alias ...="cd ../.."
 
-alias off='sudo /usr/bin/systemctl poweroff'
-alias reboot='sudo /usr/bin/systemctl reboot'
-alias susp='sudo /usr/bin/systemctl suspend'
+alias off='sudo shutdown -h now'
+alias reboot='sudo reboot'
+alias susp='sudo pm-suspend --auto-quirks'
 
 alias dhcp='sudo dhcpcd -t 600 wlan0'
 

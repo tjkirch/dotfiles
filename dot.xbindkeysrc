@@ -22,6 +22,9 @@
 "switch-pulse-output"
     XF86Tools
 
+"sudo pm-suspend --auto-quirks"
+    XF86Eject
+
 "firefox"
     m:0x8 + c:41
 
@@ -33,6 +36,3 @@
 
 "dmenu_run"
     m:0x8 + c:55
-
-"sudo /usr/bin/systemctl suspend"
-    XF86Eject

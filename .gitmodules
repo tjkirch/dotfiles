@@ -106,3 +106,6 @@
 [submodule "dot.vim/bundle/command-t"]
 	path = dot.vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
+[submodule "dot.vim/bundle/qargs"]
+	path = dot.vim/bundle/qargs
+	url = git://github.com/nelstrom/vim-qargs.git

@@ -20,7 +20,7 @@ xrandr --output DVI-0 --primary --left-of DVI-1 --mode 1920x1080 --rotate right
 (sleep 1; dzconky) &
 my-redshift &
 
-mpd >.mpd.log 2>&1
+mpd >/home/tjkirch/.mpd/log 2>&1
 mpdscribble &
 
 exec i3

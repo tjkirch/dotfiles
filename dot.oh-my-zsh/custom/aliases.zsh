@@ -20,7 +20,7 @@ alias vlc="vlc -L"
 alias vlcr="vlc -Z"
 alias mplayer="mpv"
 alias randfile='find . -type f | sed -e "s/ /\\\\ /g" | sort -R | head -1'
-alias websync='rsync -ahiuzH --progress --delay-updates --exclude "wp-content/cache/*" --delete --delete-delay'
+alias websync='rsync -ahiuzH --progress --delay-updates --exclude "wp-content/cache/*" --exclude ".git" --delete --delete-delay'
 alias x='exec startx'
 alias tmux='tmux -2'
 

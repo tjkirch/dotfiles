@@ -46,7 +46,7 @@ alias view='vim -R'
 alias vie=view
 
 # A vim window ready with two diff panes
-alias vimp='vim -c "set paste | vnew | windo diffthis"'
+alias vimp='vim -c "set paste | vnew | windo diffthis | wincmd h"'
 
 alias as='aptitude search'
 alias ai='sudo aptitude install'

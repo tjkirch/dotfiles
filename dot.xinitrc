@@ -23,4 +23,6 @@ my-redshift &
 mpd >/home/tjkirch/.mpd/log 2>&1
 mpdscribble &
 
+urxvtd &
+
 exec i3

@@ -9,3 +9,12 @@ conf=.conf
 
 --type-set
 puppet=.pp
+
+--type-set
+spec=.spec
+
+--type-set
+pkginfo=.pkginfo
+
+--type-set
+ini=.ini

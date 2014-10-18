@@ -6,7 +6,6 @@ alias l.="ls -d .*"
 alias grep='grep --color=auto'
 alias egrep="egrep --color=auto"
 alias eg="egrep"
-alias ag='ack-grep'
 alias trace="tracepath"
 alias h="history"
 alias diff="diff -NurwBd"

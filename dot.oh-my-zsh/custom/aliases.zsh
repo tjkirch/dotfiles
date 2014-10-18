@@ -100,6 +100,7 @@ alias -g ND='*(/om[1])' # newest directory
 alias -g NF='*(.om[1])' # newest file
 
 autoload zmv
+autoload zcp
 alias mmv='noglob zmv -W'
 alias mcp='noglob zcp -W'
 alias mln='noglob zln -W'

@@ -42,3 +42,10 @@
 
 "dmenu_run"
     m:0x8 + c:55
+
+"exec i3lock -c 000000"
+    m:0x8 + m:0x4 + c:46
+
+# ctrl+alt+printscreen
+"exec i3lock -c 000000"
+    c:107

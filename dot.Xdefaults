@@ -57,3 +57,6 @@ urxvt*color7:         #bebebe
 urxvt*color15:        #FFFFFF
 
 urxvt*cursorColor:    #d8d8d8
+
+xterm*visualBell: true
+xterm*bellIsUrgent: true

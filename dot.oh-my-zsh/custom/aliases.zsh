@@ -43,6 +43,7 @@ alias dhcp='sudo dhcpcd -t 600 wlan0'
 alias ngserver='(export CLASSPATH=".:${CLASSPATH}" && cd ~/.vim/bundle/vimclojure/bin && nohup ./ng-server >/dev/null 2>&1) &'
 
 alias view='vim -R'
+alias vie=view
 
 # A vim window ready with two diff panes
 alias vimp='vim -c "set paste | vnew | windo diffthis"'

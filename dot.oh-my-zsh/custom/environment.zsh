@@ -20,4 +20,5 @@ export MANPATH="${HOME}/local/share/man:${MANPATH}"
 
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig/:/usr/local/share/pkgconfig"
 
+# Ruby stuff
 if [[ -s ${HOME}/.rvm/scripts/rvm ]] ; then source ${HOME}/.rvm/scripts/rvm ; fi

@@ -1,3 +1,5 @@
+# "exec" is used for potentially long-running commands
+
 "ncmpcpp toggle"
     XF86AudioPlay
 
@@ -25,10 +27,10 @@
 "sudo pm-suspend --auto-quirks"
     XF86Eject
 
-"firefox"
+"exec firefox"
     m:0x8 + c:41
 
-"chromium"
+"exec chromium-browser"
     m:0x8 + c:54
 
 "urxvt"

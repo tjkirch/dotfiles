@@ -109,3 +109,15 @@
 [submodule "dot.vim/bundle/qargs"]
 	path = dot.vim/bundle/qargs
 	url = git://github.com/nelstrom/vim-qargs.git
+[submodule "dot.vim/bundle/vim-python-pep8-indent"]
+	path = dot.vim/bundle/vim-python-pep8-indent
+	url = git://github.com/hynek/vim-python-pep8-indent.git
+[submodule "dot.vim/bundle/vim-dispatch"]
+	path = dot.vim/bundle/vim-dispatch
+	url = git://github.com/tpope/vim-dispatch.git
+[submodule "dot.vim/bundle/gitgutter"]
+	path = dot.vim/bundle/gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "dot.vim/bundle/vinegar"]
+	path = dot.vim/bundle/vinegar
+	url = https://github.com/tpope/vim-vinegar.git

@@ -79,6 +79,8 @@ bindsym $mod+control+8 workspace 18
 bindsym $mod+control+9 workspace 19
 bindsym $mod+control+0 workspace 20
 
+bindsym $mod+Tab workspace back_and_forth
+
 # move focused container to workspace
 bindsym $mod+Shift+exclam move workspace 1
 bindsym $mod+Shift+at move workspace 2

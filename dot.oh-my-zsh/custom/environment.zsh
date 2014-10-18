@@ -1,6 +1,8 @@
 # Let the OS figure most of it out
 source /etc/profile
 
+export REPORTTIME=5
+
 export CFLAGS="-march=native -pipe -O2"
 export CXXFLAGS="${CFLAGS}"
 

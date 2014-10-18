@@ -28,3 +28,6 @@ OPAM_INIT="/home/likewise-open/ANT/tjk/.opam/opam-init/init.zsh"
 if [ -r "${OPAM_INIT}" ]; then
    . ${OPAM_INIT} > /dev/null 2> /dev/null || true
 fi
+
+# For rust, and stuff in general
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${HOME}/local/lib"

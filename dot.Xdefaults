@@ -1,7 +1,10 @@
-urxvt*scrollTtyOutput:    false
-urxvt*scrollWithBuffer:   false
-urxvt*scrollTtyKeypress:  true
-urxvt*font:               xft:DejaVu Sans Mono:pixelsize=11
+!urxvt*font:               xft:DejaVu Sans Mono:pixelsize=11
+!urxvt.font:               xft:Anonymous Pro-10:antialias=false
+!urxvt.font:               xft:Anonymous Pro-11:antialias=false
+
+urxvt*font:               xft:Bitstream Vera Sans Mono:pixelsize=13
+urxvt*letterSpace:        -1
+
 urxvt.background:         black
 urxvt.foreground:         white
 urxvt*scrollBar:          true
@@ -11,7 +14,6 @@ urxvt*scrollColor:        #303030
 urxvt*termName:           xterm
 urxvt*saveLines:          99999
 urxvt*cutchars:           \ `"'&,;=?<>()[]{}|#%$!^@*:
-urxvt*letterSpace:        -1
 urxvt*urgentOnBell:       true
 
 urxvt.perl-ext-common:    default,matcher
@@ -20,10 +22,11 @@ urxvt*matcher.button:     1
 urxvt*urlLauncher:        firefox
 urxvt*url-launcher:       firefox
 
+urxvt*scrollTtyOutput:    false
+urxvt*scrollWithBuffer:   false
+urxvt*scrollTtyKeypress:  true
 urxvt.jumpScroll:         true
 urxvt.skipScroll:         true
-urxvt.scrollTtyOutput:    false
-urxvt.scrollTtyKeypress:  true
 
 urxvt*iso14755:           false
 

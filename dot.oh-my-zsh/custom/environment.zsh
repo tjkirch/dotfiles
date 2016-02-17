@@ -15,7 +15,7 @@ export BROWSER="firefox"
 
 export PAGER="less -FRX"
 
-export PATH="${HOME}/local/bin:${HOME}/.cabal/bin:${HOME}/.lein/bin:${HOME}/.rvm/bin:/usr/local/bin:${PATH}:/usr/sbin:/sbin"
+export PATH="${HOME}/local/bin:/usr/local/bin:${PATH}:/usr/sbin:/sbin"
 export MANPATH="${HOME}/local/share/man:${MANPATH}"
 
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig/:/usr/local/share/pkgconfig"

@@ -2,6 +2,7 @@ set cursorline
 set hidden
 set hlsearch
 set incsearch
+set list
 set modeline
 set nocompatible
 set nostartofline
@@ -17,6 +18,7 @@ set backspace=indent,eol,start
 set cpoptions-=aABces
 set history=10000
 set laststatus=2
+set listchars=tab:»·,trail:·
 set matchtime=0
 set numberwidth=1
 set report=0

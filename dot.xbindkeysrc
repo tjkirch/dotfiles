@@ -33,7 +33,7 @@
 "exec chromium-browser"
     m:0x8 + c:54
 
-"urxvtc"
+"exec urxvtc"
     m:0x8 + c:36
 
 # Backup if urxvtd crashes

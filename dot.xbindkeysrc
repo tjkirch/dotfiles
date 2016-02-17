@@ -40,9 +40,11 @@
 "exec urxvt"
     m:0x8 + m:0x1 + c:36
 
+# alt+v
 "dmenu_run"
     m:0x8 + c:55
 
+# ctrl+alt+l
 "exec i3lock -c 000000"
     m:0x8 + m:0x4 + c:46
 

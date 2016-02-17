@@ -22,3 +22,6 @@ export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig/:/usr/local/share/pkgconfig"
 
 # For rust, and stuff in general
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${HOME}/local/lib"
+
+# cabal, including shellcheck
+export PATH="${PATH}:${HOME}/.cabal/bin"

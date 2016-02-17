@@ -25,4 +25,6 @@ mpdscribble &
 
 urxvtd &
 
+set-trackball-speed
+
 exec i3

@@ -18,6 +18,7 @@ set backspace=indent,eol,start
 set cpoptions-=aABces
 set cryptmethod=blowfish2
 set diffopt=filler,iwhite,vertical
+set encoding=utf-8
 set history=10000
 set laststatus=2
 set listchars=tab:»·,trail:·

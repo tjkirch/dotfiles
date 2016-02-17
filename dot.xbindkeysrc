@@ -44,6 +44,10 @@
 "dmenu_run"
     m:0x8 + c:55
 
+# alt+p
+"exec paste-buffer"
+    m:0x8 + c:33
+
 # ctrl+alt+l
 "exec i3lock -c 000000"
     m:0x8 + m:0x4 + c:46

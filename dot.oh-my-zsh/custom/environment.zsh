@@ -20,14 +20,5 @@ export MANPATH="${HOME}/local/share/man:${MANPATH}"
 
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig/:/usr/local/share/pkgconfig"
 
-# Ruby stuff
-if [[ -s ${HOME}/.rvm/scripts/rvm ]] ; then source ${HOME}/.rvm/scripts/rvm ; fi
-
-# OPAM configuration
-OPAM_INIT="/home/likewise-open/ANT/tjk/.opam/opam-init/init.zsh"
-if [ -r "${OPAM_INIT}" ]; then
-   . ${OPAM_INIT} > /dev/null 2> /dev/null || true
-fi
-
 # For rust, and stuff in general
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${HOME}/local/lib"

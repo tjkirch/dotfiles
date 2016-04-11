@@ -20,8 +20,5 @@
    news = log -p HEAD@{1}..HEAD@{0}
 [merge]
 	tool = vimdiff
-[branch "master"]
-	remote = origin
-	merge = refs/heads/master
 [color]
 	ui = auto

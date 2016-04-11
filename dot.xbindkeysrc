@@ -1,17 +1,5 @@
 # "exec" is used for potentially long-running commands
 
-"ncmpcpp toggle"
-    XF86AudioPlay
-
-"ncmpcpp stop"
-    XF86AudioStop
-
-"ncmpcpp prev"
-    XF86AudioPrev
-
-"ncmpcpp next"
-    XF86AudioNext
-
 "pamixer --toggle-mute"
     XF86AudioMute
 

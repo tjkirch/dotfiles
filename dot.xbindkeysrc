@@ -1,27 +1,34 @@
 # "exec" is used for potentially long-running commands
 
+# ctrl+alt+shift+left
 "pamixer --toggle-mute"
-    XF86AudioMute
+    m:0xd + c:113
 
+# ctrl+alt+shift+down
 "pamixer --decrease 3"
-    XF86AudioLowerVolume
+    m:0xd + c:116
 
+# ctrl+alt+shift+up
 "pamixer --increase 3"
-    XF86AudioRaiseVolume
+    m:0xd + c:111
 
+# alt+shift+o
 "switch-pulse-output"
-    XF86Tools
+    m:0x9 + c:32
 
+# alt+shift+s
 "sudo pm-suspend --auto-quirks"
-    XF86Eject
+    m:0x9 + c:39
 
+# alt+f
 "exec firefox"
     m:0x8 + c:41
 
+# alt+enter
 "exec urxvtc"
     m:0x8 + c:36
 
-# Backup if urxvtd crashes
+# Backup if urxvtd crashes, alt+shift+enter
 "exec urxvt"
     m:0x8 + m:0x1 + c:36
 

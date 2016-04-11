@@ -124,3 +124,9 @@
 [submodule "dot.vim/bundle/vim-diff-enhanced"]
 	path = dot.vim/bundle/vim-diff-enhanced
 	url = https://github.com/chrisbra/vim-diff-enhanced.git
+[submodule "dot.vim/bundle/vim-racer"]
+	path = dot.vim/bundle/vim-racer
+	url = https://github.com/racer-rust/vim-racer.git
+[submodule "dot.vim/bundle/emmet-vim"]
+	path = dot.vim/bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git

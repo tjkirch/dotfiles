@@ -18,9 +18,6 @@
 "exec firefox"
     m:0x8 + c:41
 
-"exec chromium-browser"
-    m:0x8 + c:54
-
 "exec urxvtc"
     m:0x8 + c:36
 

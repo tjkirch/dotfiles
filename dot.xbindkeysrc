@@ -20,6 +20,9 @@
 "sudo pm-suspend --auto-quirks"
     m:0x9 + c:39
 
+"exec qutebrowser"
+    Alt + q
+
 # alt+f
 "exec firefox"
     m:0x8 + c:41

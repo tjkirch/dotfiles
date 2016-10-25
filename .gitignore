@@ -5,3 +5,5 @@ dot.vim/.netrwhist
 dot.vim/backup/%*
 dot.vim/backup/*.sw*
 dot.vim/backup/*.bak
+dot.vim/plugged/
+dot.oh-my-zsh/custom/keys.zsh

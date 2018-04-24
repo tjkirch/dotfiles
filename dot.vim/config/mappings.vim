@@ -54,4 +54,7 @@ nnoremap ZZ zz
 " Search, but not in comments...  (not perfect)
 nnoremap <Leader>/ /\v((^\|\s)#.*)@<!
 
+" place.vim - insert text without moving cursor
+nmap <Leader>a <Plug>(place-insert)
+nmap <Leader>b <Plug>(place-insert-multiple)
 

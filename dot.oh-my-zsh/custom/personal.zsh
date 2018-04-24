@@ -5,6 +5,7 @@ fortune -as
 export EDITOR="vim"
 set -o vi
 bindkey -v
+export KEYTIMEOUT=10
 
 # Default to incremental search
 bindkey '\e/' history-incremental-pattern-search-backward

@@ -21,6 +21,8 @@ my-redshift &
 
 urxvtd &
 
+parcellite &
+
 set-trackball-speed
 
 exec i3

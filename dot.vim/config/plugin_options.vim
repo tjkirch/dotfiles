@@ -7,6 +7,8 @@ if exists(":QfResizeWindows")
    nnoremap <silent> <c-w>= :wincmd =<cr>:QfResizeWindows<cr>
 endif
 
+let g:vim_search_pulse_mode = 'pattern'
+
 let g:ale_open_list = 1
 let g:ale_list_window_size = 5
 let g:ale_change_sign_column_color = 1

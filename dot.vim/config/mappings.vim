@@ -58,3 +58,4 @@ nnoremap <Leader>/ /\v((^\|\s)#.*)@<!
 nmap <Leader>a <Plug>(place-insert)
 nmap <Leader>b <Plug>(place-insert-multiple)
 
+nmap <Leader>r :RainbowLevelsToggle<CR>

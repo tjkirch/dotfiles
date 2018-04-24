@@ -1,3 +1,4 @@
+set breakindent
 set cursorline
 set hidden
 set hlsearch
@@ -15,13 +16,14 @@ set undofile
 set visualbell
 
 set backspace=indent,eol,start
+set completeopt=menuone,preview,longest
 set cpoptions-=aABces
 set cryptmethod=blowfish2
 set diffopt=filler,iwhite,vertical
 set encoding=utf-8
 set history=10000
 set laststatus=2
-set listchars=tab:»·,trail:·
+set listchars=tab:»·,trail:·,nbsp:·,extends:↲,precedes:↳
 set matchtime=0
 set numberwidth=1
 set report=0
@@ -29,11 +31,13 @@ set scrolloff=3
 set sidescroll=1
 set sidescrolloff=3
 set shortmess=at
+set showbreak=↘
 set switchbuf=useopen
 set tags=tags;/
+set wildignorecase
 set wildmode=list:longest
 set winwidth=83
 
 set backupdir=~/.vim/backup,/var/tmp,/tmp
-set directory=~/.vim/backup,/var/tmp,/tmp
-set undodir=~/.vim/backup,/var/tmp,/tmp
+set directory=~/.vim/swap,/var/tmp,/tmp
+set undodir=~/.vim/undo,/var/tmp,/tmp

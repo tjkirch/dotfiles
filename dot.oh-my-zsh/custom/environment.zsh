@@ -13,7 +13,8 @@ export CCACHE_DIR="${HOME}/.ccache/"
 
 export BROWSER="firefox"
 
-export PAGER="less -FRX"
+export LESS="--tabs=4 -RX"
+export PAGER="less ${LESS} -RX"
 
 export PATH="${HOME}/local/bin:/usr/local/bin:${PATH}:/usr/sbin:/sbin"
 export MANPATH="${HOME}/local/share/man:${MANPATH}"

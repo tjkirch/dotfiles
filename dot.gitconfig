@@ -7,7 +7,7 @@
    excludesfile = ~/.gitignore
 	autocrlf = input
 	editor = vim
-	pager = less -FRX
+	pager = less --tabs=4 -RX
 [alias]
    graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	glog = log --graph --abbrev-commit --decorate --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %C(cyan)%ce%Creset %C(green)(%cr)%Creset' --date=relative

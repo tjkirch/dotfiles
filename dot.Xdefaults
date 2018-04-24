@@ -31,7 +31,7 @@ urxvt*scrollTtyOutput:    false
 urxvt*scrollWithBuffer:   false
 urxvt*scrollTtyKeypress:  true
 urxvt.jumpScroll:         true
-urxvt.skipScroll:         true
+urxvt.skipScroll:         false
 
 urxvt*iso14755:           false
 

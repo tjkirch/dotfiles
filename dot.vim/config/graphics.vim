@@ -11,7 +11,6 @@ if has('gui_running')
    set guioptions-=L
    set guioptions-=r
 else
-   set t_Co=256
    let Tlist_Inc_Winwidth = 0
 end
 

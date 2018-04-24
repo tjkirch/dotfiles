@@ -76,3 +76,15 @@ mkmv () {
    shift
    mv -i $* $dir
 }
+
+# Thanks to http://sysadvent.blogspot.com/2017/12/day-18-awesome-command-line-fuzzy.html
+gitfind() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" \
+  | fzf --ansi --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git show --color=always %'" \
+             --bind "enter:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+FZF-EOF"
+}

@@ -1,3 +1,8 @@
+let g:lua_check_syntax = 0 " disable vim-lua-ftplugin checking
+let g:lua_complete_omni = 1
+let g:lua_internal = 0
+let g:lua_complete_dynamic = 0
+
 let g:ale_open_list = 1
 let g:ale_list_window_size = 5
 let g:ale_change_sign_column_color = 1

@@ -22,7 +22,7 @@ urxvt*scrollBar:          true
 urxvt*scrollBar_floating: true
 urxvt*scrollBar_right:    true
 urxvt*scrollColor:        #303030
-urxvt*termName:           xterm
+urxvt*termName:           xterm-256color
 urxvt*saveLines:          99999
 urxvt*cutchars:           \ `"'&,;=?<>()[]{}|#%$!^@*:
 urxvt*urgentOnBell:       true

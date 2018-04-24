@@ -8,10 +8,9 @@ bindkey -v
 export KEYTIMEOUT=10
 
 # Default to incremental search
-bindkey '\e/' history-incremental-pattern-search-backward
-bindkey '^n' history-incremental-pattern-search-backward
-bindkey '^p' history-incremental-pattern-search-backward
-bindkey '\e?' vi-history-search-backward
+bindkey '^r' history-incremental-search-backward
+
+source "/home/local/ANT/tjk/local/src/fzf/shell/key-bindings.zsh"
 
 setopt nobeep extendedglob
 

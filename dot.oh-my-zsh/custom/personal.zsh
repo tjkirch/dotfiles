@@ -1,3 +1,5 @@
+[ -r .ssh/environment-$(hostname) ] && source .ssh/environment-$(hostname) && echo
+
 fortune -as
 
 export EDITOR="vim"

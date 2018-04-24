@@ -4,6 +4,7 @@ zstyle ':completion:*' ignore-parents parent pwd
 zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' list-suffixes true
 zstyle ':completion:*:*:*:*:*' menu no no-select
+zstyle ':completion:*' special-dirs false
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' verbose true
 

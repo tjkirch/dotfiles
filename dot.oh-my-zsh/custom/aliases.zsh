@@ -107,3 +107,6 @@ autoload zcp
 alias mmv='noglob zmv -W'
 alias mcp='noglob zcp -W'
 alias mln='noglob zln -W'
+
+[ -r ${HOME}/local/src/shell-directory-management/quick-directory-aliases.sh ] \
+&& . ${HOME}/local/src/shell-directory-management/quick-directory-aliases.sh

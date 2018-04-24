@@ -16,3 +16,6 @@ let g:ale_lint_on_text_changed = 0
 
 let g:ale_linters = {'rust': ['cargo']}
 let g:ale_rust_cargo_check_all_targets = 1
+
+let g:racer_cmd = "/home/local/ANT/tjk/.cargo/bin/racer"
+let g:racer_experimental_completer = 1

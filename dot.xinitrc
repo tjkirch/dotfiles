@@ -19,8 +19,6 @@ xrandr --output DVI-0 --primary --left-of DVI-1 --mode 1920x1080 --rotate right
 
 my-redshift &
 
-urxvtd &
-
 parcellite &
 
 set-trackball-speed

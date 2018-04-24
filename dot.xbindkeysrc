@@ -21,32 +21,30 @@
     m:0x9 + c:39
 
 "exec qutebrowser"
-    Alt + q
+    Mod4 + q
 
-# alt+f
 "exec firefox"
-    m:0x8 + c:41
+    Mod4 + f
 
-# alt+enter
 "exec urxvtc"
-    m:0x8 + c:36
+    Mod4 + Return
 
-# Backup if urxvtd crashes, alt+shift+enter
-"exec urxvt"
-    m:0x8 + m:0x1 + c:36
+# Backup if urxvtd crashes
+"exec urxvt -e bash"
+    Shift+Mod4 + Return
 
 # alt+v
 "dmenu_run"
-    m:0x8 + c:55
+    Mod4 + v
 
 # alt+p
 "exec paste-buffer"
-    m:0x8 + c:33
+    Mod4 + p
 
 # ctrl+alt+l
 "exec i3lock -c 000000"
-    m:0x8 + m:0x4 + c:46
+    Control+Alt + l
 
 # ctrl+alt+printscreen
 "exec i3lock -c 000000"
-    c:107
+    Print

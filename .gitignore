@@ -6,4 +6,6 @@ dot.vim/backup/%*
 dot.vim/backup/*.sw*
 dot.vim/backup/*.bak
 dot.vim/plugged/
+dot.vim/undo/
+dot.vim/swap/
 dot.oh-my-zsh/custom/keys.zsh

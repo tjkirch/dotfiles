@@ -17,6 +17,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'xtal8/traces.vim'
 Plug 'SirVer/ultisnips'
 Plug 'runoshun/vim-alloy'
+Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'wagnerf42/vim-clippy', { 'for': 'rust' }
 Plug 'tpope/vim-endwise'
 Plug 'int3/vim-extradite'

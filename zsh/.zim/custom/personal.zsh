@@ -10,7 +10,8 @@ export KEYTIMEOUT=10
 # Default to incremental search
 bindkey '^r' history-incremental-search-backward
 
-source "/home/local/ANT/tjk/local/src/fzf/shell/key-bindings.zsh"
+[ -r "${HOME}/local/src/fzf/shell/key-bindings.zsh" ] \
+&& . "${HOME}/local/src/fzf/shell/key-bindings.zsh"
 
 HISTFILE="${ZDOTDIR:-${HOME}}/.zsh_history"
 export HISTSIZE=11000000

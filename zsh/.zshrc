@@ -11,7 +11,7 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 if [[ -s ${ZIM_HOME}/init.zsh ]]; then
    source ${ZIM_HOME}/init.zsh
 
-   for file in ${ZIM_HOME}/custom/*.zsh; do
-      [ -r "${file}" ] && . ${file}
+   for zimdotfile in ${ZIM_HOME}/custom/*.zsh; do
+      [ -r "${zimdotfile}" ] && . ${zimdotfile}
    done
 fi

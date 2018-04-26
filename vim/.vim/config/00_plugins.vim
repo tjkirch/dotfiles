@@ -5,6 +5,7 @@ Plug 'rhysd/committia.vim'
 Plug 'godlygeek/csapprox'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml'] }
 Plug 'brooth/far.vim'
+Plug 'junkblocker/patchreview-vim'
 Plug 'joereynolds/place.vim'
 Plug 'vim-scripts/python_match.vim', { 'for': 'python' }
 Plug 'mechatroner/rainbow_csv', { 'for': 'csv' }

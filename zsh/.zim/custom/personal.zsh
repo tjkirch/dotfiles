@@ -10,8 +10,13 @@ export KEYTIMEOUT=10
 # Default to incremental search
 bindkey '^r' history-incremental-search-backward
 
-[ -r "${HOME}/local/src/fzf/shell/key-bindings.zsh" ] \
-&& . "${HOME}/local/src/fzf/shell/key-bindings.zsh"
+# Local build of fzf
+if [ -r "${HOME}/local/src/fzf/shell/key-bindings.zsh" ]; then
+   . "${HOME}/local/src/fzf/shell/key-bindings.zsh"
+# Mac via Homebrew
+elif [ -r "/usr/local/opt/fzf/shell/key-bindings.zsh" ]; then
+   . "/usr/local/opt/fzf/shell/key-bindings.zsh"
+fi
 
 HISTFILE="${ZDOTDIR:-${HOME}}/.zsh_history"
 export HISTSIZE=11000000

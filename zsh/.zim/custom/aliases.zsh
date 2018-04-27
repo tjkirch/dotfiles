@@ -1,6 +1,13 @@
-alias ls='ls --color=auto'
 alias l='ls'
-alias ll='ls -ahlF --color=auto'
+
+if [ "$(uname -s)" = "Darwin" ]; then
+   alias ls='ls -G'
+   alias ll='ls -ahlFG'
+else
+   alias ls='ls --color=auto'
+   alias ll='ls -ahlF --color=auto'
+fi
+
 alias lsd="find . -mindepth 1 -maxdepth 1 -type d"
 alias l.="ls -d .*"
 alias grep='grep --color=auto'
@@ -48,20 +55,17 @@ alias vie=view
 # A vim window ready with two diff panes
 alias vimp='vim -c "set paste | vnew | windo diffthis | wincmd h"'
 
-alias as='aptitude search'
-alias ai='sudo aptitude install'
-alias ais='aptitude install -s'
-alias yl='yum list'
-alias yin='yum info'
-alias yi='sudo yum install'
-alias update='sudo cave sync && cave search ignoreme >/dev/null 2>&1 &'
-alias upgrade='cave resolve --recommendations display -C if-satisfied -c world'
-alias upgrade-real='sudo nice cave resolve -x --recommendations display -C if-satisfied -c world'
-alias pq='paludis --query'
-alias mypackages="find -L /var/db/paludis/repositories/installed/indices/packages/ -type d -exec grep -l tjkirch {}/REPOSITORY  \; 2>/dev/null | sed -e 's/.*packages\///' -e 's/:C.*//'"
-alias allpackages="ls /var/db/paludis/repositories/installed/data/ | sed -e 's/---/\//'"
-alias full-upgrade='allpackages | xargs cave resolve --keep-targets if-same'
-alias full-upgrade-real='allpackages | xargs sudo cave resolve -1x --keep-targets if-same'
+if [ "$(uname -s)" = "Darwin" ]; then
+   alias upd='echo "brew update:"; brew update && echo -e "\nbrew outdated:" && brew outdated'
+   alias upg='echo "brew upgrade:" && brew upgrade && echo -e "\nbrew cleanup:" && brew cleanup'
+else
+   alias as='aptitude search'
+   alias ai='sudo aptitude install'
+   alias ais='aptitude install -s'
+   alias yl='yum list'
+   alias yin='yum info'
+   alias yi='sudo yum install'
+fi
 
 alias gs='git status'
 alias ga='git add'

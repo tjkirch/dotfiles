@@ -92,6 +92,9 @@ alias ss="svn status"
 alias sup="svn update"
 alias cup="cvs -z5 update"
 
+alias cb='cargo build'
+alias cbr='cargo build --release'
+
 alias -g L=' | less'
 alias -g G=' | egrep'
 alias -g V=' | vim'

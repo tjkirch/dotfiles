@@ -1,7 +1,7 @@
 [theme]
 name = "plain"
 [theme.overrides]
-idle_fg = "#eeeeee"
+idle_fg = "#dddddd"
 
 [[block]]
 block = "sound"

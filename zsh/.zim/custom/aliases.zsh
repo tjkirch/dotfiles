@@ -94,6 +94,7 @@ alias cup="cvs -z5 update"
 
 alias cb='cargo build'
 alias cbr='cargo build --release'
+alias ct='cargo test'
 
 alias -g L=' | less'
 alias -g G=' | egrep'

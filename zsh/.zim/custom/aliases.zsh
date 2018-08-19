@@ -65,7 +65,22 @@ else
    alias yl='yum list'
    alias yin='yum info'
    alias yi='sudo yum install'
+   alias xupdate='sudo snapper create --command "xbps-install -Su" -d "system update"'
+   alias xclean='sudo xbps-remove -O'
+   alias xorphans='sudo snapper create --command "xbps-remove -o" -d "orphan cleanup"'
+   alias xlist='xbps-query -l'
+   alias xfiles='xbps-query -f'
+   alias xrfiles='xbps-query -R -f'
+   alias xsearch='xbps-query -Rs'
+   alias xshow='xbps-query -RS'
 fi
+
+xinstall() {
+   sudo snapper create --command "xbps-install -S $*" -d "package install"
+}
+xremove() {
+   sudo snapper create --command "xbps-remove -R $*" -d "package removal"
+}
 
 alias gs='git status'
 alias ga='git add'

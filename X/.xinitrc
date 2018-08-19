@@ -14,8 +14,6 @@ urxvtd -q -f -o
 xbindkeys
 xmodmap "${HOME}/.xmodmap"
 
-~/.dropbox-dist/dropboxd &
-
 xrandr --output DVI-0 --primary --left-of DVI-1 --mode 1920x1080 --rotate right
 
 my-redshift &

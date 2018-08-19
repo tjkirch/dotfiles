@@ -16,6 +16,9 @@ if [ -r "${HOME}/local/src/fzf/shell/key-bindings.zsh" ]; then
 # Mac via Homebrew
 elif [ -r "/usr/local/opt/fzf/shell/key-bindings.zsh" ]; then
    . "/usr/local/opt/fzf/shell/key-bindings.zsh"
+# Linux system install
+elif [ -r "/usr/share/doc/fzf/key-bindings.zsh" ]; then
+   . "/usr/share/doc/fzf/key-bindings.zsh"
 fi
 
 HISTFILE="${ZDOTDIR:-${HOME}}/.zsh_history"

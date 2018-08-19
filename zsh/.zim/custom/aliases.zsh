@@ -107,9 +107,11 @@ alias ss="svn status"
 alias sup="svn update"
 alias cup="cvs -z5 update"
 
-alias cb='cargo build'
+alias cbd='cargo build'
 alias cbr='cargo build --release'
 alias ct='cargo test'
+alias crd='cargo run'
+alias crr='cargo run --release'
 
 alias -g ND='*(/om[1])' # newest directory
 alias -g NF='*(.om[1])' # newest file

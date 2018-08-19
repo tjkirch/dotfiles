@@ -3,6 +3,7 @@
 # Source scripts in /etc/X11/xinit/xinitrc.d/
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
     for f in /etc/X11/xinit/xinitrc.d/*; do
+        # shellcheck disable=SC1090
         [ -x "$f" ] && . "$f"
     done
     unset f
@@ -11,7 +12,7 @@ fi
 urxvtd -q -f -o
 
 xbindkeys
-xmodmap ~/.xmodmap
+xmodmap "${HOME}/.xmodmap"
 
 ~/.dropbox-dist/dropboxd &
 

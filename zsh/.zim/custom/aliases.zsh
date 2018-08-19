@@ -96,17 +96,6 @@ alias cb='cargo build'
 alias cbr='cargo build --release'
 alias ct='cargo test'
 
-alias -g L=' | less'
-alias -g G=' | egrep'
-alias -g V=' | vim'
-alias -g W=' | wc'
-alias -g C=' | wc -l'
-alias -g A=' | awk'
-alias -g S=' | sort'
-alias -g X=' | xargs'
-alias -g H=' | head'
-alias -g T=' | tail'
-alias -g U=' | uniq'
 alias -g ND='*(/om[1])' # newest directory
 alias -g NF='*(.om[1])' # newest file
 

@@ -1,0 +1,2 @@
+# Allow network group to control kill switch for network
+KERNEL=="rfkill", GROUP="network", MODE="0664"

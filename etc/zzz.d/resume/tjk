@@ -1,0 +1,3 @@
+#!/bin/sh
+
+su tjk -c "env DISPLAY=:0.0 xmodmap /home/tjk/.xmodmap"

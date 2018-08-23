@@ -8,6 +8,10 @@ else
    alias ll='ls -ahlF --color=auto'
 fi
 
+alias e='exa --time-style=iso'
+alias el='exa -l --time-style=iso'
+alias et='exa -l --time-style=iso --tree'
+
 alias lsd="find . -mindepth 1 -maxdepth 1 -type d"
 alias l.="ls -d .*"
 alias grep='grep --color=auto'

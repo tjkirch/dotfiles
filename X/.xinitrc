@@ -14,12 +14,17 @@ urxvtd -q -f -o
 xbindkeys
 xmodmap "${HOME}/.xmodmap"
 
-xrandr --output DVI-0 --primary --left-of DVI-1 --mode 1920x1080 --rotate right
+xautolock -time 10 -locker 'i3lock -c 000000' -notify 15 -notifier "notify-send locking" &
+xss-lock -- i3lock -n -c 000000 &
 
 my-redshift &
 
+# copy/paste manager
 parcellite &
 
 set-trackball-speed
+
+# mute mic by default
+amixer set Capture nocap
 
 exec i3

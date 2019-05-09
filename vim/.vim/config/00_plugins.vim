@@ -35,12 +35,14 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'tpope/vim-repeat'
+Plug 'zirrostig/vim-schlepp'
 Plug 'inside/vim-search-pulse'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'alcesleo/vim-uppercase-sql', { 'for': 'sql' }
 Plug 'tpope/vim-vinegar'
+Plug 'gcmt/wildfire.vim'
 
 " color schemes
 Plug 'vim-scripts/camo.vim'

@@ -4,7 +4,19 @@ name = "plain"
 idle_fg = "#dddddd"
 
 [[block]]
-block = "sound"
+block = "custom"
+command = "volume"
+interval = 2
+
+[[block]]
+block = "custom"
+command = "mic-volume"
+interval = 2
+
+[[block]]
+block = "custom"
+command = "pulse-output"
+interval = 2
 
 [[block]]
 block = "disk_space"

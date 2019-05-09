@@ -3,7 +3,7 @@ source /etc/profile
 
 export REPORTTIME=5
 
-export CFLAGS="-march=native -pipe -O2"
+export CFLAGS="-march=native -mtune=native -pipe -O2"
 export CXXFLAGS="${CFLAGS}"
 
 export HISTSIZE=10000000

@@ -59,3 +59,11 @@ nmap <Leader>a <Plug>(place-insert)
 nmap <Leader>b <Plug>(place-insert-multiple)
 
 nmap <Leader>r :RainbowLevelsToggle<CR>
+
+nmap <leader>s <Plug>(wildfire-quick-select)
+
+vmap <unique> <up>    <Plug>SchleppUp
+vmap <unique> <down>  <Plug>SchleppDown
+vmap <unique> <left>  <Plug>SchleppLeft
+vmap <unique> <right> <Plug>SchleppRight
+vmap <unique> i <Plug>SchleppToggleReindent

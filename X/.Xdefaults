@@ -13,6 +13,9 @@
 urxvt*font:               xft:Inconsolata:pixelsize=15,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 urxvt*letterSpace:        -1
 
+URxvt.inputMethod: ibus
+URxvt.preeditType: OverTheSpot
+
 Xft.antialias: 1
 Xft.autohint: 0
 

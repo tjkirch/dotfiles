@@ -10,7 +10,7 @@ fi
 
 alias e='exa --time-style=iso --git-ignore'
 alias el='exa -l --time-style=iso --git-ignore'
-alias et='exa -l --time-style=iso --git-ignore --tree'
+alias et='exa -l --time-style=iso --git-ignore --tree -I target'
 
 alias lsd="find . -mindepth 1 -maxdepth 1 -type d"
 alias l.="ls -d .*"

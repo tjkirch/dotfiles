@@ -1,8 +1,7 @@
 # "exec" is used for potentially long-running commands
 
-# ctrl+alt+shift+left
-"pamixer --toggle-mute"
-    m:0xd + c:113
+"${HOME}/local/bin/speaker-toggle"
+    XF86AudioMute
 
 # ctrl+alt+shift+down
 "pamixer --decrease 3"
@@ -12,16 +11,23 @@
 "pamixer --increase 3"
     m:0xd + c:111
 
-# alt+shift+o
+"${HOME}/local/bin/mic-toggle"
+   XF86AudioMicMute
+
 "switch-pulse-output"
-    m:0x9 + c:32
+   Shift+Mod1 + o
 
-# alt+shift+s
-"sudo pm-suspend --auto-quirks"
-    m:0x9 + c:39
+"xbacklight -inc 5"
+   XF86MonBrightnessUp
 
-"exec qutebrowser"
-    Mod4 + q
+"xbacklight -dec 5"
+   XF86MonBrightnessDown
+
+"${HOME}/local/bin/wlan-toggle"
+   XF86WLAN
+
+"/usr/bin/sudo /usr/local/bin/suspend"
+    Control+Alt + s
 
 "exec firefox"
     Mod4 + f

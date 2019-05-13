@@ -14,8 +14,20 @@ let g:ale_list_window_size = 5
 let g:ale_change_sign_column_color = 1
 let g:ale_lint_on_text_changed = 0
 
-let g:ale_linters = {'rust': ['cargo']}
+let g:ale_linters = {'python': ['flake8'], 'rust': ['cargo']}
 let g:ale_rust_cargo_check_all_targets = 1
+"""let g:ale_linters = {'python': ['flake8'], 'rust': ['rls']}
+"""let g:ale_rust_rls_toolchain = 'stable'
+"""let g:ale_rust_rls_config = {
+"""   \   'rust': {
+"""   \     'clippy_preference': 'on'
+"""   \   }
+"""   \ }
+
+let g:ale_fixers = { 'rust': ['rustfmt'] }
+
+let g:ale_completion_enabled = 1
+let g:ale_set_balloons = 1
 
 let g:racer_cmd = $HOME."/.cargo/bin/racer"
 let g:racer_experimental_completer = 1

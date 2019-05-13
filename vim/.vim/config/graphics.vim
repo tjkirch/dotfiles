@@ -15,3 +15,6 @@ else
 end
 
 colorscheme jellybeans
+
+"""set mouse=a
+"""set ttymouse=urxvt

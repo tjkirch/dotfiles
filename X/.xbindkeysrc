@@ -15,7 +15,7 @@
    XF86AudioMicMute
 
 "switch-pulse-output"
-   Shift+Mod1 + o
+   Shift+Mod4 + o
 
 "xbacklight -inc 5"
    XF86MonBrightnessUp

@@ -8,6 +8,8 @@ else
    alias ll='ls -ahlF --color=auto'
 fi
 
+alias ok='test $? -eq 0'
+
 alias e='exa --time-style=iso --git-ignore'
 alias el='exa -l --time-style=iso --git-ignore'
 alias et='exa -l --time-style=iso --git-ignore --tree -I target'

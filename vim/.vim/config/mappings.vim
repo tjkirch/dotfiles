@@ -55,8 +55,8 @@ nnoremap ZZ zz
 nnoremap <Leader>/ /\v((^\|\s)#.*)@<!
 
 " place.vim - insert text without moving cursor
-nmap <Leader>a <Plug>(place-insert)
-nmap <Leader>b <Plug>(place-insert-multiple)
+"nmap <Leader>a <Plug>(place-insert)
+"nmap <Leader>b <Plug>(place-insert-multiple)
 
 nmap <Leader>r :RainbowLevelsToggle<CR>
 
@@ -67,3 +67,27 @@ vmap <unique> <down>  <Plug>SchleppDown
 vmap <unique> <left>  <Plug>SchleppLeft
 vmap <unique> <right> <Plug>SchleppRight
 vmap <unique> i <Plug>SchleppToggleReindent
+
+let g:windowswap_map_keys = 0 "prevent default bindings
+"nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
+"nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> <leader>w :call WindowSwap#EasyWindowSwap()<CR>
+
+" Open directory of current file
+nmap <leader>d :e %:h<cr>
+" ... or make it
+nmap <leader>D :!mkdir -p %:h<cr>
+
+nmap <Leader>ad :ALEGoToDefinition<CR>
+nmap <Leader>ar :ALEFindReferences<CR>
+nmap <Leader>as :ALESymbolSearch <C-R><C-W><CR>
+nmap <Leader>ah :ALEHover<CR>
+nmap <Leader>af :ALEFix<CR>
+
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
+let g:git_messenger_no_default_mappings = v:true
+nmap <Leader>h :GitMessenger<CR>

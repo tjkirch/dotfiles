@@ -11,7 +11,9 @@ export KEYTIMEOUT=10
 bindkey '^r' history-incremental-search-backward
 
 # Local build of fzf
-if [ -r "${HOME}/local/src/fzf/shell/key-bindings.zsh" ]; then
+if [ -r "${HOME}/.fzf.zsh" ]; then
+   . "${HOME}/.fzf.zsh"
+elif [ -r "${HOME}/local/src/fzf/shell/key-bindings.zsh" ]; then
    . "${HOME}/local/src/fzf/shell/key-bindings.zsh"
 # Mac via Homebrew
 elif [ -r "/usr/local/opt/fzf/shell/key-bindings.zsh" ]; then

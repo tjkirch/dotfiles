@@ -33,7 +33,7 @@ export RUST_SRC_PATH="${HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu
 
 # fzf fuzzy finder
 export PATH="${PATH}:${HOME}/local/src/fzf/bin"
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2>/dev/null'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules,backup}/*" 2>/dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # exa

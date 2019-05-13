@@ -37,7 +37,7 @@ urxvt*urlLauncher:        firefox
 urxvt*url-launcher:       firefox
 
 urxvt*scrollTtyOutput:    false
-urxvt*scrollWithBuffer:   false
+urxvt*scrollWithBuffer:   true
 urxvt*scrollTtyKeypress:  true
 urxvt.jumpScroll:         true
 urxvt.skipScroll:         false

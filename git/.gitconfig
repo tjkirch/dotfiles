@@ -27,6 +27,6 @@
 	default = simple
 [diff]
 	algorithm = patience
-	colorMoved = dimmed_zebra
+   #colorMoved = dimmed_zebra
 [difftool]
 	prompt = false

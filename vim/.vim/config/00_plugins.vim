@@ -3,8 +3,11 @@ Plug 'w0rp/ale'
 Plug 'wincent/command-t'
 Plug 'rhysd/committia.vim'
 Plug 'godlygeek/csapprox'
+Plug 'AndrewRadev/discotheque.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml'] }
 Plug 'brooth/far.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'rhysd/git-messenger.vim'
 Plug 'junkblocker/patchreview-vim'
 Plug 'joereynolds/place.vim'
 Plug 'vim-scripts/python_match.vim', { 'for': 'python' }
@@ -16,20 +19,24 @@ Plug 'gorkunov/smartpairs.vim'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'xtal8/traces.vim'
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 Plug 'runoshun/vim-alloy'
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'wagnerf42/vim-clippy', { 'for': 'rust' }
+"Plug 'wagnerf42/vim-clippy', { 'for': 'rust' }
 Plug 'tpope/vim-endwise'
 Plug 'int3/vim-extradite'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'jparise/vim-graphql', { 'for': 'graphql' }
 Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 Plug 'reedes/vim-litecorrect'
 Plug 'xolox/vim-lua-ftplugin', { 'for': 'lua' }
    Plug 'xolox/vim-misc', { 'for': 'lua' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+"Plug 'tckmn/vim-minisnip'
+Plug 'joereynolds/vim-minisnip'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'LnL7/vim-nix', { 'for': 'nix' }
 Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
@@ -39,10 +46,12 @@ Plug 'zirrostig/vim-schlepp'
 Plug 'inside/vim-search-pulse'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'tpope/vim-unimpaired'
 Plug 'alcesleo/vim-uppercase-sql', { 'for': 'sql' }
 Plug 'tpope/vim-vinegar'
 Plug 'gcmt/wildfire.vim'
+Plug 'wesQ3/vim-windowswap'
 
 " color schemes
 Plug 'vim-scripts/camo.vim'

@@ -3,6 +3,7 @@ Plug 'w0rp/ale'
 Plug 'wincent/command-t'
 Plug 'rhysd/committia.vim'
 Plug 'godlygeek/csapprox'
+Plug 'whiteinge/diffconflicts'
 Plug 'AndrewRadev/discotheque.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml'] }
 Plug 'brooth/far.vim'

@@ -26,7 +26,9 @@ let g:ale_rust_cargo_check_all_targets = 1
 
 let g:ale_fixers = { 'rust': ['rustfmt'] }
 
-let g:ale_completion_enabled = 1
+" Stopped using LSP
+"let g:ale_completion_enabled = 1
+
 let g:ale_set_balloons = 1
 
 let g:racer_cmd = $HOME."/.cargo/bin/racer"

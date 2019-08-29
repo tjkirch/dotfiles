@@ -91,3 +91,5 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 let g:git_messenger_no_default_mappings = v:true
 nmap <Leader>h :GitMessenger<CR>
+
+nnoremap Y y$

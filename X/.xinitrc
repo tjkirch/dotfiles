@@ -22,6 +22,8 @@ my-redshift &
 # copy/paste manager
 parcellite &
 
+workrave &
+
 set-trackball-speed
 
 # mute mic by default

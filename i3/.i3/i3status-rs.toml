@@ -55,6 +55,7 @@ interval = 5
 [[block]]
 block = "cpu"
 interval = 5
+format = "{utilization}% {frequency}GHz"
 
 [[block]]
 block = "temperature"

@@ -1,22 +1,22 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export BROWSER:firefox
-SETUVAR CFLAGS:\x2dmarch\x3dnative\x20\x2dmtune\x3dnative\x20\x2dpipe\x20\x2dO2
-SETUVAR CXXFLAGS:\x2dmarch\x3dnative\x20\x2dmtune\x3dnative\x20\x2dpipe\x20\x2dO2
+SETUVAR --export CFLAGS:\x2dmarch\x3dnative\x20\x2dmtune\x3dnative\x20\x2dpipe\x20\x2dO2
+SETUVAR --export CXXFLAGS:\x2dmarch\x3dnative\x20\x2dmtune\x3dnative\x20\x2dpipe\x20\x2dO2
 SETUVAR --export EDITOR:vim
-SETUVAR FZF_ALT_C_OPTS:\x2d\x2dpreview\x20\x27exa\x20\x2d\x2dgit\x2dignore\x20\x2d\x2dtree\x20\x2dI\x20target\x20\x7b\x7d\x20\x7c\x20head\x20\x2d200\x27
-SETUVAR FZF_CTRL_T_COMMAND:rg\x20\x2d\x2dfiles\x20\x2d\x2dno\x2dignore\x20\x2d\x2dhidden\x20\x2d\x2dfollow\x20\x2dg\x20\x22\x21\x7b\x2egit\x2cnode_modules\x2cbackup\x7d/\x2a\x22\x202\x3e/dev/null
-SETUVAR FZF_CTRL_T_OPTS:\x2d\x2dpreview\x20\x27\x28highlight\x20\x2dO\x20ansi\x20\x2dl\x20\x7b\x7d\x202\x3e\x20/dev/null\x20\x7c\x7c\x20cat\x20\x7b\x7d\x20\x7c\x7c\x20tree\x20\x2dC\x20\x7b\x7d\x29\x202\x3e\x20/dev/null\x20\x7c\x20head\x20\x2d200\x27
-SETUVAR FZF_DEFAULT_COMMAND:rg\x20\x2d\x2dfiles\x20\x2d\x2dno\x2dignore\x20\x2d\x2dhidden\x20\x2d\x2dfollow\x20\x2dg\x20\x22\x21\x7b\x2egit\x2cnode_modules\x2cbackup\x7d/\x2a\x22\x202\x3e/dev/null
+SETUVAR --export FZF_ALT_C_OPTS:\x2d\x2dpreview\x20\x27exa\x20\x2d\x2dgit\x2dignore\x20\x2d\x2dtree\x20\x2dI\x20target\x20\x7b\x7d\x20\x7c\x20head\x20\x2d200\x27
+SETUVAR --export FZF_CTRL_T_COMMAND:rg\x20\x2d\x2dfiles\x20\x2d\x2dno\x2dignore\x20\x2d\x2dhidden\x20\x2d\x2dfollow\x20\x2dg\x20\x22\x21\x7b\x2egit\x2cnode_modules\x2cbackup\x7d/\x2a\x22\x202\x3e/dev/null
+SETUVAR --export FZF_CTRL_T_OPTS:\x2d\x2dpreview\x20\x27\x28highlight\x20\x2dO\x20ansi\x20\x2dl\x20\x7b\x7d\x202\x3e\x20/dev/null\x20\x7c\x7c\x20cat\x20\x7b\x7d\x20\x7c\x7c\x20tree\x20\x2dC\x20\x7b\x7d\x29\x202\x3e\x20/dev/null\x20\x7c\x20head\x20\x2d200\x27
+SETUVAR --export FZF_DEFAULT_COMMAND:rg\x20\x2d\x2dfiles\x20\x2d\x2dno\x2dignore\x20\x2d\x2dhidden\x20\x2d\x2dfollow\x20\x2dg\x20\x22\x21\x7b\x2egit\x2cnode_modules\x2cbackup\x7d/\x2a\x22\x202\x3e/dev/null
 SETUVAR --export LANG:en_US\x2eUTF\x2d8
 SETUVAR --export LC_COLLATE:C
-SETUVAR --path LD_LIBRARY_PATH:/home/tjk/local/lib
-SETUVAR LESS:\x2d\x2dtabs\x3d4\x20\x2dRX
-SETUVAR --path MANPATH:/home/tjk/local/share/man\x1e/usr/local/share/man\x1e/usr/share/man
-SETUVAR PAGER:less\x20\x2d\x2dtabs\x3d4\x20\x2dRX\x20\x2dRX
-SETUVAR --path PKG_CONFIG_PATH:/usr/local/lib/pkgconfig\x1e/usr/local/share/pkgconfig
-SETUVAR --path RUST_SRC_PATH:/home/tjk/\x2erustup/toolchains/stable\x2dx86_64\x2dunknown\x2dlinux\x2dgnu/lib/rustlib/src/rust/src
-SETUVAR TIME_STYLE:iso
+SETUVAR --export --path LD_LIBRARY_PATH:/home/tjk/local/lib
+SETUVAR --export LESS:\x2d\x2dtabs\x3d4\x20\x2dRX
+SETUVAR --export --path MANPATH:/home/tjk/local/share/man\x1e/usr/local/share/man\x1e/usr/share/man
+SETUVAR --export PAGER:less\x20\x2d\x2dtabs\x3d4\x20\x2dRX\x20\x2dRX
+SETUVAR --export --path PKG_CONFIG_PATH:/usr/local/lib/pkgconfig\x1e/usr/local/share/pkgconfig
+SETUVAR --export --path RUST_SRC_PATH:/home/tjk/\x2erustup/toolchains/stable\x2dx86_64\x2dunknown\x2dlinux\x2dgnu/lib/rustlib/src/rust/src
+SETUVAR --export TIME_STYLE:iso
 SETUVAR __fish_initialized:3100
 SETUVAR fish_color_autosuggestion:969896
 SETUVAR fish_color_cancel:\x2dr

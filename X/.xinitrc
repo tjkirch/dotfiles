@@ -31,4 +31,6 @@ xset dpms 1200 1200 0
 # mute mic by default
 amixer set Capture nocap
 
+rm -f .ssh/environment-*
+
 exec i3

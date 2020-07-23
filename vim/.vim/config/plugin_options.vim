@@ -31,5 +31,9 @@ let g:ale_fixers = { 'rust': ['rustfmt'] }
 
 let g:ale_set_balloons = 1
 
+" Higher than 10 takes priority over other plugins without a setting,
+" which default to 10
+let g:ale_sign_priority = 11
+
 let g:racer_cmd = $HOME."/.cargo/bin/racer"
 let g:racer_experimental_completer = 1

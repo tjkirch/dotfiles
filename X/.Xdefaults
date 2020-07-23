@@ -1,17 +1,4 @@
-!urxvt*font:               xft:DejaVu Sans Mono:pixelsize=11
-
-!urxvt.font:               xft:Anonymous Pro-10:antialias=false
-
-!urxvt.font:               xft:Anonymous Pro-11:antialias=false
-
-!urxvt*font:               xft:DejaVu Sans Mono:pixelsize=13
-!urxvt*letterSpace:        -1
-
-!urxvt*font:               xft:IBM Plex Mono Condensed:pixelsize=12,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-!urxvt*letterSpace:        -4
-
-urxvt*font:               xft:Inconsolata:pixelsize=15,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-urxvt*letterSpace:        -1
+urxvt*font:               xft:Iosevka tjk:pixelsize=15,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 
 URxvt.inputMethod: ibus
 URxvt.preeditType: OverTheSpot

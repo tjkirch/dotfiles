@@ -15,6 +15,9 @@ for path in "$HOME/local/src/fzf/shell/key-bindings.fish" \
    end
 end
 
+# ctrl+backspace to delete previous word; ctrl+w is dirty
+bind -M insert \cH backward-kill-word
+
 # (event functions cannot be autoloaded, must be defined here)
 function _report_time -d "Reports runtime of long commands" --on-event fish_postexec
    if test "$CMD_DURATION" -gt 5000

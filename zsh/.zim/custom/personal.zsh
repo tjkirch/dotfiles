@@ -47,3 +47,5 @@ setopt NOTIFY
 
 # No screen flow control
 stty -ixon
+
+bindkey "^H" backward-delete-word

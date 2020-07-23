@@ -1,0 +1,49 @@
+# abcdefghijklmnopqrstuvwxyz
+# ABCDEFGHIJKLMNOPQRSTUVWXYZ
+# 0123456789
+# )!@#$%^&*(
+# ~/\'"-+{}|
+
+[buildPlans.iosevka-tjk]
+family = "Iosevka tjk"
+design = [
+   "sp-fixed",
+   "v-brace-straight",          # cv36
+   "v-capital-d-more-rounded",  # VXBH
+   "v-capital-g-toothless",     # cv92
+   "v-g-opendoublestorey",      # cv24
+   "v-i-hooky",                 # cv05
+   "v-l-italic",                # cv08
+   "v-nine-open-contour",       # cv97
+   "v-one-base",                # cv51
+   "v-q-tailed",                # VXBA
+   "v-r-serifed",               # cv86
+   "v-six-open-contour",        # VXAF
+   "v-y-straight-turn",         # VXBF
+]
+italic = [
+   "v-g-singlestorey",          # cv12
+   "v-i-italic",                # cv04
+   "v-r-top-serifed",           # cv87
+   "v-y-cursive",               # cv49
+]
+
+# Only build regular and bold weights.
+[buildPlans.iosevka-tjk.weights.regular]
+shape = 400
+menu  = 400
+css   = 400
+[buildPlans.iosevka-tjk.weights.bold]
+shape = 700
+menu  = 700
+css   = 700
+
+# Slightly expand the normal width, and don't build other widths.
+[buildPlans.iosevka-tjk.widths.normal]
+shape = 510
+menu  = 5
+css   = "normal"
+
+# Shorten the line height slightly.
+[buildPlans.iosevka-tjk.metric-override]
+leading = 1150  # default 1250

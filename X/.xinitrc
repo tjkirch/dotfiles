@@ -14,8 +14,7 @@ urxvtd -q -f -o
 xbindkeys
 xmodmap "${HOME}/.xmodmap"
 
-xautolock -time 10 -locker 'i3lock -c 000000' -notify 15 -notifier "notify-send locking" &
-xss-lock -- i3lock -n -c 000000 &
+screensaver &
 
 my-redshift &
 
@@ -25,6 +24,9 @@ parcellite &
 workrave &
 
 set-trackball-speed
+
+# enable DPMS
+xset dpms 1200 1200 0
 
 # mute mic by default
 amixer set Capture nocap

@@ -47,10 +47,8 @@
 "exec paste-buffer"
     Mod4 + p
 
-# ctrl+alt+l
-"exec i3lock -c 000000"
+"xset s activate"
     Control+Alt + l
 
-# ctrl+alt+printscreen
-"exec i3lock -c 000000"
+"xset s activate"
     Print

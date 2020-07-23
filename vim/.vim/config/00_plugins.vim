@@ -27,6 +27,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 "Plug 'wagnerf42/vim-clippy', { 'for': 'rust' }
 Plug 'tpope/vim-endwise'
 Plug 'int3/vim-extradite'
+Plug 'dag/vim-fish'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'jparise/vim-graphql', { 'for': 'graphql' }

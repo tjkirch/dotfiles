@@ -38,6 +38,7 @@ Plug 'xolox/vim-lua-ftplugin', { 'for': 'lua' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 "Plug 'tckmn/vim-minisnip'
 Plug 'joereynolds/vim-minisnip'
+Plug 'simnalamburt/vim-mundo'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'LnL7/vim-nix', { 'for': 'nix' }
 Plug 'rodjek/vim-puppet', { 'for': 'puppet' }

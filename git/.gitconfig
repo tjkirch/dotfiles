@@ -30,3 +30,5 @@
    #colorMoved = dimmed_zebra
 [difftool]
 	prompt = false
+[pull]
+	ff = only

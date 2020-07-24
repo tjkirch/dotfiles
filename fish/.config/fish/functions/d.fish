@@ -1,4 +1,15 @@
-# Defined in /tmp/fish.8Vtrc1/d.fish @ line 1
-function d --wraps='cdargs "$argv" && cd (cat "$HOME/.cdargsresult")' --description 'alias d cdargs "$argv" && cd (cat "$HOME/.cdargsresult")'
-  cdargs "$argv" && cd (cat "$HOME/.cdargsresult")
+# Defined in /tmp/fish.Cc05Ha/d.fish @ line 2
+function d --description 'Go to directory bookmark' --argument name
+   if test -z "$name" || test -n "$argv[2]"
+      echo "Usage: d [name from ~/.bookmarks]"
+      return 1
+   end
+
+   set -l dir (awk -v name=$name '$1==name {print $2}' ~/.bookmarks)
+   if test -z "$dir"
+      echo "$name is not in ~/.bookmarks" >&2
+      return 1
+   end
+
+   cd $dir
 end

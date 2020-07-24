@@ -1,4 +1,9 @@
-# Defined in /tmp/fish.5v8lMB/da.fish @ line 1
-function da --wraps='cdargs --add=":$argv:$PWD"' --description 'alias da cdargs --add=":$argv:$PWD"'
-  cdargs --add=":$argv:$PWD"
+# Defined in /tmp/fish.JDaqRH/da.fish @ line 1
+function da --description 'Add directory bookmark' --argument name
+   if test -z "$name" || test -n "$argv[2]"
+      echo "Usage: da [name for PWD]"
+      return 1
+   end
+
+   echo "$name $PWD" >> ~/.bookmarks
 end

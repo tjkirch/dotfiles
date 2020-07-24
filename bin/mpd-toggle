@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -z "$(ncmpcpp --now-playing)" ]; then
+   ncmpcpp play >/dev/null
+else
+   ncmpcpp stop >/dev/null
+fi

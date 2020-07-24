@@ -1,0 +1,25 @@
+#!/bin/bash -x
+
+XINPUT_ACCEL="-0.55"
+###XSET_ACCEL="2/1"
+
+# find the trackball's xinput ID
+trackball_id=$(xinput list --short \
+               | awk -v IGNORECASE=1 \
+                 '/trackball/ {for (i=1;i<=NF;i++) {split($i,x,"="); if (x[1]=="id") print x[2]}}'
+)
+
+# this property controls how fast the mouse cursor slows down when moving
+decel_property=$(xinput list-props "${trackball_id}" \
+                 | grep -F 'Accel Speed (' \
+                 | cut -d'(' -f2 | cut -d')' -f1
+)
+
+# set it
+xinput set-prop "${trackball_id}" "${decel_property}" ${XINPUT_ACCEL}
+
+# separately, set adaptive acceleration; max is doubling the speed
+### no longer does anything?
+###xset m "${XSET_ACCEL}" 0
+
+exit 0

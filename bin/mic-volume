@@ -1,0 +1,10 @@
+#!/bin/sh
+
+###MIC="Internal Mic Boost"
+MIC="Capture"
+
+echo -n "MIC "
+amixer get "$MIC" \
+   | awk '/Front Left:/ {print $NF}' \
+   | tr -dc 'a-zA-Z'
+echo

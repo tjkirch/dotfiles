@@ -1,0 +1,57 @@
+#!/bin/bash -ex
+
+# Needs to be run as root
+USER="${1:-tjk}"
+
+STAMP="$(date -Iseconds)"
+
+ROOT_BACKUP_SOURCE="/"
+ROOT_BACKUP_SNAPS="/.snapshots/backup"
+ROOT_BACKUP_MOUNT="/mnt/backup_root"
+ROOT_BACKUP_PREFIX="root"
+USER_BACKUP_SOURCE="/home/${USER}"
+USER_BACKUP_SNAPS="/home/${USER}/.snapshots/backup"
+USER_BACKUP_MOUNT="/mnt/backup_home_${USER}"
+USER_BACKUP_PREFIX="home"
+
+test -d "${ROOT_BACKUP_SOURCE}"
+test -d "${ROOT_BACKUP_SNAPS}"
+test -d "${USER_BACKUP_SOURCE}"
+test -d "${USER_BACKUP_SNAPS}"
+
+if ! grep -Fqw "${ROOT_BACKUP_MOUNT}" /proc/mounts || ! grep -Fqw "${USER_BACKUP_MOUNT}" /proc/mounts; then
+   echo "Need to mount backup drive:"
+   echo "   sudo mount /mnt/backup_root && sudo mount /mnt/backup_home_${USER}"
+   exit 1
+fi
+
+# shellcheck disable=SC2012
+LAST_ROOT_SNAP="$(ls -td ${ROOT_BACKUP_SNAPS}/${ROOT_BACKUP_PREFIX}-* | head -n1)"
+# shellcheck disable=SC2012 disable=SC2086
+LAST_USER_SNAP="$(ls -td ${USER_BACKUP_SNAPS}/${USER_BACKUP_PREFIX}-* | head -n1)"
+test -n "${LAST_ROOT_SNAP}"
+test -n "${LAST_USER_SNAP}"
+
+NEW_ROOT_BACKUP="${ROOT_BACKUP_SNAPS}/${ROOT_BACKUP_PREFIX}-${STAMP}"
+NEW_USER_BACKUP="${USER_BACKUP_SNAPS}/${USER_BACKUP_PREFIX}-${STAMP}"
+! test -e "${NEW_ROOT_BACKUP}"
+! test -e "${NEW_USER_BACKUP}"
+
+btrfs subvol snap -r ${ROOT_BACKUP_SOURCE} "${NEW_ROOT_BACKUP}"
+sync
+btrfs send -p "${LAST_ROOT_SNAP}" "${NEW_ROOT_BACKUP}" | btrfs receive "${ROOT_BACKUP_MOUNT}"
+
+btrfs subvol snap -r "${USER_BACKUP_SOURCE}" "${NEW_USER_BACKUP}"
+sync
+btrfs send -p "${LAST_USER_SNAP}" "${NEW_USER_BACKUP}" | btrfs receive "${USER_BACKUP_MOUNT}"
+
+LAST_ROOT_BACKUP="${ROOT_BACKUP_MOUNT}/${LAST_ROOT_SNAP##*/}"
+LAST_USER_BACKUP="${USER_BACKUP_MOUNT}/${LAST_USER_SNAP##*/}"
+
+set +x
+
+echo "Backup OK"
+echo "You can unmount the backup drive:"
+echo "   sudo umount /mnt/backup_root /mnt/backup_home_${USER}"
+echo "You may want to remove the old backups:"
+echo "   sudo btrfs subvol delete ${LAST_ROOT_SNAP} ${LAST_USER_SNAP} ${LAST_ROOT_BACKUP} ${LAST_USER_BACKUP}"

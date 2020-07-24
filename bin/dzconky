@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Pipe conky to dzen2 for a nice status bar
+
+# 1920x1080
+conky 2>/dev/null \
+   | dzen2 -e - \
+           -bg black -fn "-*-dejavu sans mono-medium-r-*-*-*-90-*-*-*-*-*-*" \
+           -x 180 -y 1061 -w 1740 -h 19 \
+           >/dev/null 2>&1
+
+# 1280x800
+#conky 2>/dev/null \
+#   | dzen2 -e - \
+#           -bg black -fn "-*-dejavu sans mono-medium-r-*-*-*-90-*-*-*-*-*-*" \
+#           -x 180 -y 781 -w 1100 -h 19 \
+#           >/dev/null 2>&1

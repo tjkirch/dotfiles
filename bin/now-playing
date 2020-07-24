@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ncmpcpp --now-playing | head -c 200

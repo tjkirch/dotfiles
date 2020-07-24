@@ -1,0 +1,47 @@
+#!/bin/bash -x
+
+# Set backlight high or low depending on whether we're on AC power.
+
+# Note: sometimes spurious ACPI events are sent, hence the comments/conditionals
+# around checking current settings.
+
+BATTERY_BRIGHTNESS="50"
+AC_BRIGHTNESS="100"
+
+which xbacklight &>/dev/null || exit 2
+which on_ac_power &>/dev/null || exit 2
+
+# not sure why this needs to run as me...
+if [ "$(id -u -n)" = "tjk" ]; then
+   AUTH=""
+else
+   AUTH="sudo -u tjk"
+fi
+XBACKLIGHT="${AUTH} xbacklight"
+GET_BACKLIGHT="${XBACKLIGHT} -get"
+SET_BACKLIGHT="${XBACKLIGHT} -set"
+
+export DISPLAY=":0.0"
+
+CURRENT="$(${GET_BACKLIGHT})"
+# Remove anything after decimal, don't need that precision
+CURRENT="${CURRENT//.*/}"
+
+# AC power
+if on_ac_power; then
+   # Probably always want high brightness on AC
+   if [ "${CURRENT}" -eq "${AC_BRIGHTNESS}" ]; then
+      exit 0
+   fi
+
+   ${SET_BACKLIGHT} "${AC_BRIGHTNESS}"
+
+# Battery power
+else
+   # Don't change backlight if it was manually set
+   if [ "${CURRENT}" -ne "${AC_BRIGHTNESS}" ]; then
+      exit 0
+   fi
+
+   ${SET_BACKLIGHT} "${BATTERY_BRIGHTNESS}"
+fi

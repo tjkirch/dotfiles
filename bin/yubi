@@ -1,0 +1,42 @@
+#!/bin/bash
+
+command="${1:?Must specify command: status, enable, disable, or toggle}"
+device="${2:-Yubico YubiKey OTP+FIDO+CCID}"
+
+status() {
+   xinput list-props "${device}" | grep "Device Enabled" | awk '{print $NF}'
+}
+
+enable() {
+   xinput --enable "${device}"
+}
+
+disable() {
+   xinput --disable "${device}"
+}
+
+case ${command} in
+   enable|on|1)
+      enable
+      ;;
+
+   disable|off|0)
+      disable
+      ;;
+
+   status)
+      status
+      ;;
+
+   toggle)
+      current_status=$(status)
+      if [ ${current_status} = "1" ]; then
+         disable
+      elif [ ${current_status} = "0" ]; then
+         enable
+      else
+         echo "Unknown status: ${current_status}" >&2
+         exit 1
+      fi
+      ;;
+esac

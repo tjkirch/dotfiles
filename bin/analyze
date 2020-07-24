@@ -1,0 +1,27 @@
+#!awk -f
+
+# tjk 2012-10-10
+
+# Taken from here and improved:
+# http://www.commandlinefu.com/commands/view/1661/display-the-standard-deviation-of-a-column-of-numbers-with-awk
+
+{
+   total += $1
+
+   # mode (doesn't handle multiple modes)
+   count[$1]++
+   if (count[$1] > mode) {
+      mode = $1
+   }
+
+   #
+   delta = $1 - avg;
+   avg += delta / NR;
+   mean2 += delta * ($1 - avg);
+}
+END {
+   print "count:  " NR
+   print "mean:   " total/NR
+   print "mode:   " mode " (" count[mode] ")"
+   print "stddev: " sqrt(mean2 / NR);
+}

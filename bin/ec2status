@@ -1,0 +1,9 @@
+#!/bin/bash
+
+QUERY='Reservations[].Instances[].[InstanceId,PublicDnsName,State.Name,State.Code,StateTransitionReason]'
+
+timeout 5s \
+aws ec2 describe-regions --query 'Regions[].[RegionName]' --output text \
+| xargs -P20 -n1 -I '{}' \
+  timeout 10s \
+  aws ec2 describe-instances --profile {} --output text --query "${QUERY}"

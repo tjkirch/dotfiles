@@ -1,0 +1,22 @@
+#!/bin/sh
+
+export XSECURELOCK_SAVER=saver_xscreensaver
+export XSECURELOCK_PAM_SERVICE=xscreensaver
+export XSECURELOCK_DISCARD_FIRST_KEYPRESS=0
+export XSECURELOCK_SHOW_DATETIME=1
+export XSECURELOCK_AUTH_TIMEOUT=10
+export XSECURELOCK_WAIT_TIME_MS=15000
+export XSECURELOCK_BLANK_DPMS_STATE=suspend
+if [ -e /sys/class/power_supply/BAT0 ]; then
+   export XSECURELOCK_BLANK_TIMEOUT=300
+else
+   export XSECURELOCK_BLANK_TIMEOUT=3600
+fi
+
+DIMMER=/usr/lib/x86_64-linux-gnu/xsecurelock/dimmer
+if [ -e "${DIMMER}" ]; then
+   DIMMER_ARG="-n ${DIMMER}"
+fi
+
+xset s 300 15
+exec xss-lock ${DIMMER_ARG} -l -- xsecurelock

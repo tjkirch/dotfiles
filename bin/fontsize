@@ -1,0 +1,6 @@
+#!/bin/sh
+
+test -n "$1" || exit 1
+test "$1" -eq "$1" 2>/dev/null || exit 2
+
+printf '\033]710;%s\033\\' "xft:Iosevka tjk:pixelsize=$1,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*"

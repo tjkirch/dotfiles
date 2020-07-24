@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# Play given .m3u playlist in mpd
+
+if [ $# -ne 1 ]; then
+   exit 1
+fi
+
+#mpc clear
+cat $1 | sed -e '/^#/D' | mpc add
+mpc play

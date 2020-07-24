@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if which pamixer >/dev/null 2>&1; then
+   pamixer --get-volume
+
+   mute="$(pamixer --get-mute)"
+   if [ "$mute" = "true" ]; then
+      echo "% off"
+   else
+      echo "% on"
+   fi
+elif which amixer >/dev/null 2>&1; then
+   amixer sget Master | awk '/Mono:/ {$0=gensub(/.*\[(.*?%)].*(on|off).*/, "\\1 \\2", 1); print}'
+else
+   echo "no volume tools"
+fi

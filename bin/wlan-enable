@@ -1,0 +1,11 @@
+#!/bin/sh -x
+
+current="$(rfkill --output SOFT -n -r)"
+# shellcheck disable=SC2181
+if [ $? -ne 0 ] || [ -z "$current" ]; then
+   exit 1
+fi
+
+if [ "$current" = "blocked" ]; then
+   rfkill unblock wlan
+fi

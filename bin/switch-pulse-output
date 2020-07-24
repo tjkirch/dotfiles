@@ -1,0 +1,52 @@
+#!/bin/sh
+
+# Switch all current and future sound to onboard or DAC outputs
+# PulseAudio makes this harder than it should be, but at least it's possible
+
+# Note: in /etc/pulse/default.pa, set: load-module module-stream-restore restore_device=false
+
+# Strings by which we find external DAC vs. onboard sound
+ONBOARDSTR="pci-"
+DACSTR="usb-"
+
+which pacmd >/dev/null 2>&1 || exit 42
+which pulse-output >/dev/null 2>&1 || exit 42
+
+ONBOARD="$(pacmd list-sinks | awk "/^\s*name:.*${ONBOARDSTR}/ {print \$2}" | tr -d '<>')"
+DAC="$(pacmd list-sinks | awk "/^\s*name:.*${DACSTR}/ {print \$2}" | tr -d '<>')"
+
+set_sink() {
+   local sink="${1}"
+
+   # Set default for new sounds
+   pacmd set-default-sink ${sink}
+
+   # Move current sounds
+   pacmd list-sink-inputs | awk '/^ *index: \d*/ {print $2}' \
+   | xargs -n1 -I'{}' pacmd move-sink-input '{}' ${sink} >/dev/null
+}
+
+swap_current() {
+   local cur="$(pulse-output)"
+
+   if [ "${cur}" = "dac" ]; then
+      set_sink "${ONBOARD}"
+   else
+      set_sink "${DAC}"
+   fi
+}
+
+usage() {
+   echo "Usage: ${0##*/} [ onboard / dac ]"
+   exit 1
+}
+
+if [ "${1}" = "onboard" ]; then
+   set_sink "${ONBOARD}"
+elif [ "${1}" = "dac" ]; then
+   set_sink "${DAC}"
+elif [ "${#}" -eq 0 ]; then
+   swap_current
+else
+   usage
+fi

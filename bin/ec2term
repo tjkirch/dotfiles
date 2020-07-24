@@ -1,0 +1,5 @@
+#!/bin/bash
+
+iid="${1:?}"
+region="${2:-us-west-2}"
+aws ec2 terminate-instances --region "${region}" --instance-ids "${iid}"

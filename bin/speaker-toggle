@@ -1,0 +1,18 @@
+#!/bin/sh
+
+current_speaker="$(amixer get Speaker | awk '/Front Left:/ {print $4}' | tr -dc 'a-z')"
+
+if [ "$current_speaker" = "off" ]; then
+   amixer set Master unmute
+   amixer set Speaker unmute
+   amixer set Headphone unmute
+elif [ "$current_speaker" = "on" ]; then
+   amixer set Master mute
+   amixer set Speaker mute
+   amixer set Headphone mute
+else
+   echo "* Didn't understand current master setting \"$current_speaker\""
+   exit 1
+fi
+
+###amixer sset Master toggle

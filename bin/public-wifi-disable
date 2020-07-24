@@ -1,0 +1,12 @@
+#!/bin/bash -ex
+
+INTERFACE="wlp2s0"
+
+# shellcheck disable=SC2188
+DHCPCD_PID="$(< /run/dhcpcd-${INTERFACE}.pid 2>/dev/null ||:)"
+test -n "${DHCPCD_PID}" && sudo kill "${DHCPCD_PID}"
+
+sudo iw dev "${INTERFACE}" disconnect
+sudo ip link set "${INTERFACE}" down
+
+wlan-disable

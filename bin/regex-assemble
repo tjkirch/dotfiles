@@ -1,0 +1,12 @@
+#!/usr/bin/env perl
+
+use Regexp::Assemble;
+
+my $ra = Regexp::Assemble->new;
+
+while (<>){
+    $ra->add($_);
+};
+
+print $ra->re;
+print "\n";

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+iid="${1:?}"
+region="${2:-us-west-2}"
+addr="$(aws ec2 describe-instances --profile "${region}" --query 'Reservations[0].Instances[0].PublicDnsName' --instance-ids "${iid}")"
+if [ $? -eq 0 ]; then
+   while ! ssh -o ConnectTimeout=5 "${addr}"; do
+      date
+      sleep 2
+   done
+else
+   echo "** failed to get address of ${iid}"
+fi
+echo "Kill instance? ${iid} in ${region}"
+read -r
+case ${REPLY} in
+   y|yes|Y|YES) ec2term "${iid}" "${region}" ;;
+   *) echo "Leaving it alone." ;;
+esac

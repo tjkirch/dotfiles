@@ -17,6 +17,10 @@ end
 
 # ctrl+backspace to delete previous word; ctrl+w is dirty
 bind -M insert \cH backward-kill-word
+# ctrl+c should abort, but leave the command visible for later reuse
+for mode in (bind -L)
+   bind -M $mode \cc 'echo -e \n(set_color -io -b black black)interrupted(set_color normal)\n\n; commandline ""; commandline -f repaint'
+end
 
 # (event functions cannot be autoloaded, must be defined here)
 function _report_time -d "Reports runtime of long commands" --on-event fish_postexec

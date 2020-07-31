@@ -1,6 +1,6 @@
 # "exec" is used for potentially long-running commands
 
-"${HOME}/local/bin/speaker-toggle"
+"speaker-toggle"
     XF86AudioMute
 
 # ctrl+alt+shift+down
@@ -11,7 +11,7 @@
 "pamixer --increase 3"
     m:0xd + c:111
 
-"${HOME}/local/bin/mic-toggle"
+"mic-toggle"
    XF86AudioMicMute
 
 "switch-pulse-output"
@@ -23,7 +23,7 @@
 "xbacklight -dec 5"
    XF86MonBrightnessDown
 
-"${HOME}/local/bin/wlan-toggle"
+"wlan-toggle"
    XF86WLAN
 
 "/usr/bin/sudo /usr/local/bin/suspend"

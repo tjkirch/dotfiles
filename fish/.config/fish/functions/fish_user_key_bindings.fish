@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.Ir4hdw/fish_user_key_bindings.fish @ line 1
+# Defined in /tmp/fish.1aJc1D/fish_user_key_bindings.fish @ line 2
 function fish_user_key_bindings
    # Load fzf key bindings from local/Mac/Linux paths
    for path in "$HOME/local/src/fzf/shell/key-bindings.fish" \
@@ -13,9 +13,4 @@ function fish_user_key_bindings
 
    # ctrl+backspace to delete previous word; ctrl+w is dirty
    bind -M insert \cH backward-kill-word
-
-   # ctrl+c should abort, but leave the command visible for later reuse
-   for mode in (bind -L)
-      bind -M $mode \cc 'echo -e \n(set_color -io -b black black)interrupted(set_color normal)\n\n; commandline ""; commandline -f repaint'
-   end
 end

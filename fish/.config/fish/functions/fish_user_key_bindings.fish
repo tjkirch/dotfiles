@@ -1,4 +1,4 @@
-# Defined in /tmp/fish.1aJc1D/fish_user_key_bindings.fish @ line 2
+# Defined in /tmp/fish.ntw4kK/fish_user_key_bindings.fish @ line 2
 function fish_user_key_bindings
    # Load fzf key bindings from local/Mac/Linux paths
    for path in "$HOME/local/src/fzf/shell/key-bindings.fish" \
@@ -13,4 +13,7 @@ function fish_user_key_bindings
 
    # ctrl+backspace to delete previous word; ctrl+w is dirty
    bind -M insert \cH backward-kill-word
+
+   # paste should go after current character
+   bind -M default p forward-char yank backward-char
 end

@@ -4,24 +4,6 @@ test -r .ssh/environment-$hostname.fish && source .ssh/environment-$hostname.fis
 # I want sbin after bin, so not putting it in fish_user_paths
 set -xa PATH "/usr/sbin" "/sbin"
 
-# Load fzf key bindings from local/Mac/Linux paths
-for path in "$HOME/local/src/fzf/shell/key-bindings.fish" \
-            "/usr/local/opt/fzf/shell/key-bindings.fish" \
-            "/usr/share/doc/fzf/key-bindings.fish"
-   if test -r $path
-      source $path
-      fzf_key_bindings
-      break
-   end
-end
-
-# ctrl+backspace to delete previous word; ctrl+w is dirty
-bind -M insert \cH backward-kill-word
-# ctrl+c should abort, but leave the command visible for later reuse
-for mode in (bind -L)
-   bind -M $mode \cc 'echo -e \n(set_color -io -b black black)interrupted(set_color normal)\n\n; commandline ""; commandline -f repaint'
-end
-
 # (event functions cannot be autoloaded, must be defined here)
 function _report_time -d "Reports runtime of long commands" --on-event fish_postexec
    if test "$CMD_DURATION" -gt 5000

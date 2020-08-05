@@ -13,14 +13,17 @@ design = [
    "v-capital-g-toothless",     # cv92
    "v-g-opendoublestorey",      # cv24
    "v-i-hooky",                 # cv05
+   "v-k-straight",              # cv68
    "v-l-italic",                # cv08
    "v-nine-open-contour",       # cv97
    "v-one-base",                # cv51
+   "v-percent-dots",            # cv62
    "v-q-tailed",                # VXBA
    "v-r-serifed",               # cv86
    "v-six-open-contour",        # VXAF
    "v-y-straight-turn",         # VXBF
 ]
+# Overrides for italic fonts
 italic = [
    "v-g-singlestorey",          # cv12
    "v-i-italic",                # cv04

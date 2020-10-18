@@ -2,7 +2,7 @@
 
 iid="${1:?}"
 region="${2:-us-west-2}"
-addr="$(aws ec2 describe-instances --profile "${region}" --query 'Reservations[0].Instances[0].PublicDnsName' --instance-ids "${iid}")"
+addr="$(aws ec2 describe-instances --region "${region}" --query 'Reservations[0].Instances[0].PublicDnsName' --instance-ids "${iid}")"
 if [ $? -eq 0 ]; then
    while ! ssh -o ConnectTimeout=5 "${addr}"; do
       date

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+wmctrl -b add,demands_attention -r Slack \
+|| wmctrl -b add,demands_attention -r Firefox

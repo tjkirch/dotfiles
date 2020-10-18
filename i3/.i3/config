@@ -176,4 +176,5 @@ bar {
    status_command exec i3status-rs ~/.i3/i3status-rs.toml
    tray_output primary
    separator_symbol ·
+   font pango:Iosevka tjk 14
 }

@@ -22,6 +22,7 @@ SETUVAR _fish_abbr_ais:aptitude\x20install\x20\x2ds
 SETUVAR _fish_abbr_as:aptitude\x20search
 SETUVAR _fish_abbr_cbd:cargo\x20build
 SETUVAR _fish_abbr_cbr:cargo\x20build\x20\x2d\x2drelease
+SETUVAR _fish_abbr_cm:nice\x20ionice\x20\x2dc3\x20cargo\x20make
 SETUVAR _fish_abbr_crd:cargo\x20run
 SETUVAR _fish_abbr_crr:cargo\x20run\x20\x2d\x2drelease
 SETUVAR _fish_abbr_ct:cargo\x20test

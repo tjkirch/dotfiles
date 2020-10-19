@@ -7,6 +7,7 @@ Plug 'whiteinge/diffconflicts'
 Plug 'AndrewRadev/discotheque.vim'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'xml'] }
 Plug 'brooth/far.vim'
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'junkblocker/patchreview-vim'

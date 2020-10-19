@@ -63,10 +63,6 @@ collapsed = false
 interval = 5
 format = "{min}° {average}° {max}°"
 
-#[[block]]
-#block = "battery"
-#interval = 15
-
 [[block]]
 block = "time"
 interval = 5

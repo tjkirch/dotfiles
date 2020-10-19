@@ -1,0 +1,6 @@
+#!/bin/bash
+
+case "$(< /sys/class/dmi/id/chassis_type)" in
+   8|9|10|11|12|14) exit 0;;
+   *) exit 1;;
+esac

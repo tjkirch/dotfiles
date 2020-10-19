@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash -ex
 
 XINPUT_ACCEL="-0.55"
 ###XSET_ACCEL="2/1"

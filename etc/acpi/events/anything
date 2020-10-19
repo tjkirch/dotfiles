@@ -1,0 +1,2 @@
+event=.*
+action=/usr/local/bin/acpi.sh %e

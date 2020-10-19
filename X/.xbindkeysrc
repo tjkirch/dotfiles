@@ -3,13 +3,14 @@
 "speaker-toggle"
     XF86AudioMute
 
-# ctrl+alt+shift+down
-"pamixer --decrease 3"
-    m:0xd + c:116
+"yubi toggle"
+    XF86Tools
 
-# ctrl+alt+shift+up
-"pamixer --increase 3"
-    m:0xd + c:111
+"amixer sset Master 3%-"
+    XF86AudioLowerVolume
+
+"amixer sset Master 3%+"
+   XF86AudioRaiseVolume
 
 "mic-toggle"
    XF86AudioMicMute
@@ -27,7 +28,7 @@
    XF86WLAN
 
 "/usr/bin/sudo /usr/local/bin/suspend"
-    Control+Alt + s
+    Control+Mod4 + s
 
 "exec firefox"
     Mod4 + f
@@ -39,11 +40,9 @@
 "exec urxvt -e bash"
     Shift+Mod4 + Return
 
-# alt+v
 "dmenu_run"
     Mod4 + v
 
-# alt+p
 "exec paste-buffer"
     Mod4 + p
 

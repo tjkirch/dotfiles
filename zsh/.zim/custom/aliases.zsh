@@ -33,8 +33,14 @@ alias vlcr="vlc -Z"
 alias mplayer="mpv"
 alias randfile='find . -type f | sed -e "s/ /\\\\ /g" | sort -R | head -1'
 alias websync='rsync -ahiuzH --progress --delay-updates --exclude "wp-content/cache/*" --exclude ".git" --delete --delete-delay'
-alias x='exec startx'
 alias tmux='tmux -2'
+
+# Keep same TTY for physlock to work
+if command -v fgconsole &>/dev/null; then
+   alias x='exec startx -- vt$(fgconsole)'
+else
+   alias x='exec startx'
+fi
 
 alias mv='nocorrect mv -i'       # no spelling correction on mv
 alias cp='nocorrect cp'          # no spelling correction on cp
@@ -48,8 +54,14 @@ alias ..="cd .."
 alias ...="cd ../.."
 
 alias susp='sudo pm-suspend --auto-quirks'
-alias off='sudo /usr/bin/systemctl poweroff'
-alias reboot='sudo /usr/bin/systemctl reboot'
+alias zzz='sudo zzz'
+if test -x /usr/bin/systemctl; then
+   alias off='sudo /usr/bin/systemctl poweroff'
+   alias reboot='sudo /usr/bin/systemctl reboot'
+else
+   alias off='sudo poweroff'
+   alias reboot='sudo reboot'
+fi
 
 alias dhcp='sudo dhcpcd -t 600 wlan0'
 

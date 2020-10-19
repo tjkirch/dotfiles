@@ -1,0 +1,5 @@
+#!/bin/sh
+
+if xrandr | fgrep -q 'DP2 connected 1920x1080+0+0'; then
+   xrandr --output eDP1 --auto --pos 0x1700 --output DP2 --auto --primary --pos 1920x0
+fi

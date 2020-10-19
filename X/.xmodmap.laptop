@@ -1,0 +1,5 @@
+! X1 Carbon: Alt_R -> Home, PrtSc -> End
+clear mod1
+keycode 108 = Home
+keycode 107 = End
+add mod1 = Alt_L

@@ -27,6 +27,9 @@
 "wlan-toggle"
    XF86WLAN
 
+"reenable-monitor"
+   XF86Display
+
 "/usr/bin/sudo /usr/local/bin/suspend"
     Control+Mod4 + s
 

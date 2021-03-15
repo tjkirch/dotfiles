@@ -43,7 +43,7 @@ set-trackball-speed
 xset dpms 1200 1200 0
 
 # mute mic by default
-amixer set Capture nocap mute
+mic-off
 
 rm -f .ssh/environment-*
 

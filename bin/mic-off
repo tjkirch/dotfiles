@@ -1,6 +1,6 @@
 #!/bin/sh
 
-###MIC="Internal Mic Boost"
-MIC="Capture"
+amixer set Capture nocap mute
 
-amixer set "$MIC" mute
+# also handle control for docked laptop
+amixer --card 1 set Mic nocap mute

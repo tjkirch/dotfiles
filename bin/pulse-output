@@ -6,7 +6,8 @@
 
 # Strings by which we find external DAC vs. onboard sound
 ONBOARDSTR="pci-"
-DACSTR="usb-"
+EXTERNALSTR="usb-"
+DOCKSTR="Dock_"
 
 # This makes the assumption that you only care about one sink,
 # so it just pulls the first one it finds.
@@ -17,8 +18,12 @@ sink="$(
 
 if [ -z "${sink}" ]; then
    echo "no out"
-elif echo "${sink}" | fgrep -q "${DACSTR}"; then
-   echo dac
+elif echo "${sink}" | fgrep -q "${EXTERNALSTR}"; then
+   if echo "${sink}" | fgrep -q "${DOCKSTR}"; then
+      echo dock
+   else
+      echo dac
+   fi
 else
    echo onboard
 fi

@@ -6,10 +6,10 @@
 "yubi toggle"
     XF86Tools
 
-"amixer sset Master 3%-"
+"volume-down"
     XF86AudioLowerVolume
 
-"amixer sset Master 3%+"
+"volume-up"
    XF86AudioRaiseVolume
 
 "mic-toggle"

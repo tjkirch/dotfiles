@@ -1,10 +1,15 @@
 #!/bin/sh
 
-###MIC="Internal Mic Boost"
-MIC="Capture"
-
 echo -n "MIC "
-amixer get "$MIC" \
-   | awk '/Front Left:/ {print $NF}' \
-   | tr -dc 'a-zA-Z'
+
+# assume that if the machine is docked, that's the audio being used
+if aplay -l | grep -q '^card 1:'; then
+   amixer --card 1 get Mic \
+      | awk '/Front Left:/ {print $NF}' \
+      | tr -dc 'a-zA-Z'
+else
+   amixer get Capture \
+      | awk '/Front Left:/ {print $NF}' \
+      | tr -dc 'a-zA-Z'
+fi
 echo

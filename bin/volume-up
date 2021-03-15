@@ -1,0 +1,6 @@
+#!/bin/sh
+
+amixer sset Master 3%+
+
+# also handle control for docked laptop
+amixer --card 1 sset PCM 3%+

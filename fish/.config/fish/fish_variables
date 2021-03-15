@@ -3,7 +3,7 @@
 SETUVAR --export BROWSER:firefox
 SETUVAR --export CFLAGS:\x2dmarch\x3dnative\x20\x2dmtune\x3dnative\x20\x2dpipe\x20\x2dO2
 SETUVAR --export CXXFLAGS:\x2dmarch\x3dnative\x20\x2dmtune\x3dnative\x20\x2dpipe\x20\x2dO2
-SETUVAR --export EDITOR:vim
+SETUVAR --export EDITOR:nvim
 SETUVAR --export FZF_ALT_C_OPTS:\x2d\x2dpreview\x20\x27exa\x20\x2d\x2dgit\x2dignore\x20\x2d\x2dtree\x20\x2dI\x20target\x20\x7b\x7d\x20\x7c\x20head\x20\x2d200\x27
 SETUVAR --export FZF_CTRL_T_COMMAND:rg\x20\x2d\x2dfiles\x20\x2d\x2dno\x2dignore\x20\x2d\x2dhidden\x20\x2d\x2dfollow\x20\x2dg\x20\x22\x21\x7b\x2egit\x2cnode_modules\x2cbackup\x7d/\x2a\x22\x202\x3e/dev/null
 SETUVAR --export FZF_CTRL_T_OPTS:\x2d\x2dpreview\x20\x27\x28highlight\x20\x2dO\x20ansi\x20\x2dl\x20\x7b\x7d\x202\x3e\x20/dev/null\x20\x7c\x7c\x20cat\x20\x7b\x7d\x20\x7c\x7c\x20tree\x20\x2dC\x20\x7b\x7d\x29\x202\x3e\x20/dev/null\x20\x7c\x20head\x20\x2d200\x27
@@ -54,7 +54,10 @@ SETUVAR _fish_abbr_reboot:sudo\x20reboot
 SETUVAR _fish_abbr_slide:feh\x20\x2dg\x20500x500\x20\x2ddrZsD3
 SETUVAR _fish_abbr_slider:feh\x20\x2dg\x20500x500\x20\x2dzdrZsD3
 SETUVAR _fish_abbr_susp:sudo\x20pm\x2dsuspend\x20\x2d\x2dauto\x2dquirks
-SETUVAR _fish_abbr_view:vim\x20\x2dR
+SETUVAR _fish_abbr_vi:nvim
+SETUVAR _fish_abbr_view:nvim\x20\x2dR
+SETUVAR _fish_abbr_vim:nvim
+SETUVAR _fish_abbr_vimdiff:nvim\x20\x2dd
 SETUVAR _fish_abbr_xclean:sudo\x20xbps\x2dremove\x20\x2dO
 SETUVAR _fish_abbr_xfiles:xbps\x2dquery\x20\x2df
 SETUVAR _fish_abbr_xinstall:sudo\x20xbps\x2dinstall\x20\x2dS

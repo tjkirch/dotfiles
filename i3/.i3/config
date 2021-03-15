@@ -157,16 +157,16 @@ workspace 12 output eDP1 DP1 HDMI1 DVI-0
 workspace 13 output eDP1 DP1 HDMI1 DVI-0
 workspace 14 output eDP1 DP1 HDMI1 DVI-0
 workspace 15 output eDP1 DP1 HDMI1 DVI-0
-workspace 6 output DP2 HDMI2 DVI-1
-workspace 7 output DP2 HDMI2 DVI-1
-workspace 8 output DP2 HDMI2 DVI-1
-workspace 9 output DP2 HDMI2 DVI-1
-workspace 10 output DP2 HDMI2 DVI-1
-workspace 16 output DP2 HDMI2 DVI-1
-workspace 17 output DP2 HDMI2 DVI-1
-workspace 18 output DP2 HDMI2 DVI-1
-workspace 19 output DP2 HDMI2 DVI-1
-workspace 20 output DP2 HDMI2 DVI-1
+workspace 6 output DP2 DP1-2 DP1-3 HDMI2 DVI-1
+workspace 7 output DP2 DP1-2 DP1-3 HDMI2 DVI-1
+workspace 8 output DP2 DP1-2 DP1-3 HDMI2 DVI-1
+workspace 9 output DP2 DP1-2 DP1-3 HDMI2 DVI-1
+workspace 10 output DP2 DP1-2 DP1-3 HDMI2 DVI-1
+workspace 16 output DP2 DP1-2 DP1-3 HDMI2 DVI-1
+workspace 17 output DP2 DP1-2 DP1-3 HDMI2 DVI-1
+workspace 18 output DP2 DP1-2 DP1-3 HDMI2 DVI-1
+workspace 19 output DP2 DP1-2 DP1-3 HDMI2 DVI-1
+workspace 20 output DP2 DP1-2 DP1-3 HDMI2 DVI-1
 
 # The IPC interface allows programs like an external workspace bar
 # (i3-wsbar) or i3-msg (can be used to "remote-control" i3) to work.
@@ -193,6 +193,8 @@ bar {
 bar {
    status_command exec $statusBar
    output DP2
+   output DP1-2
+   output DP1-3
    output HDMI2
    output DVI-1
    tray_output none

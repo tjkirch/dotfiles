@@ -1,5 +1,5 @@
 # Load ssh-agent setup, if configured
-test -r .ssh/environment-$hostname.fish && source .ssh/environment-$hostname.fish
+test -r $HOME/.ssh/environment-$hostname.fish && source $HOME/.ssh/environment-$hostname.fish
 
 # I want sbin after bin, so not putting it in fish_user_paths
 set -xa PATH "/usr/sbin" "/sbin"

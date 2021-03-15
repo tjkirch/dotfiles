@@ -1,17 +1,35 @@
 #!/bin/bash
 
 command="${1:?Must specify command: status, enable, disable, or toggle}"
-device="${2:-Yubico YubiKey OTP+FIDO+CCID}"
+devices=(
+   "Yubico Yubikey 4 OTP+U2F"
+   "Yubico YubiKey OTP+FIDO+CCID"
+)
+
+detect() {
+   for device in "${devices[@]}"; do
+      if xinput --query-state "${device}" >/dev/null 2>&1; then
+         echo "${device}"
+         return
+      fi
+   done
+
+   echo "Could not find known device" >&2
+   return 1
+}
 
 status() {
+   device="$(detect)" || exit 1
    xinput list-props "${device}" | grep "Device Enabled" | awk '{print $NF}'
 }
 
 enable() {
+   device="$(detect)" || exit 1
    xinput --enable "${device}"
 }
 
 disable() {
+   device="$(detect)" || exit 1
    xinput --disable "${device}"
 }
 
@@ -30,9 +48,9 @@ case ${command} in
 
    toggle)
       current_status=$(status)
-      if [ ${current_status} = "1" ]; then
+      if [ "${current_status}" = "1" ]; then
          disable
-      elif [ ${current_status} = "0" ]; then
+      elif [ "${current_status}" = "0" ]; then
          enable
       else
          echo "Unknown status: ${current_status}" >&2

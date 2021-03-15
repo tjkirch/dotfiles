@@ -1,5 +1,9 @@
 #!/bin/sh
 
-if xrandr | fgrep -q 'DP2 connected 1920x1080+0+0'; then
-   xrandr --output eDP1 --auto --pos 0x1700 --output DP2 --auto --primary --pos 1920x0
+if xrandr | grep -Fq 'DP1-3 connected 1920x1080+0+0'; then
+   xrandr --output eDP1 --auto --pos 0x1700 --output DP1-3 --auto --primary --mode 3840x2160 --pos 1920x0
+elif xrandr | grep -q 'DP1-3 connected (\|DP1-3 connected primary ('; then
+   xrandr --output DP1-3 --off \
+   && sleep 2 \
+   && xrandr --output eDP1 --auto --pos 0x1700 --output DP1-3 --auto --primary --mode 3840x2160 --pos 1920x0
 fi

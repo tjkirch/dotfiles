@@ -29,7 +29,6 @@ export PATH="${PATH}:${HOME}/.cabal/bin"
 
 # cargo-built Rust binaries
 export PATH="${PATH}:${HOME}/.cargo/bin"
-export RUST_SRC_PATH="${HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
 # fzf fuzzy finder
 export PATH="${PATH}:${HOME}/local/src/fzf/bin"

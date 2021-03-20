@@ -37,7 +37,9 @@ parcellite &
 # network manager
 nm-applet &
 
-set-trackball-speed
+# set pointer speed
+xinput set-prop 'Clearly Superior Technologies. CST Laser Trackball' 'libinput Accel Speed' -0.5
+xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Accel Speed' 0
 
 # enable DPMS
 xset dpms 1200 1200 0

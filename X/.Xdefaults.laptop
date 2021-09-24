@@ -1,4 +1,4 @@
-urxvt*font:               xft:Iosevka tjk:pixelsize=19,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+urxvt*font:               xft:Iosevka tjk:pixelsize=21,-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 
 i3wm.statusBar: i3status-rs ~/.i3/i3status-rs.toml.laptop
 i3wm.leftMonStatusFont: pango:Iosevka tjk 11

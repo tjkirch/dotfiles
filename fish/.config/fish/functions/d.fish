@@ -1,7 +1,10 @@
-# Defined in /tmp/fish.Cc05Ha/d.fish @ line 2
+# Defined in /tmp/fish.BV3I33/d.fish @ line 2
 function d --description 'Go to directory bookmark' --argument name
    if test -z "$name" || test -n "$argv[2]"
       echo "Usage: d [name from ~/.bookmarks]"
+      echo
+      echo "Available:"
+      sed -e 's/^/   /' ~/.bookmarks
       return 1
    end
 

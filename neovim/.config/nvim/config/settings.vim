@@ -19,6 +19,7 @@ set relativenumber
 set report=0
 set scrollback=100000
 set scrolloff=3
+set shell=/bin/bash
 set shiftwidth=3
 set shortmess=cfilmnorxFOT
 set showbreak=↘

@@ -38,6 +38,6 @@ set wildignorecase
 set wildmode=list:longest
 set winwidth=83
 
-set backupdir=~/.vim/backup,/var/tmp,/tmp
-set directory=~/.vim/swap,/var/tmp,/tmp
-set undodir=~/.vim/undo,/var/tmp,/tmp
+set backupdir=~/.vim/backup
+set directory=~/.vim/swap
+set undodir=~/.vim/undo

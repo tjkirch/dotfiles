@@ -7,7 +7,6 @@
    excludesfile = ~/.gitignore
 	autocrlf = input
 	editor = vim
-	pager = less --tabs=4 -RX
 [alias]
    graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
    glog = log --graph --abbrev-commit --decorate --branches --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %C(cyan)%ce%Creset %C(green)(%cr)%Creset' --date=relative --color
@@ -27,8 +26,18 @@
 	default = simple
 [diff]
 	algorithm = patience
-   #colorMoved = dimmed_zebra
+   colorMoved = dimmed-zebra
 [difftool]
 	prompt = false
 [pull]
 	ff = only
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+[delta]
+    line-numbers = true
+    navigate = true
+[interactive]
+    diffFilter = delta --color-only

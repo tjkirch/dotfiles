@@ -36,8 +36,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'tjdevries/lsp_extensions.nvim'
 " Autocompletion framework for built-in LSP
 Plug 'nvim-lua/completion-nvim'
-" Diagnostic navigation and settings for built-in LSP
-Plug 'nvim-lua/diagnostic-nvim'
 call plug#end()
 
 " Leader key for mappings

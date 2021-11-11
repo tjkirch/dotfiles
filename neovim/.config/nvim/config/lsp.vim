@@ -5,11 +5,6 @@ augroup lsp
 augroup END
 
 function! SetLspOptions()
-   " Configure completion
-   let g:completion_trigger_on_delete = 1
-   let g:completion_enable_auto_paren = 0
-   let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-
    " LSP-based code navigation
    nnoremap <buffer><silent> <leader>la <cmd>lua vim.lsp.buf.code_action()<CR>
    nnoremap <buffer><silent> <leader>ld <cmd>lua vim.lsp.buf.definition()<CR>
@@ -28,16 +23,6 @@ function! SetLspOptions()
    nnoremap <buffer><silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
    nnoremap <buffer><silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
 
-   " Trigger completion with <tab>
-   function! s:check_back_space() abort
-       let col = col('.') - 1
-       return !col || getline('.')[col - 1]  =~ '\s'
-   endfunction
-   inoremap <buffer><silent><expr> <TAB>
-     \ pumvisible() ? "\<C-n>" :
-     \ <SID>check_back_space() ? "\<TAB>" :
-     \ "\<C-X>\<C-O>"
-
    " Show diagnostic popup on cursor hover
    autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})
 
@@ -54,15 +39,39 @@ function! SetLspOptionsRust()
    autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
 endfunction
 
-" nvim-lspconfig setup:
+" completion and nvim-lspconfig setup:
 lua <<EOF
+-- Set up nvim-cmp.
+local cmp = require'cmp'
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  mapping = {
+    ['<C-d>'] = cmp.config.disable,
+    ['<C-f>'] = cmp.config.disable,
+    ['<C-Space>'] = cmp.config.disable,
+    ['<C-y>'] = cmp.config.disable,
+    ['<C-e>'] = cmp.config.disable,
+    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+  }
+  )
+})
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+-- Set up lspconfig.
 local lspconfig = require'lspconfig'
-local on_attach = function(client)
-    require'completion'.on_attach(client)
-end
-lspconfig.rust_analyzer.setup({ on_attach=on_attach })
+lspconfig.rust_analyzer.setup({ on_attach=on_attach, capabilities=capabilities })
 lspconfig.diagnosticls.setup{
    on_attach=on_attach,
+   capabilities=capabilities,
    filetypes = { "sh", "toml" },
    init_options = {
       filetypes = {

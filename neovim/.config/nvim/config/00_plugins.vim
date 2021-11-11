@@ -25,6 +25,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'alcesleo/vim-uppercase-sql', { 'for': 'sql' }
 Plug 'tpope/vim-vinegar'
 Plug 'wesQ3/vim-windowswap'
+Plug 'sindrets/winshift.nvim'
 
 " color schemes
 Plug 'nanotech/jellybeans.vim'
@@ -58,10 +59,6 @@ vmap <unique> <down>  <Plug>SchleppDown
 vmap <unique> <left>  <Plug>SchleppLeft
 vmap <unique> <right> <Plug>SchleppRight
 
-" Swap windows without breaking window layout
-let g:windowswap_map_keys = 0 " prevent default bindings
-nnoremap <silent> <leader>w :call WindowSwap#EasyWindowSwap()<CR>
-
 " git blame
 let g:git_messenger_no_default_mappings = v:true
 nmap <Leader>gb :GitMessenger<CR>
@@ -76,3 +73,8 @@ nnoremap <leader>fh :History<CR>
 nnoremap <leader>fl :Lines<CR>
 nnoremap <leader>fr :Rg! <C-R><C-W><CR>
 nnoremap <leader>fw :Windows<CR>
+
+" winshift
+nnoremap <C-W><C-M> <Cmd>WinShift<CR>
+nnoremap <C-W>m <Cmd>WinShift<CR>
+nnoremap <C-W>s <Cmd>WinShift swap<CR>

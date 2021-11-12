@@ -1,6 +1,8 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'whiteinge/diffconflicts'
+Plug 'sindrets/diffview.nvim'
+Plug 'nvim-lua/plenary.nvim'  " for diffview
 Plug 'tpope/vim-endwise'
 Plug 'dag/vim-fish'
 Plug 'tpope/vim-fugitive'
@@ -78,3 +80,18 @@ nnoremap <leader>fw :Windows<CR>
 nnoremap <C-W><C-M> <Cmd>WinShift<CR>
 nnoremap <C-W>m <Cmd>WinShift<CR>
 nnoremap <C-W>s <Cmd>WinShift swap<CR>
+
+" diffview
+lua <<EOF
+local cb = require'diffview.config'.diffview_callback
+require'diffview'.setup {
+  use_icons = false,
+  signs = {
+    fold_closed = "x",
+    fold_open = "-",
+  },
+  default_args = {
+    DiffviewOpen = { "--untracked-files=no" },
+  },
+}
+EOF

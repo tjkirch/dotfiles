@@ -18,5 +18,5 @@ if [ -e "${DIMMER}" ]; then
    DIMMER_ARG="-n ${DIMMER}"
 fi
 
-xset s 300 15
+xset s 600 30
 exec xss-lock ${DIMMER_ARG} -l -- xsecurelock

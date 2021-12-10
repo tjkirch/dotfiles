@@ -14,4 +14,5 @@ sed -e '/echo /d' \
 
 # shellcheck disable=SC1090
 . "${HOME}/.ssh/environment-$HOSTNAME"
-ssh-add ~/.ssh/id_rsa ~/.ssh/github-ed25519
+
+ssh-add ~/.ssh/id_ed25519

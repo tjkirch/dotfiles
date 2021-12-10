@@ -4,13 +4,14 @@ HOSTNAME="$(hostname)"
 
 pkill -x ssh-agent
 
-ssh-agent > ~/.ssh/environment-$HOSTNAME
+ssh-agent > "${HOME}/.ssh/environment-$HOSTNAME"
 
 sed -e '/echo /d' \
     -e 's/export .*//' \
     -e 's/\(.*\)=\(.*\)/set -gx \1 \2/;' \
-    ~/.ssh/environment-$HOSTNAME \
-    > ~/.ssh/environment-$HOSTNAME.fish
+    "${HOME}/.ssh/environment-$HOSTNAME" \
+    > "${HOME}/.ssh/environment-$HOSTNAME.fish"
 
-. ~/.ssh/environment-$HOSTNAME
+# shellcheck disable=SC1090
+. "${HOME}/.ssh/environment-$HOSTNAME"
 ssh-add ~/.ssh/id_rsa ~/.ssh/github-ed25519

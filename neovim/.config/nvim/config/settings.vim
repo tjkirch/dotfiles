@@ -8,6 +8,7 @@ set cpoptions-=aABces
 set cursorline
 set diffopt=internal,filler,closeoff,vertical
 set expandtab
+set foldlevelstart=99
 set hidden
 set inccommand=split
 set list

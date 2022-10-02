@@ -16,7 +16,8 @@ map <leader>cd :cd %:p:h<CR>
 
 " Assume we want to keep our place by default
 nnoremap ' `
-nnoremap ` '
+" (using ` for Hop plugin)
+" nnoremap ` '
 
 " Easy mapping to highlight pasted text
 " http://vim.wikia.com/wiki/Selecting_your_pasted_text

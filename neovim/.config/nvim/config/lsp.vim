@@ -1,3 +1,4 @@
+" Set general and language-specific LSP options
 augroup lsp
    autocmd!
    autocmd FileType rust,sh,toml call SetLspOptions()
@@ -20,16 +21,12 @@ function! SetLspOptions()
    nnoremap <buffer><silent> K          <cmd>lua vim.lsp.buf.hover()<CR>
 
    " Goto previous/next diagnostic warning/error
-   nnoremap <buffer><silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
-   nnoremap <buffer><silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
+   nnoremap <buffer><silent> g[ <cmd>lua vim.diagnostic.goto_prev()<cr>
+   nnoremap <buffer><silent> g] <cmd>lua vim.diagnostic.goto_next()<cr>
 
-   " Show diagnostic popup on cursor hover
-   autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})
-
-   " Enable type inlay hints
-   """FIXME use this for diagnostics too?  changing file means diagnostics on wrong line
-   autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
-   \ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment" }
+   " Show diagnostic popups - errors, warnings, clippy, etc.
+   set signcolumn=yes
+   autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 endfunction
 
 function! SetLspOptionsRust()
@@ -37,38 +34,78 @@ function! SetLspOptionsRust()
    autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
    autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
    autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+   hi LspReferenceRead cterm=bold ctermbg=237 guibg=#45403d
+   hi LspReferenceText cterm=bold ctermbg=237 guibg=#45403d
+   hi LspReferenceWrite cterm=bold ctermbg=237 guibg=#45403d
+
+   " Move items (functions, etc.) up or down
+   nnoremap <buffer><silent> <leader>l<Up> :RustMoveItemUp<CR>
+   nnoremap <buffer><silent> <leader>l<Down> :RustMoveItemDown<CR>
+
+   " Rust-specific quick navigation
+   nnoremap <buffer><silent> <leader>lc :RustOpenCargo<CR>
+   nnoremap <buffer><silent> <leader>lp :RustParentModule<CR>
+   nnoremap <buffer><silent> <leader>lg :RustViewCrateGraph<CR>
 endfunction
 
-" completion and nvim-lspconfig setup:
+" Snippet navigation, e.g. to jump between function params
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+" Rust helper (it does the rust_analyzer lspconfig setup on its own)
 lua <<EOF
--- Set up nvim-cmp.
+require("rust-tools").setup({ server = { settings = {
+   ["rust-analyzer"] = { checkOnSave = { command = "clippy" }}
+}}})
+
+-- LSP Diagnostics setup
+vim.diagnostic.config({
+    virtual_text = false,
+    signs = true,
+    update_in_insert = true,
+    underline = true,
+    severity_sort = true,
+    float = {
+        border = 'rounded',
+        source = 'always',
+        header = '',
+        prefix = '',
+    },
+})
+
+-- Completion plugin setup
 local cmp = require'cmp'
 cmp.setup({
+  -- Enable LSP snippets
   snippet = {
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
+        vim.fn["vsnip#anonymous"](args.body)
     end,
   },
+  -- Mappings for controlling the completion popup
   mapping = {
-    ['<C-d>'] = cmp.config.disable,
-    ['<C-f>'] = cmp.config.disable,
-    ['<C-Space>'] = cmp.config.disable,
-    ['<C-y>'] = cmp.config.disable,
-    ['<C-e>'] = cmp.config.disable,
-    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
   },
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'vsnip' },
-  }
-  )
+  -- Where to get completion options
+  sources = {
+    { name = 'nvim_lsp' },                -- from language server
+    { name = 'nvim_lsp_signature_help'},  -- display function signatures with current parameter emphasized
+    { name = 'vsnip' },                   -- nvim-cmp source for vim-vsnip
+  },
+  window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+  },
 })
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- Set up lspconfig.
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require'lspconfig'
-lspconfig.rust_analyzer.setup({ on_attach=on_attach, capabilities=capabilities })
 lspconfig.diagnosticls.setup{
    on_attach=on_attach,
    capabilities=capabilities,

@@ -10,6 +10,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/git-messenger.vim'
+Plug 'phaazon/hop.nvim'
 Plug 'reedes/vim-litecorrect'
 Plug 'simnalamburt/vim-mundo'
 Plug 'junkblocker/patchreview-vim'
@@ -23,6 +24,7 @@ Plug 'tpope/vim-surround'
 Plug 'machakann/vim-swap'
 Plug 'tomtom/tcomment_vim'
 Plug 'cespare/vim-toml'
+Plug 'p00f/nvim-ts-rainbow'
 Plug 'tpope/vim-unimpaired'
 Plug 'alcesleo/vim-uppercase-sql', { 'for': 'sql' }
 Plug 'tpope/vim-vinegar'
@@ -32,17 +34,18 @@ Plug 'sindrets/winshift.nvim'
 " color schemes
 Plug 'nanotech/jellybeans.vim'
 
-" LSP setup taken from https://sharksforarms.dev/posts/neovim-rust/ - thanks!
-" Collection of common configurations for the Nvim LSP client
 Plug 'neovim/nvim-lspconfig'
-" Extentions to built-in LSP, for example, providing type inlay hints
-Plug 'tjdevries/lsp_extensions.nvim'
+Plug 'simrat39/rust-tools.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Autocompletion framework for built-in LSP
 Plug 'hrsh7th/nvim-cmp'
+" Completion from LSP
 Plug 'hrsh7th/cmp-nvim-lsp'
+" Other completion sources
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 call plug#end()
 
 " Leader key for mappings
@@ -95,3 +98,49 @@ require'diffview'.setup {
   },
 }
 EOF
+
+" Treesitter plugin setup
+lua <<EOF
+require('nvim-treesitter.configs').setup {
+   ensure_installed = { "bash", "fish", "rust", "toml" },
+   auto_install = true,
+   -- replace syntax highlighting / indentation with language-aware versions
+   highlight = {
+      enable = true,
+      additional_vim_regex_highlighting=false,
+   },
+   indent = { enable = true },
+   -- select text quickly based on language nodes/scopes
+   incremental_selection = {
+      enable = true,
+      keymaps = {
+         init_selection = '<CR>', scope_incremental = '<CR>',
+         node_incremental = '<TAB>', node_decremental = '<S-TAB>',
+      },
+   },
+   -- rainbow parens/brackets from nvim-ts-rainbow
+   rainbow = {
+      enable = true,
+      extended_mode = true,
+      max_file_lines = nil,
+   }
+}
+EOF
+
+" Treesitter folding, where available
+augroup treesitter
+   autocmd!
+   autocmd FileType bash,fish,rust,toml set foldmethod=expr
+   autocmd FileType bash,fish,rust,toml set foldexpr=nvim_treesitter#foldexpr()
+augroup END
+
+" Hop, for quick movement
+lua require'hop'.setup()
+nnoremap `/ :HopPatternMW<CR>
+nnoremap `a :HopAnywhereMW<CR>
+nnoremap `c :HopChar1MW<CR>
+nnoremap `l :HopLineMW<CR>
+nnoremap `w :HopWordMW<CR>
+
+" Store vsnip files with neovim
+let g:vsnip_snippet_dir = stdpath("config") .. "/vsnip"

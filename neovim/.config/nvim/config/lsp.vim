@@ -104,53 +104,15 @@ cmp.setup({
   },
 })
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local lspconfig = require'lspconfig'
-lspconfig.diagnosticls.setup{
-   on_attach=on_attach,
-   capabilities=capabilities,
-   filetypes = { "sh", "toml" },
-   init_options = {
-      filetypes = {
-         sh = "shellcheck",
-         toml = "tomll"
-      },
-      linters = {
-         shellcheck = {
-            sourceName = "shellcheck",
-            command = "shellcheck",
-            args = { "--format=gcc", "-" },
-            formatPattern = {
-               "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
-               {
-                  line = 1,
-                  column = 2,
-                  message = {4},
-                  security = 3
-               }
-            },
-            securities = {
-               error = "error",
-               warning = "warning",
-               note = "info"
-            },
-         },
-         tomll = {
-            sourceName = "tomll",
-            command = "tomll",
-            isStdout = false,
-            isStderr = true,
-            args = { },
-            formatPattern = {
-               "^\\((\\d+), (\\d+)\\): (.*)$",
-               {
-                  line = 1,
-                  column = 2,
-                  message = {3},
-               }
-            }
-         }
-      }
-   }
-}
+require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+-- Set up null-ls to run non-LSP linters
+local null_ls = require("null-ls")
+null_ls.setup({
+    sources = {
+        null_ls.builtins.diagnostics.shellcheck,
+        null_ls.builtins.code_actions.shellcheck,
+        null_ls.builtins.formatting.taplo,
+    },
+})
 EOF

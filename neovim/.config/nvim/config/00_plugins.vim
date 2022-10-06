@@ -2,7 +2,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'whiteinge/diffconflicts'
 Plug 'sindrets/diffview.nvim'
-Plug 'nvim-lua/plenary.nvim'  " for diffview
+Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-endwise'
 Plug 'dag/vim-fish'
 Plug 'tpope/vim-fugitive'
@@ -13,6 +13,7 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'phaazon/hop.nvim'
 Plug 'reedes/vim-litecorrect'
 Plug 'simnalamburt/vim-mundo'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'junkblocker/patchreview-vim'
 Plug 'vim-scripts/python_match.vim', { 'for': 'python' }
 Plug 'mechatroner/rainbow_csv', { 'for': 'csv' }

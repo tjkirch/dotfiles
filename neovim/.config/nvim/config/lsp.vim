@@ -48,12 +48,6 @@ function! SetLspOptionsRust()
    nnoremap <buffer><silent> <leader>lg :RustViewCrateGraph<CR>
 endfunction
 
-" Snippet navigation, e.g. to jump between function params
-imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-
 " Rust helper (it does the rust_analyzer lspconfig setup on its own)
 lua <<EOF
 require("rust-tools").setup({ server = { settings = {
@@ -132,27 +126,4 @@ null_ls.setup({
 
 -- TOML linting; null-ls only does formatting
 require'lspconfig'.taplo.setup{}
-
--- Telescope for finding files, LSP references, etc.
-local telescope = require('telescope')
-telescope.setup{}
--- Fast searching with native extension
-telescope.load_extension('fzf')
--- This lets it take over vim.lsp.buf.* (except code actions; TODO)
-telescope.load_extension('lsp_handlers')
-
-require("trouble").setup{
-    icons = false,
-    fold_open = "v",
-    fold_closed = ">",
-    indent_lines = false,
-    signs = {
-        error = " err",
-        warning = "warn",
-        hint = "hint",
-        information = "info",
-        other = "  ->",
-    },
-    use_diagnostic_signs = false,
-}
 EOF

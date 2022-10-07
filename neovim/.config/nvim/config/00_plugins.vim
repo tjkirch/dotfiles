@@ -26,6 +26,7 @@ Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'gbrlsnchs/telescope-lsp-handlers.nvim'
 Plug 'cespare/vim-toml'
+Plug 'folke/trouble.nvim'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'tpope/vim-unimpaired'
 Plug 'alcesleo/vim-uppercase-sql', { 'for': 'sql' }

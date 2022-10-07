@@ -140,4 +140,19 @@ telescope.setup{}
 telescope.load_extension('fzf')
 -- This lets it take over vim.lsp.buf.* (except code actions; TODO)
 telescope.load_extension('lsp_handlers')
+
+require("trouble").setup{
+    icons = false,
+    fold_open = "v",
+    fold_closed = ">",
+    indent_lines = false,
+    signs = {
+        error = " err",
+        warning = "warn",
+        hint = "hint",
+        information = "info",
+        other = "  ->",
+    },
+    use_diagnostic_signs = false,
+}
 EOF

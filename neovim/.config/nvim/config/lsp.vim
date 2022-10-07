@@ -132,4 +132,12 @@ null_ls.setup({
 
 -- TOML linting; null-ls only does formatting
 require'lspconfig'.taplo.setup{}
+
+-- Telescope for finding files, LSP references, etc.
+local telescope = require('telescope')
+telescope.setup{}
+-- Fast searching with native extension
+telescope.load_extension('fzf')
+-- This lets it take over vim.lsp.buf.* (except code actions; TODO)
+telescope.load_extension('lsp_handlers')
 EOF

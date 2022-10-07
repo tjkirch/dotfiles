@@ -6,8 +6,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-endwise'
 Plug 'dag/vim-fish'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'rhysd/git-messenger.vim'
 Plug 'phaazon/hop.nvim'
@@ -24,6 +22,9 @@ Plug 'inside/vim-search-pulse'
 Plug 'tpope/vim-surround'
 Plug 'machakann/vim-swap'
 Plug 'tomtom/tcomment_vim'
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'gbrlsnchs/telescope-lsp-handlers.nvim'
 Plug 'cespare/vim-toml'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'tpope/vim-unimpaired'
@@ -56,9 +57,6 @@ let maplocalleader = ","
 " Easier to find cursor after searching
 let g:vim_search_pulse_mode = 'pattern'
 
-" [fzf Buffers] Jump to the existing window if possible
-let g:fzf_buffers_jump = 1
-
 " Move visually selected text around with arrows
 vmap <unique> <up>    <Plug>SchleppUp
 vmap <unique> <down>  <Plug>SchleppDown
@@ -69,16 +67,13 @@ vmap <unique> <right> <Plug>SchleppRight
 let g:git_messenger_no_default_mappings = v:true
 nmap <Leader>gb :GitMessenger<CR>
 
-" fzf
-nnoremap <leader><leader> :Buffers<CR>
-nnoremap <leader><space> :GFiles<CR>
-nnoremap <leader>fb :BCommits<CR>
-nnoremap <leader>fc :Commits<CR>
-nnoremap <leader>ff :Files<CR>
-nnoremap <leader>fh :History<CR>
-nnoremap <leader>fl :Lines<CR>
-nnoremap <leader>fr :Rg! <C-R><C-W><CR>
-nnoremap <leader>fw :Windows<CR>
+" Telescope
+nnoremap <leader><leader> <cmd>Telescope buffers<cr>
+nnoremap <leader><space> <cmd>Telescope git_files<cr>
+nnoremap <leader>tb <cmd>Telescope git_bcommits<cr>
+nnoremap <leader>tc <cmd>Telescope git_commits<cr>
+nnoremap <leader>tf <cmd>Telescope find_files<cr>
+nnoremap <leader>tr <cmd>Telescope live_grep<cr>
 
 " winshift
 nnoremap <C-W><C-M> <Cmd>WinShift<CR>

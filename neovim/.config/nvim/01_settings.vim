@@ -1,4 +1,6 @@
-colorscheme jellybeans
+if has('termguicolors')
+   set termguicolors
+endif
 
 set breakindent
 set cindent
@@ -13,6 +15,8 @@ set hidden
 set inccommand=split
 set list
 set listchars=tab:»·,trail:·,nbsp:·,extends:↲,precedes:↳
+let mapleader = ","
+let maplocalleader = ","
 set matchtime=0
 set modeline
 set numberwidth=1

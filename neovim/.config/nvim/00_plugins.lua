@@ -62,9 +62,13 @@ return require('packer').startup(function(use)
    use {'mechatroner/rainbow_csv', ft = 'csv' }
    use {'jsborjesson/vim-uppercase-sql', ft = 'sql' }
    use {'simrat39/rust-tools.nvim', after = "nvim-lspconfig", config = function()
-      require("rust-tools").setup({ server = { settings = {
-         ["rust-analyzer"] = { checkOnSave = { command = "clippy" }}
-      }}})
+      local extension_path = vim.env.HOME .. '/.vscode/extensions/codelldb/extension/'
+      local codelldb_path = extension_path .. 'adapter/codelldb'
+      local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+      require("rust-tools").setup({
+         server = { settings = { ["rust-analyzer"] = { checkOnSave = { command = "clippy" }}}},
+         dap = { adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path) },
+      })
    end}
 
 
@@ -150,11 +154,13 @@ return require('packer').startup(function(use)
          {category="git", desc="Review staged changes in tabs", cmd=':DiffReview git staged --no-color -U5<CR>'},
          {category="git", desc="Review changes in patch", cmd=':PatchReview PATCH'},
          {category="unix", desc="sudo write", cmd=':SudoWrite<CR>'},
+         {category="rust", desc="Start debugger", cmd=':RustDebuggables<CR>'},
          {category="rust", desc="Expand macro", cmd=':RustExpandMacro<CR>'},
          {category="rust", desc="Open Cargo.toml", cmd=':RustOpenCargo<CR>'},
          {category="rust", desc="Open parent module", cmd=':RustParentModule<CR>'},
          {category="rust", desc="View crate dependency graph", cmd=':RustViewCrateGraph<CR>'},
          {category="vim", desc="Undo tree", cmd=':UndotreeToggle<CR>'},
+         {category="debug", desc="All debug commands", cmd=':Telescope dap commands<CR>'},
       })
    end}
    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make', config = function()
@@ -317,6 +323,31 @@ return require('packer').startup(function(use)
       }
    end}
    use {'p00f/nvim-ts-rainbow', after = "nvim-treesitter"}
+
+
+   -- debugging         =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=
+
+   use {'mfussenegger/nvim-dap', ft = {'rust'}, config = function()
+      -- dap-ui provides controls for other things, but these I'd want commonly while editing
+      vim.keymap.set('n', '<leader>db', function() require'dap'.toggle_breakpoint() end)
+      vim.keymap.set('n', '<leader>dB', function() require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
+      vim.keymap.set('n', '<leader>dc', function() require'dap'.continue() end)
+   end}
+   use({'rcarriga/nvim-dap-ui', after = "nvim-dap", config = function()
+      local dap, dapui = require("dap"), require("dapui")
+      dapui.setup({controls = {icons = {
+         pause="pause", play="play", step_into="into", step_over="over", step_out="out",
+         step_back="back", run_last="last", terminate="term"}}})
+      -- Automatically open UI when debugging starts
+      dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
+      dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
+      dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
+   end})
+   use {'theHamsta/nvim-dap-virtual-text', after = "nvim-dap", config = function() require("nvim-dap-virtual-text").setup() end}
+   use {'nvim-telescope/telescope-dap.nvim', after = "nvim-dap", config = function()
+      require('telescope').load_extension('dap')
+   end}
+
 
    -- Automatically set up configuration after bootstrapping packer.nvim
    if packer_bootstrap then

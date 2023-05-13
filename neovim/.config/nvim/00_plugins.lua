@@ -37,9 +37,7 @@ return require('packer').startup(function(use)
    use {'junkblocker/patchreview-vim', cmd = {'DiffReview', 'PatchReview', 'ReversePatchReview'} }
    use {'tpope/vim-fugitive'}
    use {'rhysd/git-messenger.vim', cmd = 'GitMessenger', config = function() vim.cmd [[
-      " git blame; hit twice to go into floating window, o and O to navigate commits, q to close
       let g:git_messenger_no_default_mappings = v:true
-      nmap <Leader>gb :GitMessenger<CR>
    ]] end}
    use {'lewis6991/gitsigns.nvim', config = function()
       require('gitsigns').setup {
@@ -216,7 +214,6 @@ return require('packer').startup(function(use)
       vim.g.vsnip_snippet_dir = vim.fn.stdpath('config') .. '/vsnip'
    end}
    use {'hrsh7th/cmp-vsnip'}  -- completion of snippets
-   use {'rafamadriz/friendly-snippets'}  -- common snippets
    use {'mtoohey31/cmp-fish'}  -- completion in fish scripts from a fish shell
    use {'hrsh7th/cmp-path'}  -- completion of filesystem paths
 
@@ -224,9 +221,61 @@ return require('packer').startup(function(use)
    -- color schemes     =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=
 
    -- jellybeans, but with modern plugin support, like LSP
-   use({'themercorp/themer.lua', config = function() require("themer").setup({
-      colorscheme = "jellybeans",
-   }) end })
+   -- use({'themercorp/themer.lua', config = function() require("themer").setup({
+   --    dim_inactive = true,
+   --    --colorscheme = "jellybeans",
+   --    colorscheme = "rose_pine_moon",
+   -- }) end })
+
+   -- use({'rose-pine/neovim', as = "rose-pine", config = function()
+   --    require("rose-pine").setup({
+   --       dim_nc_background = true,
+   --       disable_italics = true,
+   --    })
+   --    vim.cmd.colorscheme "rose-pine-moon"
+   -- end })
+
+   use({'EdenEast/nightfox.nvim', config = function()
+      require("nightfox").setup({
+         options = {
+            dim_inactive = true,
+            modules = {             -- List of various plugins and additional options
+               cmp = true,
+               gitsigns = true,
+               hop = true,
+               native_lsp = true,
+               diagnostic = true,
+               telescope = true,
+               treesitter = true,
+               tsrainbow2 = true,
+            },
+         },
+      })
+      vim.cmd.colorscheme "nordfox"
+   end })
+
+   -- use({'catppuccin/nvim', as = "catppuccin", config = function()
+   --    require("catppuccin").setup({
+   --       flavour = "catppuccin-mocha",
+   --       show_end_of_buffer = true,
+   --       dim_inactive = {
+   --         enabled = true,
+   --       },
+   --       no_italic = true,
+   --       integrations = {
+   --         cmp = true,
+   --         gitsigns = true,
+   --         telescope = true,
+   --         nvimtree = false,
+   --         treesitter = true,
+   --         ts_rainbow2 = true,
+   --         native_lsp = {
+   --           enabled = true,
+   --         },
+   --      },
+   --    })
+   --    vim.cmd.colorscheme "catppuccin-mocha"
+   -- end })
 
 
    -- miscellaneous / dependencies        =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=
@@ -255,7 +304,6 @@ return require('packer').startup(function(use)
               null_ls.builtins.diagnostics.shellcheck,
               null_ls.builtins.code_actions.shellcheck,
               null_ls.builtins.formatting.taplo,
-              null_ls.builtins.code_actions.gitsigns,
               -- null_ls.builtins.completion.vsnip, -- might conflict with cmp-vsnip?
               null_ls.builtins.diagnostics.fish,
               null_ls.builtins.formatting.fish_indent,
@@ -314,15 +362,19 @@ return require('packer').startup(function(use)
                node_incremental = '<TAB>', node_decremental = '<S-TAB>',
             },
          },
-         -- rainbow parens/brackets from nvim-ts-rainbow
+         -- rainbow parens/brackets from nvim-ts-rainbow2
          rainbow = {
             enable = true,
             extended_mode = true,
-            max_file_lines = 50000,
+            -- Which query to use for finding delimiters
+            query = 'rainbow-parens',
+            -- Highlight the entire buffer all at once
+            --### this doesn't work because I load nvim-ts-rainbow2 after nvim-treesitter; it's the default though
+            --strategy = require('ts-rainbow').strategy.global,
          }
       }
    end}
-   use {'p00f/nvim-ts-rainbow', after = "nvim-treesitter"}
+   use {'HiPhish/nvim-ts-rainbow2', after = "nvim-treesitter"}
 
 
    -- debugging         =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=

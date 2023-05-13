@@ -19,6 +19,7 @@ let mapleader = ","
 let maplocalleader = ","
 set matchtime=0
 set modeline
+set mousemodel=extend
 set numberwidth=1
 set relativenumber
 set report=0

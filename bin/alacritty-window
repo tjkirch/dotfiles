@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if ls -U /run/user/$(id -u)/Alacritty-*.sock >/dev/null 2>&1; then
+  exec alacritty msg create-window "$@"
+else
+  exec alacritty "$@"
+fi

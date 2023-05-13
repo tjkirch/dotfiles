@@ -36,10 +36,10 @@
 "exec firefox"
     Mod4 + f
 
-"exec urxvtc"
+"exec alacritty-window"
     Mod4 + Return
 
-# Backup if urxvtd crashes
+# Backup if alacritty/urxvtd crashes
 "exec urxvt -e bash"
     Shift+Mod4 + Return
 

@@ -16,4 +16,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Load plugins from lua files in the lua/plugins/ directory
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", {
+   ui = {
+      -- Disable silly default bindings
+      custom_keys = {
+         ["<localleader>l"] = false,
+         ["<localleader>t"] = false,
+      }
+   }
+})

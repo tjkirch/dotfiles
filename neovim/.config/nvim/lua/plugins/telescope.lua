@@ -2,15 +2,11 @@
 return {
    'nvim-telescope/telescope.nvim',
    branch = '0.1.x',
-   dependencies={'nvim-telescope/telescope-fzf-native.nvim'},
-   lazy=false,
+   dependencies={'nvim-telescope/telescope-fzf-native.nvim', 'stevearc/dressing.nvim'},
+   lazy=true,
+   keys={'<leader>t', '<leader><leader>', '<leader><space>'},
    config = function()
-      local c = require("command_center").component
-      require('telescope').setup({
-         extensions = {
-            command_center = { components = { c.CATEGORY, c.DESC, c.CMD } },
-         }
-      })
+      require('telescope').setup({})
       -- Commonly used pickers
       vim.cmd [[
          nnoremap <leader><leader> <cmd>Telescope buffers<cr>
@@ -23,9 +19,6 @@ return {
          nnoremap <leader>ts <cmd>Telescope lsp_document_symbols<cr>
          nnoremap <leader>tt <cmd>Telescope treesitter<cr>
          nnoremap <leader>t' <cmd>Telescope marks<cr>
-         nnoremap <leader>cc <cmd>Telescope command_center<cr>
-         " command center is for when I can't remember, so...
-         nnoremap <leader> <cmd>Telescope command_center<cr>
       ]]
    end
 }

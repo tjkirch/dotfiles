@@ -4,7 +4,7 @@ return {
    dependencies = 'HiPhish/nvim-ts-rainbow2',
    lazy=true,
    config = function()
-      --FIXME: how do I keep the list of filetypes in only one place, just above, not here?
+      --FIXME: how do I keep the list of filetypes in only one place, like nvim-lspconfig?
       vim.cmd [[
          " Treesitter-based folding, where available
          augroup treesitter

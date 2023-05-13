@@ -16,8 +16,7 @@ map <leader>cd :cd %:p:h<CR>
 
 " Assume we want to keep our place by default
 nnoremap ' `
-" (using ` for Hop plugin)
-" nnoremap ` '
+nnoremap ` '
 
 " Easy mapping to highlight pasted text
 " http://vim.wikia.com/wiki/Selecting_your_pasted_text
@@ -34,7 +33,3 @@ vnoremap <silent> # :<C-U>
   \gvy?<C-R><C-R>=substitute(
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
-
-
-" git blame; hit twice to go into floating window, o and O to navigate commits, q to close
-nmap <Leader>gb :GitMessenger<CR>

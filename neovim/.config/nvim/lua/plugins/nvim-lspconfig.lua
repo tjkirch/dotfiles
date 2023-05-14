@@ -5,7 +5,7 @@ return {
    'neovim/nvim-lspconfig',
    lazy=true,
    ft = {"bash", "fish", "rust", "sh", "toml"},
-   dependencies = {'jose-elias-alvarez/null-ls.nvim', 'gbrlsnchs/telescope-lsp-handlers.nvim', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-nvim-lsp-signature-help', 'nvim-treesitter/nvim-treesitter'},
+   dependencies = {'jose-elias-alvarez/null-ls.nvim', 'gbrlsnchs/telescope-lsp-handlers.nvim', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-nvim-lsp-signature-help', 'nvim-treesitter/nvim-treesitter', 'j-hui/fidget.nvim'},
    config = function()
       -- Load larger, more general LSP config file
       vim.cmd [[runtime 90_lsp.vim]]

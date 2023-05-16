@@ -2,7 +2,8 @@ return {
    {
       -- jellybeans, but with modern plugin support, like LSP
       'themercorp/themer.lua',
-      lazy=true,
+      lazy=false,
+      priority=1000,
       opts = {
          dim_inactive = true,
          --colorscheme = "jellybeans",
@@ -20,8 +21,8 @@ return {
    },
    {
       'EdenEast/nightfox.nvim',
-      lazy=false,
-      priority=1000,
+      lazy=true,
+      --priority=1000,
       config=function()
          require('nightfox').setup({
             options = {

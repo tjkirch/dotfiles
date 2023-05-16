@@ -23,5 +23,10 @@ require("lazy").setup("plugins", {
          ["<localleader>l"] = false,
          ["<localleader>t"] = false,
       }
-   }
+   },
+   change_detection = {
+      -- Don't notify on plugin config change detection because it eats a
+      -- keystroke which is awkward.
+      notify = false,
+   },
 })

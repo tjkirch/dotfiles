@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+LATEST_URL="https://download.panic.com/playdate_sdk/Linux/PlaydateSDK-latest.tar.gz"
+DOWNLOAD_DIR="${HOME}/download"
+SDK_DIR="${HOME}/code/playdate"
+SDK_LINK="${HOME}/code/playdate/sdk"
+
+FINAL_URL="$(curl \
+   --head \
+   --location --fail --silent \
+   "${LATEST_URL}" \
+   --write-out '%{stderr}%{url_effective}' \
+   2>&1 >/dev/null)"
+
+FILENAME="${FINAL_URL##*/}"
+DOWNLOAD_PATH="${DOWNLOAD_DIR}/${FILENAME}"
+
+curl --fail --silent --show-error \
+   "${FINAL_URL}" \
+   --output "${DOWNLOAD_PATH}"
+
+FIRST_CONTENTS="$(set +o pipefail; tar --list --file "${DOWNLOAD_PATH}" | head -n1)"
+INNER_DIR="${FIRST_CONTENTS%%/*}"
+
+rm --interactive=once -rf "${SDK_DIR}/${INNER_DIR:?}"
+
+tar --extract --file "${DOWNLOAD_PATH}" --directory "${SDK_DIR}"
+
+ln --symbolic --no-dereference --force --relative \
+   "${SDK_DIR}/${INNER_DIR}" "${SDK_LINK}"

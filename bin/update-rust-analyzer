@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+# If an argument is given, it should be a rust-analyzer release version to download; otherwise we
+# just use the current date (in a slightly different format, so it's obvious)
+if [[ -v 1 ]]; then
+   DATE="$1"
+   VERSION_URL="download/$1"
+else
+   DATE="$(date '+%Y%m%d')"
+   VERSION_URL="latest/download"
+fi
+
+FINAL="${HOME}/local/bin/rust-analyzer"
+DATED="${FINAL}-${DATE}"
+
+curl -Lf "https://github.com/rust-lang/rust-analyzer/releases/${VERSION_URL}/rust-analyzer-x86_64-unknown-linux-gnu.gz" \
+   | gunzip \
+   > "${DATED}"
+
+chmod u+x "${DATED}"
+ln -snfr "${DATED}" "${FINAL}"

@@ -1,7 +1,7 @@
 " Set general and language-specific LSP options
 augroup lsp
    autocmd!
-   autocmd FileType rust,sh,toml call SetLspOptions()
+   autocmd FileType rust,sh,toml,lua call SetLspOptions()
    autocmd FileType rust call SetLspOptionsRust()
 augroup END
 

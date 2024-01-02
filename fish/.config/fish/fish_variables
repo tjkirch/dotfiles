@@ -12,21 +12,27 @@ SETUVAR --export LANG:en_US\x2eUTF\x2d8
 SETUVAR --export LC_COLLATE:C
 SETUVAR --export --path LD_LIBRARY_PATH:/home/tjk/local/lib
 SETUVAR --export LESS:\x2d\x2dtabs\x3d4\x20\x2dRX
+SETUVAR --export LVM_SUPPRESS_FD_WARNINGS:1
 SETUVAR --export --path MANPATH:/home/tjk/local/share/man\x1e/usr/local/share/man\x1e/usr/share/man
+SETUVAR MOZ_X11_EGL:\x1d
 SETUVAR --export PAGER:less\x20\x2d\x2dtabs\x3d4\x20\x2dRX\x20\x2dRX
 SETUVAR --export --path PKG_CONFIG_PATH:/usr/local/lib/pkgconfig\x1e/usr/local/share/pkgconfig
+SETUVAR --export PLAYDATE_MOUNT_POINT:/mnt/playdate
+SETUVAR --export --path PLAYDATE_SDK_PATH:/home/tjk/code/playdate/sdk
 SETUVAR --export TIME_STYLE:iso
-SETUVAR __fish_initialized:3100
+SETUVAR XDG_RUNTIME_DIR:\x1d
+SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_ai:sudo\x20aptitude\x20install
 SETUVAR _fish_abbr_ais:aptitude\x20install\x20\x2ds
 SETUVAR _fish_abbr_as:aptitude\x20search
-SETUVAR _fish_abbr_cbd:cargo\x20build
-SETUVAR _fish_abbr_cbr:cargo\x20build\x20\x2d\x2drelease
+SETUVAR _fish_abbr_cbd:mold\x20\x2d\x2drun\x20cargo\x20build
+SETUVAR _fish_abbr_cbr:mold\x20\x2d\x2drun\x20cargo\x20build\x20\x2d\x2drelease
 SETUVAR _fish_abbr_cm:nice\x20ionice\x20\x2dc3\x20cargo\x20make
-SETUVAR _fish_abbr_crd:cargo\x20run
-SETUVAR _fish_abbr_crr:cargo\x20run\x20\x2d\x2drelease
-SETUVAR _fish_abbr_ct:cargo\x20test
+SETUVAR _fish_abbr_crd:mold\x20\x2d\x2drun\x20cargo\x20run
+SETUVAR _fish_abbr_crr:mold\x20\x2d\x2drun\x20cargo\x20run\x20\x2d\x2drelease
+SETUVAR _fish_abbr_ct:mold\x20\x2d\x2drun\x20cargo\x20test
 SETUVAR _fish_abbr_duh:du\x20\x2dh\x20\x2d\x2dmax\x2ddepth\x3d1
+SETUVAR _fish_abbr_fehz:feh\x20\x2d\x2dforce\x2daliasing\x20\x2dZ
 SETUVAR _fish_abbr_ga:git\x20add
 SETUVAR _fish_abbr_gap:git\x20add\x20\x2d\x2dpatch
 SETUVAR _fish_abbr_gb:git\x20branch\x20\x2dva
@@ -50,12 +56,11 @@ SETUVAR _fish_abbr_ll:ls\x20\x2dahlF\x20\x2d\x2dcolor\x3dauto
 SETUVAR _fish_abbr_off:sudo\x20poweroff
 SETUVAR _fish_abbr_pseg:ps\x20\x2def\x20\x7c\x20grep
 SETUVAR _fish_abbr_reboot:sudo\x20reboot
+SETUVAR _fish_abbr_revdeps:xbps\x2dquery\x20\x2dX
 SETUVAR _fish_abbr_slide:feh\x20\x2dg\x20500x500\x20\x2ddrZsD3
 SETUVAR _fish_abbr_slider:feh\x20\x2dg\x20500x500\x20\x2dzdrZsD3
 SETUVAR _fish_abbr_susp:sudo\x20pm\x2dsuspend\x20\x2d\x2dauto\x2dquirks
-SETUVAR _fish_abbr_vi:nvim
 SETUVAR _fish_abbr_view:nvim\x20\x2dR
-SETUVAR _fish_abbr_vim:nvim
 SETUVAR _fish_abbr_vimdiff:nvim\x20\x2dd
 SETUVAR _fish_abbr_xclean:sudo\x20xbps\x2dremove\x20\x2dO
 SETUVAR _fish_abbr_xfiles:xbps\x2dquery\x20\x2df
@@ -66,7 +71,7 @@ SETUVAR _fish_abbr_xremove:sudo\x20xbps\x2dremove\x20\x2dR
 SETUVAR _fish_abbr_xrfiles:xbps\x2dquery\x20\x2dR\x20\x2df
 SETUVAR _fish_abbr_xsearch:xbps\x2dquery\x20\x2dRs
 SETUVAR _fish_abbr_xshow:xbps\x2dquery\x20\x2dRS
-SETUVAR _fish_abbr_xupdate:sudo\x20xbps\x2dinstall\x20\x2dSu
+SETUVAR _fish_abbr_xupdate:sudo\x20\x2d\x2dpreserve\x2denv\x3dLVM_SUPPRESS_FD_WARNINGS\x20xbps\x2dinstall\x20\x2dSu
 SETUVAR _fish_abbr_yi:sudo\x20yum\x20install
 SETUVAR _fish_abbr_yl:yum\x20list
 SETUVAR _fish_abbr_zzz:sudo\x20zzz
@@ -93,10 +98,15 @@ SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrbl
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_cursor_default:block
+SETUVAR fish_cursor_insert:line
+SETUVAR fish_cursor_replace_one:underscore
+SETUVAR fish_cursor_visual:block
 SETUVAR fish_greeting:
 SETUVAR fish_key_bindings:fish_vi_key_bindings
 SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/home/tjk/local/bin\x1e/usr/local/bin\x1e/home/tjk/\x2ecabal/bin\x1e/home/tjk/\x2ecargo/bin\x1e/home/tjk/local/src/fzf/bin\x1e/home/tjk/\x2elocal/bin\x1e/home/tjk/\x2edotfiles/bin
+SETUVAR fish_pager_color_selected_background:\x2dr
+SETUVAR fish_user_paths:/home/tjk/local/bin\x1e/usr/local/bin\x1e/home/tjk/\x2ecabal/bin\x1e/home/tjk/\x2ecargo/bin\x1e/home/tjk/local/src/fzf/bin\x1e/home/tjk/\x2elocal/bin\x1e/home/tjk/\x2edotfiles/bin\x1e/home/tjk/code/playdate/sdk/bin

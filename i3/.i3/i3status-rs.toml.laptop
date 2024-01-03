@@ -21,7 +21,7 @@ block = "disk_space"
 path = "/"
 info_type = "available"
 unit = "GB"
-format = "/ {available} {percentage}"
+format = "/ {available} {percentage}F"
 interval = 30
 
 [[block]]
@@ -29,7 +29,7 @@ block = "disk_space"
 path = "/home"
 info_type = "available"
 unit = "GB"
-format = "~ {available} {percentage}"
+format = "~ {available} {percentage}F"
 interval = 30
 
 [[block]]

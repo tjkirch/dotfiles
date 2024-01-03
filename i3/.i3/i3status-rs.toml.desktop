@@ -21,17 +21,17 @@ interval = 2
 [[block]]
 block = "disk_space"
 path = "/"
-alias = "/"
 info_type = "available"
 unit = "GB"
+format = "/ {available} {percentage}F"
 interval = 30
 
 [[block]]
 block = "disk_space"
 path = "/home"
-alias = "~"
 info_type = "available"
 unit = "GB"
+format = "~ {available} {percentage}F"
 interval = 30
 
 [[block]]

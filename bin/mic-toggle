@@ -1,6 +1,3 @@
 #!/bin/sh
 
-amixer set Capture toggle
-
-# also handle control for docked laptop
-amixer --card 1 set Mic toggle
+pamixer --default-source --toggle-mute

@@ -1,22 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 # TODO: does this work with docked audio?
-if which pamixer >/dev/null 2>&1; then
-   pamixer --get-volume
+echo -n "$(pamixer --get-volume)"
 
-   mute="$(pamixer --get-mute)"
-   if [ "$mute" = "true" ]; then
-      echo "% off"
-   else
-      echo "% on"
-   fi
-elif which amixer >/dev/null 2>&1; then
-   # assume that if the machine is docked, that's the audio being used
-   if aplay -l | grep -q '^card 1:'; then
-      amixer --card 1 sget PCM | awk '/Front Left:/ {$0=gensub(/.*\[(.*?%)].*(on|off).*/, "\\1 \\2", 1); print}'
-   else
-      amixer sget Master | awk '/Mono:/ {$0=gensub(/.*\[(.*?%)].*(on|off).*/, "\\1 \\2", 1); print}'
-   fi
+mute="$(pamixer --get-mute)"
+if [ "$mute" = "true" ]; then
+   echo "% off"
 else
-   echo "no volume tools"
+   echo "% on"
 fi

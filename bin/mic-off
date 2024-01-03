@@ -1,6 +1,3 @@
 #!/bin/sh
 
-amixer set Capture nocap mute
-
-# also handle control for docked laptop
-amixer --card 1 set Mic nocap mute
+pamixer --default-source --mute

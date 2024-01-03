@@ -65,3 +65,6 @@ xterm*bellIsUrgent: true
 i3wm.statusBar: i3status-rs ~/.i3/i3status-rs.toml.desktop
 i3wm.leftMonStatusFont: pango:Iosevka tjk 14
 i3wm.rightMonStatusFont: pango:Iosevka tjk 14
+
+! default of alt-s conflicts with editor command
+URxvt.searchable-scrollback: Meta-Shift-S

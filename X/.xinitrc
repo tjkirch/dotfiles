@@ -17,6 +17,8 @@ if is-laptop; then
 
    xmodmap "${HOME}/.xmodmap.laptop"
 
+   on_ac_power && rfkill block wlan
+
    # disable yubikey by default to avoid accidental inputs
    yubi off
 
@@ -29,13 +31,17 @@ xbindkeys
 
 screensaver &
 
+pipewire &
+
+xplugd
+
 my-redshift &
 
 # copy/paste manager
 parcellite &
 
-# network manager
-nm-applet &
+# notifications
+dunst &
 
 # set pointer speed
 xinput set-prop 'Clearly Superior Technologies. CST Laser Trackball' 'libinput Accel Speed' -0.5

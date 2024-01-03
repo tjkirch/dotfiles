@@ -15,7 +15,7 @@
 "mic-toggle"
    XF86AudioMicMute
 
-"switch-pulse-output"
+"pavucontrol"
    Shift+Mod4 + o
 
 "xbacklight -inc 5"
@@ -29,9 +29,6 @@
 
 "reenable-monitor"
    XF86Display
-
-"/usr/bin/sudo /usr/local/bin/suspend"
-    Control+Mod4 + s
 
 "exec firefox"
     Mod4 + f

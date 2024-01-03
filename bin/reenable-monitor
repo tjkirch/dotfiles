@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -ex
-
-xrandr --output DP1-3 --off
+disable-monitor
 sleep 2
-xrandr --output eDP1 --auto --pos 0x1700 --output DP1-3 --auto --mode 3840x2160 --pos 1920x0
+enable-monitor

@@ -1,0 +1,20 @@
+import = ["/home/tjk/.config/alacritty/themes/citylights.toml"]
+
+[font.bold]
+family = "Iosevka tjk"
+
+[font.bold_italic]
+family = "Iosevka tjk"
+
+[font.italic]
+family = "Iosevka tjk"
+
+[font.normal]
+family = "Iosevka tjk"
+
+[scrolling]
+history = 100000
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t*"

@@ -1,4 +1,3 @@
 #!/bin/bash
 
-echo -n "MIC "
 pamixer --default-source --get-volume-human

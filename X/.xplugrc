@@ -1,0 +1,21 @@
+#!/bin/sh
+
+echo "$(date): $*" >> ~/.xplug.log
+
+MONITOR="DP-1-3"
+
+if [ "$1" != "display" ]; then
+    exit 0
+fi
+
+if [ "$2" != "${MONITOR}" ]; then
+    exit 0
+fi
+
+if [ "$3" = "disconnected" ]; then
+   disable-monitor >> ~/.xplug.log 2>&1
+   rfkill unblock wlan >> ~/.xplug.log 2>&1
+elif [ "$3" = "connected" ]; then
+   enable-monitor >> ~/.xplug.log 2>&1
+   rfkill block wlan >> ~/.xplug.log 2>&1
+fi

@@ -1,7 +1,10 @@
 return {
    'nvim-treesitter/nvim-treesitter',
    build = ':TSUpdate',
-   dependencies = 'HiPhish/nvim-ts-rainbow2',
+   dependencies = {
+      "HiPhish/nvim-ts-rainbow2",
+      "nvim-treesitter/nvim-treesitter-context",
+   },
    lazy=true,
    config = function()
       --FIXME: how do I keep the list of filetypes in only one place, like nvim-lspconfig?

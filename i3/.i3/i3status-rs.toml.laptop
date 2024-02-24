@@ -56,7 +56,7 @@ interval = 5
 
 [[block]]
 block = "load"
-format = " load $1m $5m "
+format = " load $1m.eng(w:4) $5m.eng(w:4) "
 interval = 5
 
 [[block]]

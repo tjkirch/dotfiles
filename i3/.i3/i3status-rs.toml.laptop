@@ -72,11 +72,14 @@ chip = "coretemp-isa-*"
 
 [[block]]
 block = "battery"
+driver = "sysfs"
 device = "BAT0"
 interval = 15
 format = " $percentage $time "
-full_format = " bat full "
-charging_format = " bat chg $percentage $time "
+full_format = " full "
+empty_format = " EMPTY "
+charging_format = " chg $percentage $time "
+not_charging_format = " chg done "
 missing_format = " NO BAT "
 
 [[block]]

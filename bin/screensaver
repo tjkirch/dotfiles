@@ -13,7 +13,7 @@ else
    export XSECURELOCK_BLANK_TIMEOUT=3600
 fi
 
-DIMMER=/usr/lib/x86_64-linux-gnu/xsecurelock/dimmer
+DIMMER=/usr/libexec/xsecurelock/dimmer
 if [ -e "${DIMMER}" ]; then
    DIMMER_ARG="-n ${DIMMER}"
 fi

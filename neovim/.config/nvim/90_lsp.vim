@@ -9,6 +9,7 @@ function! SetLspOptions()
    lua <<EOF
    -- LSP-based code navigation
    vim.keymap.set('n', '<leader>la', function() vim.lsp.buf.code_action() end, {silent=true, buffer=true, desc='code actions'})
+   --###NVIM0.10: vim.keymap.set('n', '<leader>la', function() vim.cmd.RustLsp('codeAction') end, {silent=true, buffer=true, desc='code actions'})
    vim.keymap.set('n', '<leader>ld', function() vim.lsp.buf.definition() end, {silent=true, buffer=true, desc='go to definition'})
    vim.keymap.set('n', '<leader>lD', ':vsp<CR><cmd>lua vim.lsp.buf.definition()<CR>', {silent=true, buffer=true, desc='open definition in vsplit'})
    vim.keymap.set('n', '<leader>li', function() vim.lsp.buf.implementation() end, {silent=true, buffer=true, desc='go to implementation'})
@@ -33,6 +34,8 @@ function! SetLspOptionsRust()
    -- Move items (functions, etc.) up or down
    vim.keymap.set('n', '<leader>l<Up>',   '<cmd>RustMoveItemUp<CR>', {silent=true, buffer=true, desc='move item up'})
    vim.keymap.set('n', '<leader>l<Down>', '<cmd>RustMoveItemDown<CR>', {silent=true, buffer=true, desc='move item down'})
+   --###NVIM0.10: vim.keymap.set('n', '<leader>l<Up>',   ':RustLsp moveItem up<CR>', {silent=true, buffer=true, desc='move item up'})
+   --###NVIM0.10: vim.keymap.set('n', '<leader>l<Down>', ':RustLsp moveItem down<CR>', {silent=true, buffer=true, desc='move item down'})
 EOF
 
    " Highlight current term on cursor hover

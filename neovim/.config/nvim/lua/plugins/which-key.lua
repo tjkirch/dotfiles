@@ -30,6 +30,11 @@ return {
             C = {":RustOpenCargo<CR>", "rust: Open Cargo.toml"},
             M = {":RustParentModule<CR>", "rust: Open parent module"},
             g = {":RustViewCrateGraph<CR>", "rust: View crate dependency graph"},
+            --###NVIM0.10: d = { ":RustLsp debuggables<CR>", "rust: Start debugger" },
+            --###NVIM0.10: m = { ":RustLsp expandMacro<CR>", "rust: Expand macro" },
+            --###NVIM0.10: C = { ":RustLsp openCargo<CR>", "rust: Open Cargo.toml" },
+            --###NVIM0.10: M = { ":RustLsp parentModule<CR>", "rust: Open parent module" },
+            --###NVIM0.10: g = { ":RustLsp viewCrateGraph<CR>", "rust: View crate dependency graph" },
             u = {":UndotreeToggle<CR>", "vim: Undo tree"},
             D = {":Telescope dap commands<CR>", "debug: All debug commands"},
          }

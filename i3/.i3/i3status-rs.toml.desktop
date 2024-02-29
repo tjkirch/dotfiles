@@ -39,7 +39,7 @@ interval = 30
 [[block]]
 block = "net"
 device = "enp0s31f6"
-format = " Eth $speed_up.eng(prefix:K) $graph_up $speed_down.eng(prefix:K) $graph_down "
+format = " Eth $speed_down.eng(prefix:K) $graph_down $speed_up.eng(prefix:K) $graph_up "
 inactive_format = " Eth down "
 interval = 5
 

@@ -9,7 +9,7 @@ icons = "none"
 block = "custom"
 command = "volume"
 interval = 3
-format = " vol $text "
+format = " $text "
 
 [[block]]
 block = "custom"

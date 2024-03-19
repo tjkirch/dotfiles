@@ -1,11 +1,4 @@
 #!/bin/bash
 
 # TODO: does this work with docked audio?
-echo -n "$(pamixer --get-volume)"
-
-mute="$(pamixer --get-mute)"
-if [ "$mute" = "true" ]; then
-   echo "% off"
-else
-   echo "% on"
-fi
+wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{$1=""; print "vol" $0}'

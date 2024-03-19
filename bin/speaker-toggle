@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # (I think this only mutes the current device?)
-pamixer --toggle-mute
+wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle

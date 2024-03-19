@@ -9,6 +9,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
     unset f
 fi
 
+xdg-user-dirs-update
+
 xrdb -merge "${HOME}/.Xdefaults"
 
 if is-laptop; then
@@ -26,6 +28,11 @@ if is-laptop; then
 fi
 
 urxvtd -q -f -o
+
+gnome-keyring-daemon --start --components=secrets
+
+/usr/libexec/xdg-desktop-portal-gtk -r &
+/usr/libexec/xdg-desktop-portal -r &
 
 xbindkeys
 

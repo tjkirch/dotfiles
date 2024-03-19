@@ -17,4 +17,4 @@ history = 100000
 
 [selection]
 save_to_clipboard = true
-semantic_escape_chars = ",│`|:\"' ()[]{}<>\t*"
+semantic_escape_chars = "=,│`|:\"' ()[]{}<>\t*"

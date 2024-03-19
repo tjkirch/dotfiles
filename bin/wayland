@@ -1,0 +1,24 @@
+#!/bin/sh
+
+export SDL_VIDEODRIVER=wayland
+export SDL_DYNAMIC_API=/usr/lib/libSDL2-2.0.so
+
+export MOZ_ENABLE_WAYLAND=1
+
+# This causes some electron apps to start with unusable blank interfaces
+#export ELECTRON_OZONE_PLATFORM_HINT=wayland
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+export QT_QPA_PLATFORM=wayland
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
+
+# Only if I have trouble:
+#export GTK_USE_PORTAL=0
+
+exec dbus-run-session -- \
+   sway

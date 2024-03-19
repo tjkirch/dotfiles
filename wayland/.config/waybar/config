@@ -1,0 +1,271 @@
+[
+    {
+        "output": "!eDP-1", // more stuff on big monitor
+
+        "layer": "top", // Waybar above other applications
+        "position": "bottom", // Waybar position (top|bottom|left|right)
+        "mode": "dock", // permanently visible at the bottom
+        //"height": 30, // Waybar height (to be removed for auto height)
+        // "width": 1280, // Waybar width (unset is auto)
+        "fixed-center": false,
+        "spacing": 30, // Gaps between modules (px)
+        //"margin": 0,
+        "exclusive": true, // request dedicated space from the compositor
+        "ipc": true,
+
+        // Choose the order of the modules
+        "modules-left": ["sway/workspaces", "sway/mode", "idle_inhibitor"],
+        "modules-center": ["mpris", "pulseaudio"],
+        "modules-right": ["backlight", "disk#root", "disk#home", "network#eth", "network#wifi", "cpu", "memory", "temperature", "battery", "clock", "tray"],
+
+        // Modules configuration
+        "sway/mode": {
+            "format": "<span style=\"italic\">{}</span>"
+        },
+        "idle_inhibitor": {
+            "format": "{icon}",
+            "format-icons": {
+                "activated": "",
+                "deactivated": ""
+            }
+        },
+        "mpris": {
+           "interval": 5,
+           "dynamic-separator": " · "
+        },
+        "pulseaudio": {
+            "format": "{volume:>2}% {icon} {format_source}",
+            "format-muted": " {format_source}",
+            "format-source": "{volume:>2}% ",
+            "format-source-muted": "",
+            "format-icons": {
+                "headphone": "",
+                "hands-free": "",
+                "headset": "",
+                "portable": "",
+                "default": ["", "", ""]
+            },
+            "on-click": "pavucontrol"
+        },
+        "backlight": {
+            "interval": "5",
+            "format": "{percent:<2}% ",
+        },
+        "disk#root": {
+           "interval": 30,
+           "path": "/",
+           "format": "/ {used} {percentage_used:>2}%u",
+            "states": {
+                "warning": 90,
+                "critical": 75
+            }
+        },
+        "disk#home": {
+           "interval": 30,
+           "path": "/home",
+           "format": "~ {used} {percentage_used:>2}%u",
+            "states": {
+                "warning": 90,
+                "critical": 75
+            }
+        },
+        "network#eth": {
+            "interface": "enp*",
+            "interval": 5,
+            "tooltip-format": "{ifname} via {gwaddr} at {ipaddr}/{cidr} ",
+            "format-ethernet": "Eth ↡ {bandwidthDownBytes:<} ↟ {bandwidthUpBytes:<}",
+            "format-linked": "{ifname} (No IP) ",
+            "format-disconnected": "{ifname} ⚠",
+        },
+        "network#wifi": {
+            "interface": "wlp2*",
+            "interval": 5,
+            "tooltip-format": "{ifname} via {essid} ({signalStrength}%) at {ipaddr}/{cidr} ",
+            "format-wifi": "WiFi ↡ {bandwidthDownBytes:<} ↟ {bandwidthUpBytes:<}",
+            "format-linked": "{ifname} (No IP) ",
+            "format-disconnected": "{ifname} ⚠",
+        },
+        "cpu": {
+            "interval": 5,
+            "format": "{usage:>2}% {load:>4.1f}L {avg_frequency:>3.1f}GHz ",
+            "states": {
+                "warning": 80,
+                "critical": 95
+            }
+        },
+        "memory": {
+            "interval": 10,
+            "format": "{used:>4.1f}GB ({percentage:>2}%) ",
+            "tooltip-format": "{used}GB used of {total}GB total",
+            "states": {
+                "warning": 70,
+                "critical": 90
+            }
+        },
+        "temperature": {
+            "interval": 5,
+            "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
+            "critical-threshold": 70,
+            "format": "{temperatureC:>2}°C {icon}",
+            "format-tooltip": "hwmon6 (coretemp) at {temperatureC}°C",
+            "format-icons": ["", "", ""]
+        },
+        "battery": {
+            "interval": 60,
+            "states": {
+                "warning": 30,
+                "critical": 15
+            },
+            "full-at": 90,
+            "format-time": "{H}h {m}m",
+            "format": "{capacity:>2}% {time} {icon}",
+            "format-charging": "{capacity:>2}% {time} ",
+            "format-plugged": "full {time} ",
+            "format-icons": ["", "", "", "", ""]
+        },
+        "clock": {
+            "interval": 5,
+            "format": "{:%a %b %d %I:%M:%S %p}",
+            "tooltip-format": "<tt><small>{calendar}</small></tt>\n\nUTC: {timezoned_time_list}",
+            "timezones": ["", "UTC"]
+        },
+        "tray": {
+            "icon-size": 20,
+            "spacing": 10,
+            "show-passive-items": true
+        }
+    },
+
+    {
+        "output": "eDP-1", // less on smaller laptop screen
+
+        "layer": "top", // Waybar above other applications
+        "position": "bottom", // Waybar position (top|bottom|left|right)
+        "mode": "dock", // permanently visible at the bottom
+        //"height": 30, // Waybar height (to be removed for auto height)
+        // "width": 1280, // Waybar width (unset is auto)
+        "fixed-center": false,
+        "spacing": 20, // Gaps between modules (px)
+        //"margin": 2,
+        "exclusive": true, // request dedicated space from the compositor
+        "ipc": true,
+
+        // Choose the order of the modules
+        "modules-left": ["sway/workspaces", "sway/mode", "idle_inhibitor"],
+        "modules-center": ["pulseaudio"],
+        "modules-right": ["backlight", "disk#root", "disk#home", "network#eth", "network#wifi", "cpu", "memory", "temperature", "battery", "clock", "tray"],
+
+        // Modules configuration
+        "sway/mode": {
+            "format": "<span style=\"italic\">{}</span>"
+        },
+        "idle_inhibitor": {
+            "format": "{icon}",
+            "format-icons": {
+                "activated": "",
+                "deactivated": ""
+            }
+        },
+        "pulseaudio": {
+            "format": "{volume:>2}% {icon} {format_source}",
+            "format-muted": " {format_source}",
+            "format-source": "{volume:>2}% ",
+            "format-source-muted": "",
+            "format-icons": {
+                "headphone": "",
+                "hands-free": "",
+                "headset": "",
+                "portable": "",
+                "default": ["", "", ""]
+            },
+            "on-click": "pavucontrol"
+        },
+        "backlight": {
+            "interval": "5",
+            "format": "{percent:<2}% ",
+        },
+        "disk#root": {
+           "interval": 30,
+           "path": "/",
+           "format": "/ {used} {percentage_used:>2}%u",
+            "states": {
+                "warning": 90,
+                "critical": 75
+            }
+        },
+        "disk#home": {
+           "interval": 30,
+           "path": "/home",
+           "format": "~ {used} {percentage_used:>2}%u",
+            "states": {
+                "warning": 90,
+                "critical": 75
+            }
+        },
+        "network#eth": {
+            "interface": "enp*",
+            "interval": 5,
+            "tooltip-format": "{ifname} via {gwaddr} at {ipaddr}/{cidr} ",
+            "format-ethernet": "Eth ↡ {bandwidthDownBytes:<} ↟ {bandwidthUpBytes:<}",
+            "format-linked": "{ifname} (No IP) ",
+            "format-disconnected": "{ifname} ⚠",
+        },
+        "network#wifi": {
+            "interface": "wlp2*",
+            "interval": 5,
+            "tooltip-format": "{ifname} via {essid} ({signalStrength}%) at {ipaddr}/{cidr} ",
+            "format-wifi": "WiFi ↡ {bandwidthDownBytes:<} ↟ {bandwidthUpBytes:<}",
+            "format-linked": "{ifname} (No IP) ",
+            "format-disconnected": "{ifname} ⚠",
+        },
+        "cpu": {
+            "interval": 5,
+            "format": "{usage:>2}% {load:>4.1f}L {avg_frequency:>3.1f}GHz ",
+            "states": {
+                "warning": 80,
+                "critical": 95
+            }
+        },
+        "memory": {
+            "interval": 10,
+            "format": "{used:>4.1f}GB ({percentage:>2}%) ",
+            "tooltip-format": "{used}GB used of {total}GB total",
+            "states": {
+                "warning": 70,
+                "critical": 90
+            }
+        },
+        "temperature": {
+            "interval": 5,
+            "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
+            "critical-threshold": 70,
+            "format": "{temperatureC:>2}°C {icon}",
+            "format-tooltip": "hwmon6 (coretemp) at {temperatureC}°C",
+            "format-icons": ["", "", ""]
+        },
+        "battery": {
+            "interval": 60,
+            "states": {
+                "warning": 30,
+                "critical": 15
+            },
+            "full-at": 90,
+            "format-time": "{H}h {m}m",
+            "format": "{capacity:>2}% {time} {icon}",
+            "format-charging": "{capacity:>2}% {time} ",
+            "format-plugged": "full {time} ",
+            "format-icons": ["", "", "", "", ""]
+        },
+        "clock": {
+            "interval": 5,
+            "format": "{:%a %b %d %I:%M:%S %p}",
+            "tooltip-format": "<tt><small>{calendar}</small></tt>\n\nUTC: {timezoned_time_list}",
+            "timezones": ["", "UTC"]
+        },
+        "tray": {
+            "icon-size": 20,
+            "spacing": 10,
+            "show-passive-items": true
+        }
+    }
+]

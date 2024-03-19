@@ -1,0 +1,292 @@
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term foot
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu dmenu-wl_path | dmenu-wl | xargs swaymsg exec --
+
+gaps inner 5
+smart_gaps on
+default_border normal 8
+hide_edge_borders both
+
+# mark xwayland applications
+for_window [shell=".*"] title_format "%title :: %shell"
+
+### Output configuration
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+output * {
+   background #000000 solid_color
+}
+
+output "LG Electronics LG Ultra HD 0x00001705" {
+   resolution 3840x2160
+   position 1920 0
+}
+
+output "AU Optronics 0x313D Unknown" {
+   resolution 1920x1080
+   position 0 1800
+}
+
+exec swaymsg focus output "LG Electronics LG Ultra HD 0x00001705"
+
+### Idle configuration
+#
+exec swayidle -w \
+         timeout 300 'swaylock -e -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -e -f -c 000000' &
+bindsym ctrl+alt+l exec pkill -SIGUSR1 swayidle
+
+### Input configuration
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+input "type:keyboard" {
+    xkb_layout us
+    xkb_options ctrl:nocaps,shift:both_shiftlock
+}
+
+### Key bindings
+#
+# Basics:
+#
+# Start a terminal
+bindsym $mod+Return exec $term &
+# backup terminal/shell
+bindsym $mod+shift+return exec urxvt -e bash
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Start your launcher
+bindsym $mod+v exec $menu
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+#
+# Moving around:
+#
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# Workspaces:
+#
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+bindsym $mod+control+1 workspace number 11
+bindsym $mod+control+2 workspace number 12
+bindsym $mod+control+3 workspace number 13
+bindsym $mod+control+4 workspace number 14
+bindsym $mod+control+5 workspace number 15
+bindsym $mod+control+6 workspace number 16
+bindsym $mod+control+7 workspace number 17
+bindsym $mod+control+8 workspace number 18
+bindsym $mod+control+9 workspace number 19
+bindsym $mod+control+0 workspace number 20
+
+bindsym $mod+Tab workspace back_and_forth
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+Shift+control+1 move container to workspace number 11
+bindsym $mod+Shift+control+2 move container to workspace number 12
+bindsym $mod+Shift+control+3 move container to workspace number 13
+bindsym $mod+Shift+control+4 move container to workspace number 14
+bindsym $mod+Shift+control+5 move container to workspace number 15
+bindsym $mod+Shift+control+6 move container to workspace number 16
+bindsym $mod+Shift+control+7 move container to workspace number 17
+bindsym $mod+Shift+control+8 move container to workspace number 18
+bindsym $mod+Shift+control+9 move container to workspace number 19
+bindsym $mod+Shift+control+0 move container to workspace number 20
+
+# bind workspaces to left/right screens
+workspace 1 output "AU Optronics 0x313D Unknown"
+workspace 2 output "AU Optronics 0x313D Unknown"
+workspace 3 output "AU Optronics 0x313D Unknown"
+workspace 4 output "AU Optronics 0x313D Unknown"
+workspace 5 output "AU Optronics 0x313D Unknown"
+workspace 11 output "AU Optronics 0x313D Unknown"
+workspace 12 output "AU Optronics 0x313D Unknown"
+workspace 13 output "AU Optronics 0x313D Unknown"
+workspace 14 output "AU Optronics 0x313D Unknown"
+workspace 15 output "AU Optronics 0x313D Unknown"
+workspace 6 output "LG Electronics LG Ultra HD 0x00001705"
+workspace 7 output "LG Electronics LG Ultra HD 0x00001705"
+workspace 8 output "LG Electronics LG Ultra HD 0x00001705"
+workspace 9 output "LG Electronics LG Ultra HD 0x00001705"
+workspace 10 output "LG Electronics LG Ultra HD 0x00001705"
+workspace 16 output "LG Electronics LG Ultra HD 0x00001705"
+workspace 17 output "LG Electronics LG Ultra HD 0x00001705"
+workspace 18 output "LG Electronics LG Ultra HD 0x00001705"
+workspace 19 output "LG Electronics LG Ultra HD 0x00001705"
+workspace 20 output "LG Electronics LG Ultra HD 0x00001705"
+
+# Layout stuff:
+#
+# horizontal and vertical splits using | and -
+bindsym $mod+backslash splith
+bindsym $mod+minus splitv
+
+# Switch the current container between different layout styles
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Make the current focus fullscreen
+bindsym $mod+shift+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
+
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
+
+# Move focus to the parent container
+bindsym $mod+a focus parent
+
+# Scratchpad:
+#
+# Sway has a "scratchpad", which is a bag of holding for windows.
+# You can send windows there and get them back later.
+
+# Move the currently focused window to the scratchpad
+#bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+#bindsym $mod+minus scratchpad show
+
+#
+# Resizing containers:
+#
+mode "resize" {
+    # These bindings trigger as soon as you enter the resize mode
+
+    bindsym $left       resize grow   left 1 px or 1 ppt
+    bindsym Shift+$left resize shrink left 1 px or 1 ppt
+
+    bindsym $down       resize grow   down 1 px or 1 ppt
+    bindsym Shift+$down resize shrink down 1 px or 1 ppt
+
+    bindsym $up       resize grow   up 1 px or 1 ppt
+    bindsym Shift+$up resize shrink up 1 px or 1 ppt
+
+    bindsym $right       resize grow   right 1 px or 1 ppt
+    bindsym Shift+$right resize shrink right 1 px or 1 ppt
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Poor replacement for xbindkeys:
+#
+bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-
+bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+
+bindsym --locked XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym $mod+shift+o exec pavucontrol
+
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym --locked XF86AudioNext exec playerctl next
+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl -c backlight set -5%
+bindsym --locked XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
+
+bindsym XF86WLAN exec rfkill toggle wlan
+
+bindsym XF86Display output "LG Electronics LG Ultra HD 0x00001705" toggle
+
+bindsym $mod+f exec firefox &
+
+###TODO FIXME: emoji-mart can't paste in wayland without weird stuff.  find replacement.
+###bindsym $mod+period exec emoji-mart
+
+###TODO: find replacement for `yubi toggle` on XF86Tools key
+###TODO: make replacement for paste-buffer on $mod+p
+
+# Startup programs:
+#
+exec dbus-update-activation-environment --all
+exec xdg-user-dirs-update
+
+exec on_ac_power && rfkill block wlan
+exec yubi off
+
+exec gnome-keyring-daemon --start --components=secrets &
+exec /usr/libexec/xdg-desktop-portal-gtk -r &
+exec /usr/libexec/xdg-desktop-portal -r &
+
+exec pipewire &
+exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
+
+exec wlsunset -t 3600 -T 6300 -l 47.7 -L -122.3 &
+
+exec dunst &
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    id waybar
+    swaybar_command waybar
+
+    mode dock
+    position bottom
+}

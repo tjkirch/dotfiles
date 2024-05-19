@@ -57,7 +57,6 @@ return {
                   diagnostic = true,
                   telescope = true,
                   treesitter = true,
-                  tsrainbow2 = true,
                },
             },
          })
@@ -81,7 +80,7 @@ return {
             telescope = true,
             nvimtree = false,
             treesitter = true,
-            ts_rainbow2 = true,
+            rainbow_delimiters = true,
             native_lsp = {
                enabled = true,
             },

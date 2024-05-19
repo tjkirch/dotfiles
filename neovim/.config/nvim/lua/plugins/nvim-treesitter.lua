@@ -2,7 +2,7 @@ return {
    'nvim-treesitter/nvim-treesitter',
    build = ':TSUpdate',
    dependencies = {
-      "HiPhish/nvim-ts-rainbow2",
+      "HiPhish/rainbow-delimiters.nvim",
       "nvim-treesitter/nvim-treesitter-context",
    },
    lazy=true,
@@ -32,13 +32,6 @@ return {
                node_incremental = '<TAB>', node_decremental = '<S-TAB>',
             },
          },
-         -- rainbow parens/brackets from nvim-ts-rainbow2
-         rainbow = {
-            enable = true,
-            extended_mode = true,
-            -- Which query to use for finding delimiters
-            query = 'rainbow-parens',
-         }
       }
    end
 }

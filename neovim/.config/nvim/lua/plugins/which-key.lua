@@ -31,7 +31,6 @@ return {
             M = { ":RustLsp parentModule<CR>", "rust: Open parent module" },
             g = { ":RustLsp viewCrateGraph<CR>", "rust: View crate dependency graph" },
             u = { ":UndotreeToggle<CR>", "vim: Undo tree" },
-            D = { ":Telescope dap commands<CR>", "debug: All debug commands" },
          },
       })
    end,

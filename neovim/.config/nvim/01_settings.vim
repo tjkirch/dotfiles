@@ -1,7 +1,3 @@
-if has('termguicolors')
-   set termguicolors
-endif
-
 set breakindent
 set cindent
 set cinoptions=l1,m1,j1
@@ -28,7 +24,7 @@ set scrollback=100000
 set scrolloff=3
 set shell=bash
 set shiftwidth=3
-set shortmess=cfilmnorxFOT
+set shortmess=clmorFOT
 set showbreak=↘
 set showmatch
 set sidescrolloff=3

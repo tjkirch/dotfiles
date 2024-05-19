@@ -15,8 +15,6 @@ set hidden
 set inccommand=split
 set list
 set listchars=tab:»·,trail:·,nbsp:·,extends:↲,precedes:↳
-let mapleader = ","
-let maplocalleader = ","
 set matchtime=0
 set modeline
 set mousemodel=extend

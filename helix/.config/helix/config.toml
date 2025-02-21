@@ -1,0 +1,78 @@
+theme = "rose_pine_moon"
+
+[editor]
+line-number = "relative"
+mouse = false
+cursorline = true
+cursorcolumn = true
+bufferline = "multiple"
+color-modes = true
+popup-border = "all"
+end-of-line-diagnostics = "hint"
+auto-pairs = false
+
+[editor.lsp]
+display-inlay-hints = true
+display-progress-messages = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.search]
+smart-case = false
+
+[editor.whitespace.render]
+tab = "all"
+nbsp = "all"
+nnbsp = "all"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "␣"
+nnbsp = "⍽"
+tab = "→"
+newline = "⏎"
+tabpad = "·"  # Tabs will look like "→···" (depending on tab width)
+
+[editor.indent-guides]
+render = true
+character = "⸽" # Some characters that work well: "▏", "╎", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.soft-wrap]
+enable = true
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "spacer", "line-numbers", "spacer"]
+
+[editor.gutters.line-numbers]
+min-width = 2
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+other-lines = "hint"
+prefix-len = 4
+
+[editor.statusline]
+separator = "·"
+left = ["mode", "spinner", "file-name", "read-only-indicator", "file-modification-indicator", "file-encoding"]
+center = ["version-control"]
+right = ["diagnostics", "file-type", "separator", "selections", "primary-selection-length", "register", "separator", "position", "position-percentage", "total-line-numbers"]
+
+[keys.normal]
+# Allow extending up or down based on anchor
+x = "extend_line"
+# Add back some Vim keybindings that make sense and aren't used by Helix
+C-h = "jump_view_left"
+C-l = "jump_view_right"
+C-j = "jump_view_down"
+C-k = "jump_view_up"
+"{" = ["goto_prev_paragraph"]
+"}" = ["goto_next_paragraph"]
+V = ["select_mode", "extend_to_line_bounds"]
+
+[keys.select]
+"{" = ["extend_to_line_bounds", "goto_prev_paragraph"]
+"}" = ["extend_to_line_bounds", "goto_next_paragraph"]

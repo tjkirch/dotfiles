@@ -23,7 +23,7 @@ EOF
 function! SetLspOptions()
    lua <<EOF
    -- LSP-based code navigation
-   vim.keymap.set('n', '<leader>la', function() vim.cmd.RustLsp('codeAction') end, {silent=true, buffer=true, desc='code actions'})
+   vim.keymap.set('n', '<leader>la', function() vim.lsp.buf.code_action() end, {silent=true, buffer=true, desc='code actions'})
    vim.keymap.set('n', '<leader>ld', function() vim.lsp.buf.definition() end, {silent=true, buffer=true, desc='go to definition'})
    vim.keymap.set('n', '<leader>lD', ':vsp<CR><cmd>lua vim.lsp.buf.definition()<CR>', {silent=true, buffer=true, desc='open definition in vsplit'})
    vim.keymap.set('n', '<leader>li', function() vim.lsp.buf.implementation() end, {silent=true, buffer=true, desc='go to implementation'})

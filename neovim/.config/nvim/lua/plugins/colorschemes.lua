@@ -1,25 +1,25 @@
 return {
    {
       -- jellybeans, but with modern plugin support, like LSP
-      'themercorp/themer.lua',
-      lazy=true,
+      "themercorp/themer.lua",
+      lazy = true,
       --priority=1000,
       config = function()
-         require('themer').setup({
+         require("themer").setup({
             dim_inactive = true,
             --colorscheme = "jellybeans",
             colorscheme = "rose_pine_moon",
          })
-         vim.cmd('colorscheme themer_rose_pine_moon')
+         vim.cmd("colorscheme themer_rose_pine_moon")
       end,
    },
    {
-      'rose-pine/neovim',
+      "rose-pine/neovim",
       name = "rose-pine",
-      lazy=false,
-      priority=1000,
+      lazy = false,
+      priority = 1000,
       config = function()
-         require('rose-pine').setup({
+         require("rose-pine").setup({
             dim_nc_background = true,
             highlight_groups = {
                -- (Get these from lua/rose-pine/theme.lua)
@@ -38,15 +38,15 @@ return {
                ["@variable"] = { fg = "text", italic = false },
             },
          })
-         vim.cmd('colorscheme rose-pine-moon')
+         vim.cmd("colorscheme rose-pine-moon")
       end,
    },
    {
-      'EdenEast/nightfox.nvim',
-      lazy=true,
+      "EdenEast/nightfox.nvim",
+      lazy = true,
       --priority=1000,
-      config=function()
-         require('nightfox').setup({
+      config = function()
+         require("nightfox").setup({
             options = {
                dim_inactive = true,
                modules = {
@@ -60,14 +60,14 @@ return {
                },
             },
          })
-         vim.cmd.colorscheme "nordfox"
-      end
+         vim.cmd.colorscheme("nordfox")
+      end,
    },
    {
-      'catppuccin/nvim',
+      "catppuccin/nvim",
       name = "catppuccin",
-      lazy=true,
-      opts={
+      lazy = true,
+      opts = {
          flavour = "catppuccin-mocha",
          show_end_of_buffer = true,
          dim_inactive = {

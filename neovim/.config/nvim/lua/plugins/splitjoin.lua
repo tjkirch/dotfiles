@@ -1,4 +1,4 @@
 return {
-   'AndrewRadev/splitjoin.vim',
-   lazy=false,
+   "AndrewRadev/splitjoin.vim",
+   lazy = false,
 }

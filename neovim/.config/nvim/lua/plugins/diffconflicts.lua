@@ -1,5 +1,5 @@
-return {{
-   'whiteinge/diffconflicts',
-   lazy=true,
-   cmd='DiffConflicts'
-}}
+return { {
+   "whiteinge/diffconflicts",
+   lazy = true,
+   cmd = "DiffConflicts",
+} }

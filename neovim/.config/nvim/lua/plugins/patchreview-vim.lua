@@ -1,5 +1,5 @@
 return {
-   'junkblocker/patchreview-vim',
-   lazy=true,
-   cmd = {'DiffReview', 'PatchReview', 'ReversePatchReview'},
+   "junkblocker/patchreview-vim",
+   lazy = true,
+   cmd = { "DiffReview", "PatchReview", "ReversePatchReview" },
 }

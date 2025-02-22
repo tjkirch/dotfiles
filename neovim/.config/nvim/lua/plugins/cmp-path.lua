@@ -1,4 +1,4 @@
 return {
-   'hrsh7th/cmp-path',
-   lazy=false,
+   "hrsh7th/cmp-path",
+   lazy = false,
 }

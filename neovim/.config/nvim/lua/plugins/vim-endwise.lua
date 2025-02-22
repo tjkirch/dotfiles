@@ -1,4 +1,4 @@
 return {
-   'tpope/vim-endwise',
-   lazy=false,
+   "tpope/vim-endwise",
+   lazy = false,
 }

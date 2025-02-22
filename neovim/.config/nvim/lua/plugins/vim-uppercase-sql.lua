@@ -1,5 +1,5 @@
 return {
-   'jsborjesson/vim-uppercase-sql',
-   lazy=true,
-   ft='sql',
+   "jsborjesson/vim-uppercase-sql",
+   lazy = true,
+   ft = "sql",
 }

@@ -1,4 +1,4 @@
 return {
-   'vim-scripts/ReplaceWithRegister',
-   lazy=false,
+   "vim-scripts/ReplaceWithRegister",
+   lazy = false,
 }

@@ -1,5 +1,5 @@
 return {
-   'mechatroner/rainbow_csv',
-   lazy=true,
-   ft='csv',
+   "mechatroner/rainbow_csv",
+   lazy = true,
+   ft = "csv",
 }

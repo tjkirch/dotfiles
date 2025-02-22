@@ -1,5 +1,5 @@
 return {
-   'tpope/vim-unimpaired',
-   lazy=true,
-   keys = {'[', ']'},
+   "tpope/vim-unimpaired",
+   lazy = true,
+   keys = { "[", "]" },
 }

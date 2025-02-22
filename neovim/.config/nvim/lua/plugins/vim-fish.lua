@@ -1,5 +1,5 @@
 return {
-   'dag/vim-fish',
-   lazy=true,
-   ft='fish',
+   "dag/vim-fish",
+   lazy = true,
+   ft = "fish",
 }

@@ -1,4 +1,4 @@
 return {
-   'vim-scripts/ReplaceWithSameIndentRegister',
-   lazy=false,
+   "vim-scripts/ReplaceWithSameIndentRegister",
+   lazy = false,
 }

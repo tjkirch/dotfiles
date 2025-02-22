@@ -1,4 +1,4 @@
 return {
-   'ConradIrwin/vim-bracketed-paste',
-   lazy=false,
+   "ConradIrwin/vim-bracketed-paste",
+   lazy = false,
 }

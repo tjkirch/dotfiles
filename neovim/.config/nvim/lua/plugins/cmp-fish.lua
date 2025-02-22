@@ -1,5 +1,5 @@
 return {
-   'mtoohey31/cmp-fish',
-   lazy=true,
-   ft='fish',
+   "mtoohey31/cmp-fish",
+   lazy = true,
+   ft = "fish",
 }

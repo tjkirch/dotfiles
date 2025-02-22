@@ -1,4 +1,4 @@
 return {
-   'tpope/vim-vinegar',
-   lazy=false,
+   "tpope/vim-vinegar",
+   lazy = false,
 }

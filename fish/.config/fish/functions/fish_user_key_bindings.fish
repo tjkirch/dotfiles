@@ -3,6 +3,9 @@ function fish_user_key_bindings
     # Load fzf key bindings: ctrl-r history, ctrl-t file finder, alt-c cd
     fzf --fish | source
 
+    # replace ctrl-r with fancier history search
+    atuin init fish --disable-up-arrow | source
+
     # ctrl+backspace to delete previous word; ctrl+w is dirty
     bind -M insert \cH backward-kill-word
 

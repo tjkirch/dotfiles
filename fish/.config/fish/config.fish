@@ -1,6 +1,9 @@
 # Load ssh-agent setup, if configured
 test -r $HOME/.ssh/environment-$hostname.fish && source $HOME/.ssh/environment-$hostname.fish
 
+# I don't know what's setting this to nano but I don't want it; use my universal instead
+set --erase --global EDITOR
+
 source $HOME/.config/fish/abbr.fish
 
 # (event functions cannot be autoloaded, must be defined here)

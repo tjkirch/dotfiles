@@ -4,7 +4,7 @@
 return {
    "neovim/nvim-lspconfig",
    lazy = true,
-   ft = { "bash", "fish", "rust", "sh", "toml", "lua" },
+   ft = { "bash", "fish", "rust", "sh", "toml", "lua", "cpp" },
    dependencies = {
       "jose-elias-alvarez/null-ls.nvim",
       "gbrlsnchs/telescope-lsp-handlers.nvim",
@@ -19,6 +19,10 @@ return {
       -- Rust is set up by rust-tools.lua
       -- TOML linting; null-ls only does formatting
       require("lspconfig").taplo.setup({})
+      -- C++
+      require("lspconfig").clangd.setup({
+         cmd = { "clangd", "--background-index", "--clang-tidy", "-query-driver=**" },
+      })
       -- lua-language-server
       require("lspconfig").lua_ls.setup({
          settings = {

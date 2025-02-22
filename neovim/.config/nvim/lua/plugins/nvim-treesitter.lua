@@ -12,11 +12,11 @@ return {
          " Treesitter-based folding, where available
          augroup treesitter
             autocmd!
-            autocmd FileType bash,fish,rust,toml,lua setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr()
+            autocmd FileType bash,fish,rust,toml,lua,cpp setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr()
          augroup END
       ]])
       require("nvim-treesitter.configs").setup({
-         ensure_installed = { "bash", "fish", "rust", "toml", "lua" },
+         ensure_installed = { "bash", "fish", "rust", "toml", "lua", "cpp" },
          auto_install = true,
          -- replace syntax highlighting / indentation with language-aware versions
          highlight = {

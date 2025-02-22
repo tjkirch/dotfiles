@@ -2,7 +2,7 @@
 augroup lsp
    autocmd!
    "TODO: guard LSP with capability checks, not by language; see :h lsp-defaults
-   autocmd FileType rust,sh,toml,lua call SetLspOptions()
+   autocmd FileType rust,sh,toml,lua,cpp call SetLspOptions()
    autocmd FileType rust call SetLspOptionsRust()
 augroup END
 

@@ -1,6 +1,8 @@
 # Load ssh-agent setup, if configured
 test -r $HOME/.ssh/environment-$hostname.fish && source $HOME/.ssh/environment-$hostname.fish
 
+source $HOME/.config/fish/abbr.fish
+
 # (event functions cannot be autoloaded, must be defined here)
 function _report_time -d "Reports runtime of long commands" --on-event fish_postexec
     if test "$CMD_DURATION" -gt 5000

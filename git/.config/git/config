@@ -1,45 +1,61 @@
+#
+# Identity
+#
+
 [user]
-	name = Tom Kirchner
-	email = git@halffull.org
+name = Tom Kirchner
+email = git@halffull.org
+
 [github]
-	user = tjkirch
-[core]
-   excludesfile = ~/.gitignore
-	autocrlf = input
-	editor = nvim
-[alias]
-   graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-   glog = log --graph --abbrev-commit --decorate --branches --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %C(cyan)%ce%Creset %C(green)(%cr)%Creset' --date=relative --color
-	unstage = reset HEAD --
-	lc = log ORIG_HEAD.. --stat --no-merges
-   l = "!source ~/.githelpers && pretty_git_log"
-   la = !git l --all
-   r = !git l -30
-   ra = !git r --all
-   news = log -p HEAD@{1}..HEAD@{0}
-	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
-[merge]
-	tool = nvim -d
-[color]
-	ui = auto
-[push]
-	default = simple
-[diff]
-	algorithm = patience
-   colorMoved = dimmed-zebra
-[difftool]
-	prompt = false
-[pull]
-	ff = only
-[pager]
-    diff = delta
-    log = delta
-    reflog = delta
-    show = delta
-[delta]
-    line-numbers = true
-    navigate = true
-[interactive]
-    diffFilter = delta --color-only
+user = tjkirch
+
+#
+# Behavior
+#
+
 [init]
-	defaultBranch = main
+defaultBranch = main
+
+[core]
+autocrlf = input
+editor = nvim
+
+[merge]
+tool = nvim -d
+
+[push]
+default = simple
+
+[pull]
+ff = only
+
+[diff]
+algorithm = histogram
+colorMoved = dimmed-zebra
+
+[difftool]
+prompt = false
+
+[alias]
+graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+glog = log --graph --abbrev-commit --decorate --branches --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %C(cyan)%ce%Creset %C(green)(%cr)%Creset' --date=relative --color
+
+#
+# Appearance
+#
+
+[color]
+ui = auto
+
+[pager]
+diff = delta
+log = delta
+reflog = delta
+show = delta
+
+[delta]
+line-numbers = true
+navigate = true
+
+[interactive]
+diffFilter = delta --color-only

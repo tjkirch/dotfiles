@@ -1,42 +1,59 @@
+-- Useful plugin to show you pending keybinds.
 return {
    "folke/which-key.nvim",
-   lazy = false,
-   --dependencies='mrjones2014/legendary.nvim',
-   config = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
+   event = "VimEnter", -- Sets the loading event to 'VimEnter'
+   opts = {
+      -- delay between pressing a key and opening which-key (milliseconds)
+      -- this setting is independent of vim.opt.timeoutlen
+      delay = 0,
+      icons = {
+         -- set icon mappings to true if you have a Nerd Font
+         mappings = vim.g.have_nerd_font,
+         -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
+         -- default which-key.nvim defined Nerd Font icons, otherwise define a string table
+         keys = vim.g.have_nerd_font and {} or {
+            Up = "<Up> ",
+            Down = "<Down> ",
+            Left = "<Left> ",
+            Right = "<Right> ",
+            C = "<C-…> ",
+            M = "<M-…> ",
+            D = "<D-…> ",
+            S = "<S-…> ",
+            CR = "<CR> ",
+            Esc = "<Esc> ",
+            ScrollWheelDown = "<ScrollWheelDown> ",
+            ScrollWheelUp = "<ScrollWheelUp> ",
+            NL = "<NL> ",
+            BS = "<BS> ",
+            Space = "<Space> ",
+            Tab = "<Tab> ",
+            F1 = "<F1>",
+            F2 = "<F2>",
+            F3 = "<F3>",
+            F4 = "<F4>",
+            F5 = "<F5>",
+            F6 = "<F6>",
+            F7 = "<F7>",
+            F8 = "<F8>",
+            F9 = "<F9>",
+            F10 = "<F10>",
+            F11 = "<F11>",
+            F12 = "<F12>",
+         },
+      },
 
-      -- A menu of plugin commands I use rarely that don't need dedicated keys
-      local wk = require("which-key")
-      wk.add({
-         { "<leader>.",  group = "Rarities" },
-         { "<leader>.B", ":DiffviewFileHistory<CR>",                  desc = "git: Show branch history" },
-         { "<leader>.C", ":RustLsp openCargo<CR>",                    desc = "rust: Open Cargo.toml" },
-         { "<leader>.M", ":RustLsp parentModule<CR>",                 desc = "rust: Open parent module" },
-         { "<leader>.T", ":DiffReview git staged --no-color -U5<CR>", desc = "git: Review staged changes in tabs" },
-         { "<leader>.b", ":Gitsigns toggle_current_line_blame<CR>",   desc = "git: Toggle current-line blame" },
-         {
-            "<leader>.c",
-            ":DiffConflicts<CR>",
-            desc = "git: Turn conflict markers into diff",
-         },
-         { "<leader>.d", ":RustLsp debuggables<CR>",    desc = "rust: Start debugger" },
-         { "<leader>.f", ":DiffviewFileHistory %<CR>",  desc = "git: Show file history" },
-         { "<leader>.g", ":RustLsp viewCrateGraph<CR>", desc = "rust: View crate dependency graph" },
-         { "<leader>.m", ":RustLsp expandMacro<CR>",    desc = "rust: Expand macro" },
-         { "<leader>.p", ":PatchReview PATCH",          desc = "git: Review changes in patch" },
-         { "<leader>.s", ":DiffviewOpen HEAD",          desc = "git: Open conflicts/diff sidebar" },
-         {
-            "<leader>.t",
-            ":DiffReview<CR>",
-            desc = "git: Review workspace changes in tabs",
-         },
-         { "<leader>.u", ":UndotreeToggle<CR>",            desc = "vim: Undo tree" },
-         { "<leader>.w", ":SudoWrite<CR>",                 desc = "unix: sudo write" },
-         { "<leader>d",  group = "debugger" },
-         { "<leader>g",  group = "git" },
-         { "<leader>l",  group = "LSP" },
-         { "<leader>t",  group = "Telescope fuzzy finders" },
-      })
-   end,
+      -- Document existing key chains
+      spec = {
+         { "<leader>c", group = "[C]ode",     mode = { "n", "x" } },
+         { "<leader>d", group = "[D]ocument" },
+         { "<leader>r", group = "[R]ename" },
+         { "<leader>s", group = "[S]earch" },
+         { "<leader>w", group = "[W]orkspace" },
+         { "<leader>t", group = "[T]oggle" },
+         { "<leader>g", group = "[G]it" },
+      },
+   },
 }
+
+-- vim: ts=3 sts=3 sw=3 et

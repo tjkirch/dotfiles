@@ -20,21 +20,39 @@ defaultBranch = main
 autocrlf = input
 editor = nvim
 
+[commit]
+verbose = true
+
 [merge]
 tool = nvim -d
+conflictstyle = zdiff3
 
 [push]
 default = simple
+autoSetupRemote = true
 
 [pull]
 ff = only
 
+[rebase]
+autoSquash = true
+autoStash = true
+
 [diff]
 algorithm = histogram
 colorMoved = dimmed-zebra
+mnemonicPrefix = true
+renames = copies
 
 [difftool]
 prompt = false
+
+[help]
+autocorrect = prompt
+
+[rerere]
+enabled = true
+autoupdate = true
 
 [alias]
 graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
@@ -46,6 +64,15 @@ glog = log --graph --abbrev-commit --decorate --branches --pretty=format:'%C(yel
 
 [color]
 ui = auto
+
+[column]
+ui = auto
+
+[branch]
+sort = -committerdate
+
+[tag]
+sort = version:refname
 
 [pager]
 diff = delta

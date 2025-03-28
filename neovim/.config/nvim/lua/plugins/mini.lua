@@ -28,10 +28,6 @@ return {
          },
       })
 
-      -- Like unimpaired; adds ] and [ movements for many types of Vim objects.
-      -- ]b for next buffer, ]w for next window, etc.
-      require("mini.bracketed").setup()
-
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
    end,

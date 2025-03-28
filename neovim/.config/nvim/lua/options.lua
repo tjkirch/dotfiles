@@ -82,7 +82,7 @@ vim.o.sidescrolloff = 3
 
 -- Completion
 --vim.o.completeopt = "menuone,noinsert,noselect"
-vim.o.completeopt = "menu,noinsert,noselect,preview"
+vim.o.completeopt = "menu,noselect,preview,fuzzy"
 vim.o.wildignorecase = true
 vim.o.wildmode = "list:longest"
 

@@ -205,7 +205,15 @@ return {
             cmd = { "clangd", "--background-index", "--clang-tidy", "-query-driver=**" },
          },
          fish_lsp = {},
-         rust_analyzer = {},
+         rust_analyzer = {
+            settings = {
+               ["rust-analyzer"] = {
+                  check = {
+                     command = "clippy",
+                  },
+               },
+            },
+         },
          taplo = {
             -- This is required for taplo LSP to work in non-git repositories
             root_dir = require("lspconfig.util").root_pattern("*.toml", ".git"),

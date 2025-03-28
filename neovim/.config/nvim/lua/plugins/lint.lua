@@ -7,9 +7,6 @@ return {
       lint.linters_by_ft = {
          awk = { "gawk" },
       }
-      if vim.fn.executable("cargo-clippy") then
-         lint.linters_by_ft["rust"] = { "clippy" }
-      end
       if vim.fn.executable("cppcheck") then
          lint.linters_by_ft["c"] = { "cppcheck" }
          lint.linters_by_ft["cpp"] = { "cppcheck" }

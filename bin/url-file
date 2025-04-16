@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+# Open (trusted) Windows .URL files
+grep 'URL' "$1" | sed -e 's/^[^=]*=//' | exec xargs -I '{}' firefox --private-window '{}'

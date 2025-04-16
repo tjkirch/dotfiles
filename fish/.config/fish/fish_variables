@@ -2,6 +2,7 @@
 # VERSION: 3.0
 SETUVAR --export BROWSER:firefox
 SETUVAR --export CFLAGS:\x2dmarch\x3dnative\x20\x2dmtune\x3dnative\x20\x2dpipe\x20\x2dO2
+SETUVAR --export COLORTERM:truecolor
 SETUVAR --export CXXFLAGS:\x2dmarch\x3dnative\x20\x2dmtune\x3dnative\x20\x2dpipe\x20\x2dO2
 SETUVAR --export EDITOR:nvim
 SETUVAR --export FZF_ALT_C_OPTS:\x2d\x2dpreview\x20\x27eza\x20\x2d\x2dgit\x2dignore\x20\x2d\x2dtree\x20\x2dI\x20target\x20\x7b\x7d\x20\x7c\x20head\x20\x2d200\x27
@@ -10,17 +11,15 @@ SETUVAR --export FZF_CTRL_T_OPTS:\x2d\x2dpreview\x20\x27\x28highlight\x20\x2dO\x
 SETUVAR --export FZF_DEFAULT_COMMAND:rg\x20\x2d\x2dfiles\x20\x2d\x2dno\x2dignore\x20\x2d\x2dhidden\x20\x2d\x2dfollow\x20\x2dg\x20\x22\x21\x7b\x2egit\x2cnode_modules\x2cbackup\x7d/\x2a\x22\x202\x3e/dev/null
 SETUVAR --export LANG:en_US\x2eUTF\x2d8
 SETUVAR --export LC_COLLATE:C
-SETUVAR --export --path LD_LIBRARY_PATH:/home/tjk/local/lib
 SETUVAR --export LESS:\x2d\x2dtabs\x3d4\x20\x2dRX
 SETUVAR --export LVM_SUPPRESS_FD_WARNINGS:1
-SETUVAR --export --path MANPATH:/home/tjk/local/share/man\x1e/usr/local/share/man\x1e/usr/share/man
 SETUVAR MOZ_X11_EGL:\x1d
 SETUVAR --export PAGER:less\x20\x2d\x2dtabs\x3d4\x20\x2dRX\x20\x2dRX
-SETUVAR --export --path PKG_CONFIG_PATH:/usr/local/lib/pkgconfig\x1e/usr/local/share/pkgconfig
 SETUVAR --export PLAYDATE_MOUNT_POINT:/mnt/playdate
 SETUVAR --export --path PLAYDATE_SDK_PATH:/home/tjk/code/playdate/sdk
+SETUVAR --export RCLONE_FAST_LIST:1
+SETUVAR --export STEAM_FORCE_DESKTOPUI_SCALING:1\x2e5
 SETUVAR --export TIME_STYLE:iso
-SETUVAR XDG_RUNTIME_DIR:\x1d
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:969896
 SETUVAR fish_color_cancel:\x2dr
@@ -56,4 +55,4 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/tjk/local/bin\x1e/usr/local/bin\x1e/home/tjk/\x2ecabal/bin\x1e/home/tjk/\x2ecargo/bin\x1e/home/tjk/local/src/fzf/bin\x1e/home/tjk/\x2elocal/bin\x1e/home/tjk/\x2edotfiles/bin\x1e/home/tjk/code/playdate/sdk/bin
+SETUVAR fish_user_paths:/var/home/tjk/\x2elocal/sbin\x1e/var/home/linuxbrew/\x2elinuxbrew/sbin\x1e/var/home/linuxbrew/\x2elinuxbrew/bin\x1e/usr/local/bin\x1e/home/tjk/\x2ecargo/bin\x1e/home/tjk/\x2elocal/bin\x1e/home/tjk/\x2edotfiles/bin

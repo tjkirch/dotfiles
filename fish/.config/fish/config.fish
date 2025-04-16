@@ -1,5 +1,8 @@
 # Load ssh-agent setup, if configured
 test -r $HOME/.ssh/environment-$hostname.fish && source $HOME/.ssh/environment-$hostname.fish
+if status is-interactive
+    ssh-add -l &>/dev/null || ssh-add
+end
 
 # I don't know what's setting this to nano but I don't want it; use my universal instead
 set --erase --global EDITOR

@@ -109,3 +109,6 @@ abbr -a xupdate 'sudo --preserve-env=LVM_SUPPRESS_FD_WARNINGS xbps-install -Su'
 
 abbr -a yi 'sudo yum install'
 abbr -a yl 'yum list'
+
+# @fish-lsp-disable 2001
+abbr -a bu 'brew update && brew outdated && read --nchars 1 -l resp --prompt-str "Upgrade? y/n" && test "$resp" = "y" && brew upgrade'

@@ -11,9 +11,6 @@ return {
          lint.linters_by_ft["c"] = { "cppcheck" }
          lint.linters_by_ft["cpp"] = { "cppcheck" }
       end
-      if vim.fn.executable("fish") then
-         lint.linters_by_ft["fish"] = { "fish" }
-      end
       if vim.fn.executable("jsonlint") then
          lint.linters_by_ft["json"] = { "jsonlint" }
       end

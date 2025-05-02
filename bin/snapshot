@@ -1,0 +1,173 @@
+#!/usr/bin/env bash
+set -euxo pipefail
+
+# Creates btrfs snapshots of a subvolume.  To be run e.g. before upgrades.
+#
+# A bootloader entry is created for each one so they're easy to boot into to
+# start recovery after a failure.
+# (To switch back permanently, make sure fstab/bootloader point to your desired
+#  snapshot name, or rename snapshots so the desired one now has the "real"
+#  name, e.g. "root".)
+#
+# The snapshots are named starting with SNAPSHOT_PREFIX (by default,
+# "root-snapshot") followed by the date/time of the snapshot.
+# The latest snapshot is also available as the prefix name alone, in case you
+# need to edit the bootloader command line by hand and don't know what
+# datetimes are available.
+#
+# Snapshots are created in BTRFS_META_MOUNTPOINT; by default, /mnt/btrfs_meta,
+# which is created.
+#
+# Assumptions:
+# * This tool assumes it owns (and can delete) btrfs snapshots and bootloader
+#   entries with names starting with the value of SNAPSHOT_PREFIX, e.g.
+#   "root-snapshot".
+#
+# Notes:
+# * boom has a --backup option that copies the kernel and initrd to /boot and
+#   sets the boot entry to use those.  This could help ensure that a snapshot
+#   is bootable even if the OS removes old kernels, given that /boot is often
+#   on a separate partition and so the kernel/initrd themselves are not
+#   snapshotted. However, /boot is not often big enough to hold much beyond the
+#   OS-managed kernels, so this would introduce a sizing risk, and boom doesn't
+#   manage cleanup of backups, so it would also add complication.  This feature
+#   is therefore not used.
+
+# Name of the subvolume to snapshot.
+SUBVOL_TO_SNAPSHOT="root"
+
+# How to name the snapshots.
+SNAPSHOT_PREFIX="${SUBVOL_TO_SNAPSHOT}-snapshot"
+
+# How many snapshots to keep.
+KEEP_SNAPSHOTS=5
+
+# Where to mount the btrfs meta subvolume.
+BTRFS_META_MOUNTPOINT="/mnt/btrfs_meta"
+
+# Most btrfs setups use 5 as the base subvolume (not filesystem root) where you can manage subvolumes
+BTRFS_META_SUBVOLID=5
+
+#
+# =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=
+# Internal bookkeeping:
+
+BTRFS_META_MOUNTED=0
+
+msg() {
+   echo -e "\n${*}"
+}
+
+trap cleanup EXIT
+cleanup() {
+   if [[ "${BTRFS_META_MOUNTED}" -eq 1 ]]; then
+      # We cd to this mountpoint below; have to cd elsewhere or it'll be busy
+      # and we can't umount it
+      cd /
+      umount "${BTRFS_META_MOUNTPOINT}"
+   fi
+}
+
+# Startup checks
+
+if [[ "${EUID}" -ne 0 ]]; then
+   msg "* Must run with root permissions" >&2
+   exit 1
+fi
+
+for tool in btrfs boom; do
+   if ! hash "${tool}" 2>/dev/null; then
+      msg "* Couldn't find '${tool}' in PATH" >&2
+      exit 1
+   fi
+done
+
+if ! test "${KEEP_SNAPSHOTS}" -ge 1 2>/dev/null; then
+   msg "* KEEP_SNAPSHOTS must be a positive integer" >&2
+   exit 1
+fi
+
+if [[ "$(findmnt --noheadings --output FSTYPE /)" != "btrfs" ]]; then
+   msg "* Root filesystem is not btrfs, can't continue" >&2
+   exit 1
+fi
+
+#
+# =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=
+# Snapshot management:
+
+# Get the fstab source of the root mount point (e.g. device or UUID)
+ROOT_SOURCE="$(findmnt --noheadings --nofsroot --fstab --output SOURCE --mountpoint /)"
+
+msg "Mounting ${BTRFS_META_MOUNTPOINT} for access to subvolumes"
+
+mkdir -p "${BTRFS_META_MOUNTPOINT}"
+if ! findmnt --mountpoint "${BTRFS_META_MOUNTPOINT}" >/dev/null; then
+   mount -t btrfs -o "subvolid=${BTRFS_META_SUBVOLID}" "${ROOT_SOURCE}" "${BTRFS_META_MOUNTPOINT}"
+   BTRFS_META_MOUNTED=1
+fi
+
+# Move to btrfs subvolume directory so we can manage them easily
+cd "${BTRFS_META_MOUNTPOINT}"
+
+DATETIME="$(date --iso-8601=seconds)"
+
+msg "Creating new snapshot '${SNAPSHOT_PREFIX}-${DATETIME}'"
+
+# Create the latest snapshot with no suffix, so it has a consistent name, in
+# case the user needs to use it for recovery and our bootable entries don't
+# work for some reason.
+btrfs subvolume snapshot "${SUBVOL_TO_SNAPSHOT}" "${SNAPSHOT_PREFIX}-${DATETIME}"
+
+msg "Creating '${SNAPSHOT_PREFIX}' as simple name for latest snapshot"
+[ -d "${SNAPSHOT_PREFIX}" ] && btrfs subvolume delete "${SNAPSHOT_PREFIX}"
+btrfs subvolume snapshot "${SNAPSHOT_PREFIX}-${DATETIME}" "${SNAPSHOT_PREFIX}"
+
+msg "Deleting old snapshots"
+
+# Snapshot prefix remains consistent, so we can sort by date, deleting all but
+# the desired number of snapshots.
+find . -maxdepth 1 -mindepth 1 -type d -name "${SNAPSHOT_PREFIX}-*" \
+   | LC_ALL=C sort \
+   | head -n -${KEEP_SNAPSHOTS} \
+   | while read -r snapshot; do
+      btrfs subvolume delete "${snapshot}" || :
+   done
+
+#
+# =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=
+# Bootloader management:
+
+msg "Creating boom profile (needed to create bootloader entries)"
+
+# boom needs a system profile before it can create bootloader entries.
+# It can automatically create one from the host, which seems to work well.
+# If one already exists matching the host, it won't create a new one.
+# This may leave profiles around over time as the system changes...
+OS_ID="$(boom profile create --from-host \
+   | grep -oP 'Created profile with os_id \K([0-9a-f]+)')"
+
+msg "Creating bootloader entry for new snapshot"
+
+# Note: --no-dev allows UUID source, if specified in fstab.
+boom entry create \
+   --profile "${OS_ID}" \
+   --title "${SNAPSHOT_PREFIX}-${DATETIME}" \
+   --btrfs-subvolume "${SNAPSHOT_PREFIX}-${DATETIME}" \
+   --root-device "${ROOT_SOURCE}" \
+   --no-dev
+
+msg "Clearing old snapshots' bootloader entries"
+
+# Snapshot prefix remains consistent, so we can sort by date, deleting all but
+# the desired number of snapshots.
+# (no pipefail because there may be no entries yet, causing grep to fail)
+set +o pipefail
+boom list --no-headings -o title,bootid \
+   | grep "^${SNAPSHOT_PREFIX}-" \
+   | LC_ALL=C sort \
+   | head -n -${KEEP_SNAPSHOTS} \
+   | while read -r _title bootid; do
+      boom entry delete "${bootid}"
+   done
+set -o pipefail

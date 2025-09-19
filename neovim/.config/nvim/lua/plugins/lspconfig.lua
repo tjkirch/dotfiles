@@ -219,7 +219,9 @@ return {
          },
          taplo = {
             -- This is required for taplo LSP to work in non-git repositories
-            root_dir = require("lspconfig.util").root_pattern("*.toml", ".git"),
+            root_dir = vim.fs.root(0, function(name, _)
+               return name == '.git' or name:match('%.toml$') ~= nil
+            end)
          },
 
          -- gopls = {},
@@ -252,7 +254,8 @@ return {
       -- Use system-installed tools, not Mason
       for server_name, server in pairs(servers) do
          server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-         require("lspconfig")[server_name].setup(server)
+         vim.lsp.config(server_name, server)
+         vim.lsp.enable(server_name)
       end
    end,
 }
